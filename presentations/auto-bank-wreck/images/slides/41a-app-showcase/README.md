@@ -9,6 +9,7 @@ Recaptured 03 Nov 2026 (files ending `-nov03`) from Sidgrove Intelligence at mas
 - Proposals hub: the two drafts read "blocks test (safe to archive)" and "test", shown as "Annual accounts & tax" and Tidewell Studio.
 - The prepayments schedule shows "Ledger unavailable" when the server has no Xero link; that pill was hidden, as it says nothing about the page. The table was scrolled so the LinkedIn line sits under the slide's lens.
 - Year-end working papers is now two full windows (P&L review and balance sheet); the old hub strip across the top was a crop of the page.
+- Management accounts slide: `pack-summary-nov05.jpg` is the pack itself (Automatic view, summary page), retaken 05 Nov 2026 at master `9cdbd750d` in place of the revenue page. It is set to April 2026, the last fully posted month that reads properly; the app opens on August, where the books have stopped and the figures look broken.
 - Kept from earlier: the 13-week forecast (`st-cashflow-oct14.jpg`; on this server it shows "Partial sources" with no cash figures), the three group pages from 14 October (the matrix needs a refresh from Xero, a write), `proposal-fees-oct22.jpg`, `live-4-menu-li.jpg` and `ai-finding-li.jpg` (the LinkedIn bill before it was scheduled; recreating it needs a write).
 - `setlist-oct14.jpg` is the Setlist desktop window in Day view, cropped wide.
 - `acapella.png` is Dave's own screenshot of Acapella.
