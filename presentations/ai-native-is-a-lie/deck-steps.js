@@ -8,7 +8,8 @@
  *   data-type="text"    types itself out when the slide opens (data-type-delay in ms)
  *   data-no-advance     clicks inside this element do not move the deck
  *
- * Builds run themselves when a slide opens, so one click moves one slide.
+ * One click moves one slide. Whatever a slide holds appears by itself in about a second.
+ * data-from / data-to split one build across several slides; data-gap sets the step gap in ms.
  * Back returns to the previous slide fully built. ?steps=manual gives one click per step.
  * URL: ?steps=all opens every slide finished; ?step=N opens the slide at step N.
  */
@@ -25,21 +26,13 @@
   const fmt = (n) => n.toLocaleString('en-GB');
   const timers = new Set();
   const manual = params.get('steps') === 'manual' || params.has('step') || allSteps;
-  /* [wait before the first step, gap between steps] in ms */
-  const PACE = {
-    'AI native everywhere': [900, 900], 'No funding': [1000, 800], 'What does it mean': [3600, 1800],
-    'What I think it means': [900, 1300], 'Hype curve': [800, 1300], 'An LLM': [1500, 1100], 'Probabilistic': [1400, 1800],
-    'Agentic AI': [1000, 1700], "It's a lie": [2600, 1700], 'Ready meals': [1200, 1500], 'Yes, agents': [1100, 800],
-    'One product': [500, 2100], 'The stack': [800, 1000], 'Set up 1': [900, 1500], 'Set up 2': [800, 1400], 'Sidgrove Stems': [1400, 1900],
-    'Soundcheck': [800, 1900], "Let's go": [1100, 750], 'One Master': [800, 1300], 'Trust, but measure': [900, 800], 'The approach': [500, 1000],
-  };
   let autoTimer = 0;
   let driven = false; /* true once the presenter has moved: a reload is not coming back */
 
   const slides = () => [...stage.children].filter((el) => el.tagName === 'SECTION');
   const active = () => slides()[stage.index];
   const lastStep = (slide) =>
-    Math.max(0, ...[...slide.querySelectorAll('[data-step]')].map((el) => Math.max(Number(el.dataset.step), Number(el.dataset.stepOff || 0))));
+    slide.dataset.to !== undefined ? Number(slide.dataset.to) : Math.max(0, ...[...slide.querySelectorAll('[data-step]')].map((el) => Math.max(Number(el.dataset.step), Number(el.dataset.stepOff || 0))));
   const nowStep = (slide) => Number(slide.dataset.stepNow || 0);
 
   function countUp(el, animate) {
@@ -78,7 +71,7 @@
     clearTimers();
     slide.querySelectorAll('[data-type]').forEach((el) => {
       const text = el.dataset.type;
-      if (allSteps || reduced) { el.textContent = text; return; }
+      if (allSteps || reduced || Number(slide.dataset.from || 0) > 0) { el.textContent = text; return; }
       el.textContent = '';
       let i = 0;
       const wait = setTimeout(() => {
@@ -105,7 +98,8 @@
   function autoPlay(slide) {
     clearTimeout(autoTimer);
     if (manual) return;
-    const [first, gap] = PACE[slide.dataset.label] || [1000, 1200];
+    const first = 220;
+    const gap = Number(slide.dataset.gap || 140);
     const tick = () => {
       if (!slide.hasAttribute('data-deck-active') || nowStep(slide) >= lastStep(slide)) return;
       setStep(slide, nowStep(slide) + 1);
@@ -148,7 +142,7 @@
     const { slide, index, previousIndex } = e.detail;
     if (!slide) return;
     const cameBack = driven && previousIndex > index;
-    let n = 0;
+    let n = Number(slide.dataset.from || 0);
     if (allSteps || cameBack) n = lastStep(slide);
     else if (startStep !== null && !driven) n = startStep;
     setStep(slide, n, false);
@@ -161,7 +155,7 @@
   window.addEventListener('beforeprint', finishAll);
   const first = active();
   if (first) {
-    const n = allSteps ? lastStep(first) : startStep ?? 0;
+    const n = allSteps ? lastStep(first) : startStep ?? Number(first.dataset.from || 0);
     setStep(first, n, false);
     startLive(first);
     autoPlay(first);

@@ -2,9 +2,9 @@
 
 Here is how I actually use GenAI to transform my firm.
 
-Live at `/ai-native`, which redirects to this folder. 47 slides plus backup screens after Thank you. The live demo starts from slide 34, The hub.
+Live at `/ai-native`, which redirects to this folder. 59 slides plus backup screens after Thank you. The live walkthrough is slide 45.
 
-- One click per slide: builds run themselves when a slide opens. `?steps=manual` gives one click per step.
+- One click per slide, no timings to learn: each talking beat is its own slide. `?steps=manual` gives one click per step.
 - N opens speaker notes. `?notes` opens a presenter window that follows the projector.
 - `?slide=N` opens a slide. `?steps=all` opens every slide finished, for review and print.
 - `deck-steps.js` is the click-step engine on top of the shared `deck-stage.js`.
