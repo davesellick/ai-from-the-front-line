@@ -11,5 +11,11 @@ Recaptured 03 Nov 2026 (files ending `-nov03`) from Sidgrove Intelligence at mas
 - Year-end working papers is now two full windows (P&L review and balance sheet); the old hub strip across the top was a crop of the page.
 - Management accounts slide: `pack-summary-nov05.jpg` is the pack itself (Automatic view, summary page), retaken 05 Nov 2026 at master `9cdbd750d` in place of the revenue page. It is set to April 2026, the last fully posted month that reads properly; the app opens on August, where the books have stopped and the figures look broken.
 - Kept from earlier: the 13-week forecast (`st-cashflow-oct14.jpg`; on this server it shows "Partial sources" with no cash figures), the three group pages from 14 October (the matrix needs a refresh from Xero, a write), `proposal-fees-oct22.jpg`, `live-4-menu-li.jpg` and `ai-finding-li.jpg` (the LinkedIn bill before it was scheduled; recreating it needs a write).
-- `setlist-oct14.jpg` is the Setlist desktop window in Day view, cropped wide.
+- `setlist-nov05.jpg` is the Setlist desktop window in Day view, cropped wide, with client names and logos replaced by the deck's made-up clients.
 - `acapella.png` is Dave's own screenshot of Acapella.
+
+## 05/11/2026 round
+
+Retaken from the latest app code: deadlines (both), overviews, cashflow, accruals, bookkeeping, payroll review and journal, VAT, company info, proposals and integrations. Live P&L and corp tax stay on the 03/11 shots, because the capture server has no Xero credentials and those pages would show an error.
+
+Text changed for the slides: the bookkeeping client note, the VAT "days late" line (the demo return is a year old) and the user name in the practice sidebar. The Setlist shots had real client names and logos, so those rows now use the deck's made-up clients and the old files are gone.
