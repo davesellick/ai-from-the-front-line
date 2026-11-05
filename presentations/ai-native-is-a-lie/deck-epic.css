@@ -34,7 +34,7 @@ html[data-epic="a"] [data-step].on:not(.nx-draw):not(.nx-wave):not(.nx-comet) { 
 html[data-epic="a"] .nx-zoom[data-step] { scale: 2.6; filter: blur(8px); transition: opacity .16s ease, scale .34s cubic-bezier(.25,1.4,.4,1), filter .25s ease; }
 html[data-epic="a"] .nx-zoom[data-step].on { scale: 1; filter: blur(0); }
 html[data-epic="a"] .nx-zoom[data-step].off { scale: .6; opacity: 0; }
-html[data-epic="a"] .nx-tile[data-step], html[data-epic="a"] .nx-row[data-step], html[data-epic="a"] .rw[data-step] { scale: 1; }
+html[data-epic="a"] .nx-tile[data-step], html[data-epic="a"] .nx-row[data-step], html[data-epic="a"] .rw[data-step], html[data-epic="a"] .nx-side [data-step] { scale: 1 !important; }
 
 /* ───── B · Fly-through: a camera moving through 3D space ───── */
 html[data-epic="b"] .slide { perspective: 1500px; transform-style: preserve-3d; }
@@ -44,10 +44,10 @@ html[data-epic="b"] .slide[data-nx-reuse][data-deck-active] h2.display { animati
 html[data-epic="b"] .slide[data-deck-active] [data-slam] { animation: eFlyIn 1s cubic-bezier(.12,.75,.2,1) both !important; animation-delay: var(--d, 0s) !important; }
 html[data-epic="b"] .slide[data-deck-active] [data-card] { animation: eSwing 1.4s .15s cubic-bezier(.12,.75,.2,1) both !important; }
 html[data-epic="b"] .slide[data-label="Let's go"][data-deck-active] .nx-appwin { animation: eSwingBig 1.7s cubic-bezier(.12,.75,.2,1) both !important; }
-@keyframes eFly { 0% { opacity: 0; transform: translateZ(-1600px) rotateX(24deg); } 100% { opacity: 1; transform: none; } }
-@keyframes eFlyIn { 0% { opacity: 0; transform: translateZ(1100px); filter: blur(14px); } 100% { opacity: 1; transform: none; filter: blur(0); } }
-@keyframes eSwing { 0% { opacity: 0; transform: translateZ(-900px) rotateY(-46deg) rotateX(12deg); } 100% { opacity: 1; transform: none; } }
-@keyframes eSwingBig { 0% { opacity: 0; transform: translateZ(-1400px) rotateY(-34deg) rotateX(26deg); } 100% { opacity: 1; transform: none; } }
+@keyframes eFly { 0% { opacity: 0; transform: perspective(1500px) translateZ(-2600px) rotateX(30deg); } 100% { opacity: 1; transform: none; } }
+@keyframes eFlyIn { 0% { opacity: 0; transform: perspective(1500px) translateZ(1250px); filter: blur(14px); } 100% { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes eSwing { 0% { opacity: 0; transform: perspective(1500px) translateZ(-900px) rotateY(-46deg) rotateX(12deg); } 100% { opacity: 1; transform: none; } }
+@keyframes eSwingBig { 0% { opacity: 0; transform: perspective(1500px) translateZ(-1400px) rotateY(-34deg) rotateX(26deg); } 100% { opacity: 1; transform: none; } }
 html[data-epic="b"] [data-step]:not(.nx-draw):not(.nx-wave):not(.nx-comet) { translate: 0 0; transform-origin: 50% 0; rotate: x -68deg; transition: opacity .5s ease, rotate .85s cubic-bezier(.15,.8,.25,1), scale .85s cubic-bezier(.15,.8,.25,1); }
 html[data-epic="b"] [data-step].on:not(.nx-draw):not(.nx-wave):not(.nx-comet) { rotate: x 0deg; }
 html[data-epic="b"] .nx-zoom[data-step] { rotate: none; scale: .12; filter: blur(4px); transition: opacity .5s ease, scale 1s cubic-bezier(.15,.8,.25,1), filter .7s ease; }
@@ -57,7 +57,7 @@ html[data-epic="b"] .nx-zoom[data-step="2"] { scale: 7; filter: blur(14px); tran
 html[data-epic="b"] .nx-zoom[data-step="2"].on { scale: 1; filter: blur(0); }
 html[data-epic="b"] .nx-stack > [data-step="0"].off { rotate: none; scale: 9; opacity: 0; filter: blur(16px); transition: opacity .7s ease, scale 1s cubic-bezier(.5,.05,.8,.4), filter .7s ease; }
 html[data-epic="b"] .nx-stack > [data-step="0"] { rotate: none; }
-html[data-epic="b"] .nx-tile[data-step], html[data-epic="b"] .nx-row[data-step], html[data-epic="b"] .rw[data-step] { rotate: none; }
+html[data-epic="b"] .nx-tile[data-step], html[data-epic="b"] .nx-row[data-step], html[data-epic="b"] .rw[data-step], html[data-epic="b"] .nx-side [data-step] { rotate: none !important; }
 
 /* ───── C · Current: light runs through the deck ───── */
 html[data-epic="c"] .e-runner:not(.nx-appwin) { position: relative; }

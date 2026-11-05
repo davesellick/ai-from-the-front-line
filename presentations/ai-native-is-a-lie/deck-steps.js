@@ -8,8 +8,8 @@
  *   data-type="text"    types itself out when the slide opens (data-type-delay in ms)
  *   data-no-advance     clicks inside this element do not move the deck
  *
- * Next (arrow, space, click) reveals the next step, then moves to the next slide.
- * Back hides the last step, then returns to the previous slide fully built.
+ * Builds run themselves when a slide opens, so one click moves one slide.
+ * Back returns to the previous slide fully built. ?steps=manual gives one click per step.
  * URL: ?steps=all opens every slide finished; ?step=N opens the slide at step N.
  */
 (() => {
@@ -24,6 +24,16 @@
   const BACK = new Set(['ArrowLeft', 'PageUp']);
   const fmt = (n) => n.toLocaleString('en-GB');
   const timers = new Set();
+  const manual = params.get('steps') === 'manual' || params.has('step') || allSteps;
+  /* [wait before the first step, gap between steps] in ms */
+  const PACE = {
+    'AI native everywhere': [900, 900], 'No funding': [1000, 800], 'What does it mean': [3600, 1800],
+    'What I think it means': [900, 1300], 'Hype curve': [800, 1300], 'An LLM': [1500, 1100], 'Probabilistic': [1400, 1800],
+    'Agentic AI': [1000, 1700], "It's a lie": [2600, 1700], 'Ready meals': [1200, 1500], 'Yes, agents': [1100, 800],
+    'One product': [500, 2100], 'The stack': [800, 1000], 'Set up 1': [900, 1500], 'Set up 2': [800, 1400], 'Sidgrove Stems': [1400, 1900],
+    'Soundcheck': [800, 1900], "Let's go": [1100, 750], 'One Master': [800, 1300], 'Trust, but measure': [900, 800], 'The approach': [500, 1000],
+  };
+  let autoTimer = 0;
   let driven = false; /* true once the presenter has moved: a reload is not coming back */
 
   const slides = () => [...stage.children].filter((el) => el.tagName === 'SECTION');
@@ -92,16 +102,28 @@
     });
   }
 
+  function autoPlay(slide) {
+    clearTimeout(autoTimer);
+    if (manual) return;
+    const [first, gap] = PACE[slide.dataset.label] || [1000, 1200];
+    const tick = () => {
+      if (!slide.hasAttribute('data-deck-active') || nowStep(slide) >= lastStep(slide)) return;
+      setStep(slide, nowStep(slide) + 1);
+      autoTimer = setTimeout(tick, gap);
+    };
+    autoTimer = setTimeout(tick, first);
+  }
+
   function forward() {
     driven = true;
     const slide = active();
-    if (nowStep(slide) < lastStep(slide)) setStep(slide, nowStep(slide) + 1);
+    if (manual && nowStep(slide) < lastStep(slide)) setStep(slide, nowStep(slide) + 1);
     else stage.goTo(stage.index + 1);
   }
   function back() {
     driven = true;
     const slide = active();
-    if (nowStep(slide) > 0) setStep(slide, nowStep(slide) - 1);
+    if (manual && nowStep(slide) > 0) setStep(slide, nowStep(slide) - 1);
     else stage.goTo(stage.index - 1);
   }
 
@@ -131,6 +153,7 @@
     else if (startStep !== null && !driven) n = startStep;
     setStep(slide, n, false);
     startLive(slide);
+    autoPlay(slide);
   });
 
   /* The first slidechange can fire before this script runs. */
@@ -141,5 +164,6 @@
     const n = allSteps ? lastStep(first) : startStep ?? 0;
     setStep(first, n, false);
     startLive(first);
+    autoPlay(first);
   }
 })();
