@@ -662,13 +662,14 @@ deck-stage { background: #0a0a0a; }
 
 /* ── 11 · Section transition ────────────────────────────────────── */
 
-/* ── Who am I · desk photo with three facts ─────────────────────── */
-.who-grid { display: grid; grid-template-columns: minmax(0, 1fr) 1010px; gap: 72px; align-items: center; }
-.who-facts { display: flex; flex-direction: column; margin-top: 44px; }
-.who-fact { padding: 24px 0; border-top: 1px solid rgba(255,255,255,.2); }
-.who-big { font-family: var(--font-serif); font-size: 76px; line-height: 1; letter-spacing: -.02em; color: var(--paper); }
-.who-sub { font-family: var(--font-sans); font-size: 26px; line-height: 1.3; color: rgba(255,255,255,.72); margin-top: 8px; }
-.who-photo { display: block; width: 100%; aspect-ratio: 1400 / 936; object-fit: cover; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+/* ── Why listen to me · desk photo, profile card built on the perm card ── */
+.who-grid { display: grid; grid-template-columns: minmax(0, 1fr) 840px; gap: 80px; align-items: center; }
+.who-photo { display: block; width: 100%; max-width: 640px; margin-top: 40px; aspect-ratio: 1400 / 780; object-fit: cover; object-position: center 62%; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+.who-face { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.slide[data-label="Why listen to me"] .perm-card { zoom: 1.2; width: 700px; }
+.slide[data-label="Why listen to me"] .perm-row { font-size: 22px; }
+.slide[data-label="Why listen to me"] .perm-row.prob .ck { display: inline-flex; align-items: center; justify-content: center; }
+.slide[data-label="Why listen to me"] .perm-btn { font-size: 21px; line-height: 1.25; text-wrap: balance; }
 
 /* ── Context · Bible, Roadmap, Handover ─────────────────────────── */
 .cx-files { display: flex; flex-direction: column; gap: 22px; width: 820px; font-family: var(--font-sans); }
@@ -1514,21 +1515,6 @@ deck-stage { background: #0a0a0a; }
   </div>
 </section>
 
-<section class="slide ink" data-label="Who am I">
-  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
-    <div class="fill center-y"><div class="who-grid">
-      <div>
-        <h2 class="display" style="font-size:120px" data-blur>Who am <em>I?</em></h2>
-        <div class="who-facts">
-          <div class="who-fact" data-step="1"><div class="who-big">$50k</div><div class="who-sub">of tokens last month</div></div>
-          <div class="who-fact" data-step="2"><div class="who-big">Multiple</div><div class="who-sub">Claude subscriptions running</div></div>
-          <div class="who-fact" data-step="3"><div class="who-big">Xero</div><div class="who-sub">XPAC</div></div>
-        </div>
-      </div>
-      <img class="who-photo" data-rise style="--d:.3s" src="images/slides/02-who-am-i/desk.jpg" alt="Dave's desk: two monitors above a wall of Stream Decks">
-    </div></div><div class="bottombar"></div></div>
-</section>
-
 <section class="slide ink" data-label="AI native everywhere">
   <div class="frame" style="--pad-y:90px"><div class="topbar" style="margin-bottom:20px"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
     <div class="fill center-y"><div style="margin-bottom:52px"><h2 class="display" style="font-size:104px" data-blur>Everyone’s talking about <em>AI native.</em></h2></div>
@@ -1563,6 +1549,26 @@ deck-stage { background: #0a0a0a; }
 <section class="slide paper-soft" data-label="What I think it means">
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill split"><div><h2 class="display" style="font-size:132px" data-blur>What I think <em>it means.</em></h2></div><div class="nx-dict" data-card><h3>AI native</h3><p class="ph">/eɪ aɪ ˈneɪtɪv/<i>adjective</i></p>
     <p class="df"><span data-step="1">Driven at the core</span> <span data-step="2">by an AI driven workflow,</span> <span data-step="3" style="color:var(--periwinkle-700)">invariably through GenAI agents.</span></p></div></div><div class="bottombar"></div></div>
+</section>
+
+<section data-first="1400" data-gap="1700" class="slide ink" data-label="Why listen to me">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
+    <div class="fill center-y"><div class="who-grid">
+      <div>
+        <h2 class="display" style="font-size:104px" data-blur>Hold up.<br>Why should you<br><em>listen to me?</em></h2>
+        <img class="who-photo" data-rise style="--d:.3s" src="images/slides/02-who-am-i/desk.jpg" alt="Dave's desk: two monitors above a wall of Stream Decks">
+      </div>
+      <div class="perm-card" data-card>
+        <div class="perm-head"><img class="who-face" src="images/shared/headshot.jpg" alt=""><div><p class="perm-title">Dave Sellick</p><p class="perm-sub">Founder, Sidgrove</p></div></div>
+        <div class="perm-rows">
+          <div class="perm-row" data-step="1"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> An early adopter and innovator</div>
+          <div class="perm-row" data-step="2"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> I run a firm by myself</div>
+          <div class="perm-row" data-step="3"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Constantly pushing the boundaries of what’s possible</div>
+          <div class="perm-row prob" data-step="4"><span class="ck"><svg class="nx-i"><use href="#nx-alert"/></svg></span> Almost every hour I’m awake, exploring AI <span class="tag" data-step="5">Do not do that</span></div>
+        </div>
+        <div class="perm-actions"><span class="perm-btn" data-step="6" style="background:linear-gradient(180deg,#5E9432,#4E7D28)">If I’m not doing something, you probably don’t need to either</span></div>
+      </div>
+    </div></div><div class="bottombar"></div></div>
 </section>
 
 <section data-gap="320" data-nx-reuse class="slide" data-label="Hype curve">
@@ -2016,7 +2022,7 @@ deck-stage { background: #0a0a0a; }
       <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
 
       <div class="fill center-y" style="align-items: center; text-align: center;">
-        <p class="stage-num">01 <span>of 04</span></p>
+        
         <h2 class="display" style="font-size: 150px;"><em>Build.</em></h2>
         <p class="sub" style="margin-top: 28px; font-size: 32px;">Use GenAI to build deterministic tools <em>that run without it.</em> The default for the practice.</p>
       </div>
@@ -2059,129 +2065,6 @@ deck-stage { background: #0a0a0a; }
       <div class="bottombar"></div>
     </div>
   </section>
-
-<section data-nx-reuse class="slide" data-label="Vibe coding intro">
-
-    <div class="frame" style="--pad-y: 96px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill center-y" style="align-items: center; text-align: center;">
-        <h2 class="display" style="font-size: 130px;">How do I build? <em>Vibe coding.</em></h2>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section class="slide paper-soft" data-label="The stack">
-  <div class="frame" style="--pad-y:84px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
-    <h2 class="display" style="font-size:112px;margin-bottom:44px" data-blur>My vibe coding <em>stack.</em></h2>
-    <div class="nx-wins">
-      <div class="nx-w" data-step="1"><div class="nx-app cc"><div class="tb"><img src="images/shared/claude-logo.svg" alt="">Claude Code</div><div class="bd"><span class="p">&gt; let’s go</span></div></div><div class="job">Writes the code</div><div class="cost">From $100 a month</div></div>
-      <div class="nx-w" data-step="2"><div class="nx-app gh"><div class="tb"><svg viewBox="0 0 24 24" fill="#1F2328"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56v-2.03c-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.23-3.17-.12-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.21a11.5 11.5 0 0 1 6 0c2.28-1.53 3.29-1.21 3.29-1.21.65 1.64.24 2.86.12 3.16.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.56C20.57 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>GitHub</div><div class="bd"><span class="ok"><svg class="nx-i"><use href="#nx-tick"/></svg>All checks passed</span></div></div><div class="job">Keeps every version safe</div><div class="cost">$4 a month</div></div>
-      <div class="nx-w" data-step="3"><div class="nx-app vc"><div class="tb"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 22.5 21H1.5Z"/></svg>Vercel</div><div class="bd"><div class="rd"><i></i>Live</div></div></div><div class="job">Puts the app online</div><div class="cost">$20 a month</div></div>
-      <div class="nx-w" data-step="4"><div class="nx-app sb"><div class="tb"><svg viewBox="0 0 24 24" fill="#3ECF8E"><path d="M13.4 1.6a.7.7 0 0 0-1.24-.43L3.3 12.02c-.5.62-.06 1.55.74 1.55H11v8.2a.7.7 0 0 0 1.24.44l8.86-10.85c.5-.62.06-1.55-.74-1.55H13.4z"/></svg>Supabase</div><div class="bd"><span class="ls"><svg class="nx-i"><use href="#nx-lock"/></svg>Your data</span></div></div><div class="job">Stores the data and logins</div><div class="cost">$25 a month</div></div>
-    </div>
-  </div></div>
-</section>
-
-<section class="slide" data-label="Set up 1">
-  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
-    <div class="nx-sitehead"><span class="nx-no" data-blur>1</span><h2 class="display" style="font-size:92px" data-blur>I installed shadcn and <em>Impeccable.</em></h2></div>
-    <div class="nx-sites">
-      <div class="nx-site" data-step="1"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>ui.shadcn.com</span></div><img src="images/shared/site-shadcn.png" alt="shadcn: website"></div><p><b>shadcn:</b> ready-made parts, so every page matches.</p></div>
-      <div class="nx-site" data-step="2"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>impeccable.style</span></div><img src="images/shared/site-impeccable.png" alt="Impeccable: website"></div><p><b>Impeccable:</b> a design expert for AI, to catch AI slop.</p></div>
-    </div>
-  </div></div>
-</section>
-
-<section data-gap="520" class="slide cream" data-label="Context">
-  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill split"><div>
-    <span class="nx-no" data-blur>2</span>
-    <h2 class="display" style="font-size:120px;margin-bottom:30px" data-blur>Then I give it <em>context.</em></h2>
-    <p class="sub" data-step="4" style="font-size:38px;max-width:640px;color:var(--ink)">Claude has no taste of its own. <em>It has mine, written down.</em></p>
-  </div>
-  <div class="cx-files"><div class="cx-file a" data-step="1"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 12c-4-3-10-4-18-4v30c8 0 14 1 18 4 4-3 10-4 18-4V8c-8 0-14 1-18 4z"/><path d="M24 12v30"/></svg></span><div><b>Bible</b><span>How we do things</span></div><code>BIBLE.md</code></div><div class="cx-file b" data-step="2"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="38" r="4.5"/><path d="M15.5 38H31a7 7 0 0 0 0-14H17a7 7 0 0 1 0-14h13"/><path d="M36 22V5l8 5-8 5"/></svg></span><div><b>Roadmap</b><span>What comes next</span></div><code>ROADMAP.md</code></div><div class="cx-file c" data-step="3"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 29A17 17 0 1 1 20 8a14 14 0 0 0 20 21z"/></svg></span><div><b>Handover</b><span>Where we stopped</span></div><code>HANDOFF.md</code></div><p class="cx-cap" data-step="3">Just plain text files, the kind that end in <b>.md</b></p></div></div><div class="bottombar"></div></div>
-</section>
-
-<section data-gap="620" class="slide paper-soft" data-label="Bible">
-  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill cx-two"><div>
-    <code class="cx-fn" data-rise>BIBLE.md</code><h2 class="display" style="font-size:150px;margin-bottom:26px" data-blur>The <em>Bible.</em></h2>
-    <p class="sub" style="font-size:36px;max-width:540px;color:var(--ink)" data-rise>How we do things. Every session reads it before any work.</p>
-    <p class="cx-stat" data-step="5"><b>2,613</b> lines, and I keep adding to it</p>
-  </div>
-  <div class="cx-book" data-rise><i class="cx-ribbon"></i>
-    <div class="cx-page l"><p class="cx-kick">Contents</p>
-      <div class="cx-toc"><b>The 101</b></div>
-      <div class="cx-toc"><b>App DNA</b></div>
-      <div class="cx-toc"><b>Style Bible</b><span>UI and UX</span><div class="cx-chips"><i>Colour</i><i>Type</i><i>Page anatomy</i><i>Words</i><i>Charts</i><i>Never</i></div></div>
-      <div class="cx-toc"><b>How we work</b></div>
-    </div>
-    <div class="cx-page r"><p class="cx-kick">The 101</p><p class="cx-ask">Ask of every element, every time.</p>
-      <div class="cx-q" data-step="1"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>How does it make you feel?</div><div class="cx-q" data-step="2"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Is it clear what to do?</div><div class="cx-q" data-step="3"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Is it clear how to read the data?</div><div class="cx-q" data-step="4"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Nothing to add, nothing to subtract.</div>
-    </div>
-  </div></div></div>
-</section>
-
-<section data-gap="640" class="slide" data-label="Roadmap" style="background: linear-gradient(150deg, #FDE8E0 0%, #FAF0EC 50%, #F3F1FE 100%);">
-  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
-    <code class="cx-fn" data-rise>ROADMAP.md</code><div class="cx-rhead"><h2 class="display" style="font-size:120px" data-blur>The <em>Roadmap.</em></h2><p class="sub" style="font-size:36px;color:var(--ink);margin:0" data-rise>Every note I share goes on it, then it waits its turn.</p></div>
-    <div class="cx-flow">
-      <div class="cx-notes"><span class="cx-note" data-step="1">Can we just make a quick note?</span><span class="cx-note" data-step="1" style="transition-delay:.14s">Add this to the roadmap</span><span class="cx-note" data-step="1" style="transition-delay:.28s">One for later</span></div>
-      <svg class="cx-arrow" data-step="2" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h68M58 7l14 13-14 13"/></svg>
-      <div class="cx-board"><div class="cx-col " data-step="2" style="transition-delay:0.0s"><p>Open</p><span class="cx-card ">Deadlines columns</span><span class="cx-card ">Client overview modules</span></div><div class="cx-col " data-step="2" style="transition-delay:0.1s"><p>Next</p><span class="cx-card ">Cash key movements</span><span class="cx-card ">Group chart mapping</span></div><div class="cx-col dim" data-step="2" style="transition-delay:0.2s"><p>Blocked</p><span class="cx-card ">Live bank feeds</span><span class="cx-card ">Email adapter</span></div><div class="cx-col dim" data-step="2" style="transition-delay:0.3s"><p>Vetoed</p><span class="cx-card no">WhatsApp</span><span class="cx-card no">Month-end checklist</span></div></div>
-      <svg class="cx-arrow" data-step="3" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h68M58 7l14 13-14 13"/></svg>
-      <div class="cx-go"><span class="nx-me cx-me" data-step="3">Let’s go.</span><span class="cx-job" data-step="4"><i></i>Job 1</span><span class="cx-job" data-step="4" style="transition-delay:.12s"><i></i>Job 2</span><span class="cx-job" data-step="4" style="transition-delay:.24s"><i></i>Job 3</span></div>
-    </div>
-    <p class="cx-foot" data-step="5">Every ask lives here until it ships or I withdraw it. <em>Vetoed ideas stay vetoed.</em></p>
-  </div></div>
-</section>
-
-<section data-gap="820" class="slide ink" data-label="Handover">
-  <svg class="cx-sky" viewBox="0 0 1920 1080" aria-hidden="true">
-    <defs><linearGradient id="cx-arcg" x1="0" x2="1"><stop offset="0" stop-color="#A8B0F8"/><stop offset="1" stop-color="#D0F8B0"/></linearGradient><radialGradient id="cx-sung"><stop offset="0" stop-color="#FDE8B0" stop-opacity=".55"/><stop offset="1" stop-color="#FDE8B0" stop-opacity="0"/></radialGradient></defs>
-    <circle class="cx-star" cx="848" cy="696" r="1.6" style="animation-delay:0.3s"/><circle class="cx-star" cx="1137" cy="126" r="2.4" style="animation-delay:2.3s"/><circle class="cx-star" cx="1079" cy="249" r="1.6" style="animation-delay:0.3s"/><circle class="cx-star" cx="896" cy="101" r="2" style="animation-delay:0.4s"/><circle class="cx-star" cx="909" cy="90" r="1.6" style="animation-delay:3.8s"/><circle class="cx-star" cx="1331" cy="672" r="1.6" style="animation-delay:2.3s"/><circle class="cx-star" cx="852" cy="80" r="2" style="animation-delay:0.2s"/><circle class="cx-star" cx="1798" cy="166" r="2.4" style="animation-delay:1.7s"/><circle class="cx-star" cx="1147" cy="150" r="2.4" style="animation-delay:2.2s"/><circle class="cx-star" cx="1436" cy="215" r="1.6" style="animation-delay:2.3s"/><circle class="cx-star" cx="1348" cy="222" r="2.4" style="animation-delay:0.4s"/><circle class="cx-star" cx="1498" cy="94" r="1.6" style="animation-delay:2.5s"/><circle class="cx-star" cx="1056" cy="726" r="3" style="animation-delay:3.1s"/><circle class="cx-star" cx="993" cy="629" r="3" style="animation-delay:1.4s"/><circle class="cx-star" cx="1471" cy="828" r="2" style="animation-delay:0.3s"/><circle class="cx-star" cx="654" cy="567" r="3" style="animation-delay:3.5s"/><circle class="cx-star" cx="1533" cy="489" r="2.4" style="animation-delay:2.4s"/><circle class="cx-star" cx="1088" cy="458" r="2" style="animation-delay:3.0s"/><circle class="cx-star" cx="351" cy="530" r="3" style="animation-delay:0.2s"/><circle class="cx-star" cx="1408" cy="109" r="2.4" style="animation-delay:1.4s"/><circle class="cx-star" cx="757" cy="638" r="3" style="animation-delay:2.3s"/><circle class="cx-star" cx="974" cy="100" r="1.6" style="animation-delay:3.8s"/><circle class="cx-star" cx="1010" cy="743" r="1.6" style="animation-delay:0.2s"/><circle class="cx-star" cx="1476" cy="347" r="3" style="animation-delay:1.1s"/><circle class="cx-star" cx="830" cy="714" r="2.4" style="animation-delay:0.1s"/><circle class="cx-star" cx="985" cy="393" r="2" style="animation-delay:2.4s"/><circle class="cx-star" cx="1051" cy="90" r="2" style="animation-delay:3.1s"/><circle class="cx-star" cx="304" cy="786" r="2" style="animation-delay:1.6s"/><circle class="cx-star" cx="1824" cy="538" r="1.6" style="animation-delay:0.7s"/><circle class="cx-star" cx="862" cy="592" r="2.4" style="animation-delay:3.5s"/><circle class="cx-star" cx="1717" cy="470" r="2.4" style="animation-delay:2.8s"/><circle class="cx-star" cx="774" cy="729" r="3" style="animation-delay:3.8s"/><circle class="cx-star" cx="349" cy="114" r="2" style="animation-delay:0.6s"/><circle class="cx-star" cx="1388" cy="268" r="1.6" style="animation-delay:1.9s"/><circle class="cx-star" cx="1246" cy="216" r="2.4" style="animation-delay:1.1s"/><circle class="cx-star" cx="338" cy="459" r="2.4" style="animation-delay:2.4s"/><circle class="cx-star" cx="1454" cy="557" r="1.6" style="animation-delay:1.8s"/><circle class="cx-star" cx="1823" cy="828" r="3" style="animation-delay:1.6s"/><circle class="cx-star" cx="1026" cy="679" r="3" style="animation-delay:0.2s"/><circle class="cx-star" cx="942" cy="196" r="1.6" style="animation-delay:1.4s"/>
-    <path d="M60 920H1860" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-    <g data-step="1"><circle cx="190" cy="850" r="120" fill="rgba(168,176,248,.12)"/><path d="M226 893a56 56 0 1 1-59-92 46 46 0 0 0 59 92z" fill="#DDE1FC"/></g>
-    <path class="cx-arc" data-step="2" pathLength="1" d="M190 850Q960 -170 1730 850" fill="none" stroke="url(#cx-arcg)" stroke-width="4" stroke-linecap="round"/>
-    <g data-step="4"><circle cx="1730" cy="850" r="170" fill="url(#cx-sung)"/><circle cx="1730" cy="850" r="52" fill="#FBE3A4"/></g>
-  </svg>
-  <div class="frame" style="--pad-y:72px;position:relative"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill">
-    <code class="cx-fn on-ink" data-rise>HANDOFF.md</code><h2 class="display" style="font-size:120px;margin-bottom:16px" data-blur>The <em>Handover.</em></h2>
-    <p class="sub" style="font-size:34px;color:var(--paper);max-width:640px" data-rise>Every night, so the next session picks straight up.</p>
-  </div></div>
-  <div class="cx-doc" data-step="3"><code>HANDOFF.md</code><b>Start here</b><u></u><u></u><u style="width:62%"></u></div>
-  <div class="cx-lists">
-    <div><p class="cx-when" data-step="1">Tonight: finish up</p><div class="cx-row" data-step="1" style="transition-delay:0.12s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Pushes the day’s work</div><div class="cx-row" data-step="1" style="transition-delay:0.24s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Writes where we stopped</div><div class="cx-row" data-step="1" style="transition-delay:0.36s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Moves the roadmap on</div><div class="cx-row" data-step="1" style="transition-delay:0.48s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Raises the Bible’s bar</div></div>
-    <div><p class="cx-when" data-step="4">Morning: let’s go</p><div class="cx-row" data-step="4" style="transition-delay:0.12s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reads the handover first</div><div class="cx-row" data-step="4" style="transition-delay:0.24s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Checks what moved overnight</div><div class="cx-row" data-step="4" style="transition-delay:0.36s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Picks up the live jobs</div></div>
-  </div>
-</section>
-
-<section data-first="300" data-gap="2800" class="slide paper-soft" data-label="Soundcheck">
-  <div class="frame" style="--pad-y:84px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y" style="align-items:center;text-align:center">
-    <span class="nx-no sm" data-blur>3 Soundcheck</span><h2 class="display" style="font-size:100px" data-blur>I don’t review code.<br><em>I choose between pictures.</em></h2>
-    <div class="nx-opts"><div class="nx-opt " data-step="1" data-step-off="2" style="--r:-4deg;transition-delay:0s"><div class="top"><span class="L">A</span><span class="sc">9</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-a.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt win" data-step="1"  style="--r:-1.4deg;transition-delay:0.09s"><div class="top"><span class="L">B</span><span class="sc">9.5</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-b.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt " data-step="1" data-step-off="2" style="--r:1.4deg;transition-delay:0.18s"><div class="top"><span class="L">C</span><span class="sc">9</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-c.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt " data-step="1" data-step-off="2" style="--r:4deg;transition-delay:0.27s"><div class="top"><span class="L">D</span><span class="sc">8.5</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-d.png" alt="The same panel drawn a different way, from Soundcheck"></div></div></div>
-  </div></div>
-</section>
-
-<section data-from="0" data-to="9" class="slide" data-label="Let's go" style="background: linear-gradient(150deg, #DDDCFC 0%, #EAE8FF 45%, #EEF6E6 100%);">
-  <div class="nx-appwin" data-rise>
-    <div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><img src="images/shared/claude-logo.svg" alt="">Claude Code<span class="nx-tbno"><b>4</b>A simple start-up routine<span class="cx-tbfile">CLAUDE.md</span></span></div>
-    <div class="nx-body">
-      <div class="nx-side">
-        <div class="s m" data-step="2"><svg class="nx-i"><use href="#nx-crown"/></svg>Master</div>
-        <div class="s" data-step="7"><i></i>Job 1</div><div class="s" data-step="7" style="transition-delay:.12s"><i></i>Job 2</div><div class="s" data-step="7" style="transition-delay:.24s"><i></i>Job 3</div><div class="s" data-step="7" style="transition-delay:.36s"><i></i>Job 4</div>
-        <div class="pc" data-step="3"><span>pc1</span><span>pc2</span></div>
-      </div>
-      <div class="nx-chat">
-        <div class="nx-me">Let’s go.</div>
-        <div class="nx-list"><div class="nx-row" data-step="1"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Opens the app</div><div class="nx-row" data-step="2"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Takes the Master seat</div><div class="nx-row" data-step="3"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Asks which computers</div><div class="nx-row" data-step="4"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Pulls the latest code</div><div class="nx-row" data-step="5"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Reads the handoff</div><div class="nx-row" data-step="6"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Starts the daily reviews</div><div class="nx-row" data-step="7"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Splits the work into jobs</div><div class="nx-row" data-step="8"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Checks, merges, pushes</div></div>
-      </div>
-      <div class="nx-pane" data-step="1"><div class="url">localhost</div><div class="nx-shot" ><img src="images/slides/41a-app-showcase/cashflow-nov03.jpg" alt="Sidgrove Intelligence, demo company"></div></div>
-    </div>
-    <div class="nx-live" data-step="9">Live means the checks are green and the site is really deployed.</div>
-  </div>
-</section>
 
 <section class="slide ink" data-label="Transform">
   <div aria-hidden="true" class="nx-ring" style="width:920px;height:920px"></div><div aria-hidden="true" class="nx-ring" style="width:600px;height:600px"></div>
@@ -2325,6 +2208,129 @@ deck-stage { background: #0a0a0a; }
     </div>
   </section>
 
+<section data-nx-reuse class="slide" data-label="Vibe coding intro">
+
+    <div class="frame" style="--pad-y: 96px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill center-y" style="align-items: center; text-align: center;">
+        <h2 class="display" style="font-size: 130px;">How do I build? <em>Vibe coding.</em></h2>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
+<section class="slide paper-soft" data-label="The stack">
+  <div class="frame" style="--pad-y:84px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <h2 class="display" style="font-size:112px;margin-bottom:44px" data-blur>My vibe coding <em>stack.</em></h2>
+    <div class="nx-wins">
+      <div class="nx-w" data-step="1"><div class="nx-app cc"><div class="tb"><img src="images/shared/claude-logo.svg" alt="">Claude Code</div><div class="bd"><span class="p">&gt; let’s go</span></div></div><div class="job">Writes the code</div><div class="cost">From $100 a month</div></div>
+      <div class="nx-w" data-step="2"><div class="nx-app gh"><div class="tb"><svg viewBox="0 0 24 24" fill="#1F2328"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56v-2.03c-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.23-3.17-.12-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.21a11.5 11.5 0 0 1 6 0c2.28-1.53 3.29-1.21 3.29-1.21.65 1.64.24 2.86.12 3.16.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.56C20.57 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>GitHub</div><div class="bd"><span class="ok"><svg class="nx-i"><use href="#nx-tick"/></svg>All checks passed</span></div></div><div class="job">Keeps every version safe</div><div class="cost">$4 a month</div></div>
+      <div class="nx-w" data-step="3"><div class="nx-app vc"><div class="tb"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 22.5 21H1.5Z"/></svg>Vercel</div><div class="bd"><div class="rd"><i></i>Live</div></div></div><div class="job">Puts the app online</div><div class="cost">$20 a month</div></div>
+      <div class="nx-w" data-step="4"><div class="nx-app sb"><div class="tb"><svg viewBox="0 0 24 24" fill="#3ECF8E"><path d="M13.4 1.6a.7.7 0 0 0-1.24-.43L3.3 12.02c-.5.62-.06 1.55.74 1.55H11v8.2a.7.7 0 0 0 1.24.44l8.86-10.85c.5-.62.06-1.55-.74-1.55H13.4z"/></svg>Supabase</div><div class="bd"><span class="ls"><svg class="nx-i"><use href="#nx-lock"/></svg>Your data</span></div></div><div class="job">Stores the data and logins</div><div class="cost">$25 a month</div></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="slide" data-label="Set up 1">
+  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <div class="nx-sitehead"><span class="nx-no" data-blur>1</span><h2 class="display" style="font-size:92px" data-blur>I installed shadcn and <em>Impeccable.</em></h2></div>
+    <div class="nx-sites">
+      <div class="nx-site" data-step="1"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>ui.shadcn.com</span></div><img src="images/shared/site-shadcn.png" alt="shadcn: website"></div><p><b>shadcn:</b> ready-made parts, so every page matches.</p></div>
+      <div class="nx-site" data-step="2"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>impeccable.style</span></div><img src="images/shared/site-impeccable.png" alt="Impeccable: website"></div><p><b>Impeccable:</b> a design expert for AI, to catch AI slop.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section data-gap="520" class="slide cream" data-label="Context">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill split"><div>
+    <span class="nx-no" data-blur>2</span>
+    <h2 class="display" style="font-size:120px;margin-bottom:30px" data-blur>Then I give it <em>context.</em></h2>
+    <p class="sub" data-step="4" style="font-size:38px;max-width:640px;color:var(--ink)">Claude has no taste of its own. <em>It has mine, written down.</em></p>
+  </div>
+  <div class="cx-files"><div class="cx-file a" data-step="1"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 12c-4-3-10-4-18-4v30c8 0 14 1 18 4 4-3 10-4 18-4V8c-8 0-14 1-18 4z"/><path d="M24 12v30"/></svg></span><div><b>Bible</b><span>How we do things</span></div><code>BIBLE.md</code></div><div class="cx-file b" data-step="2"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="38" r="4.5"/><path d="M15.5 38H31a7 7 0 0 0 0-14H17a7 7 0 0 1 0-14h13"/><path d="M36 22V5l8 5-8 5"/></svg></span><div><b>Roadmap</b><span>What comes next</span></div><code>ROADMAP.md</code></div><div class="cx-file c" data-step="3"><span class="cx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 29A17 17 0 1 1 20 8a14 14 0 0 0 20 21z"/></svg></span><div><b>Handover</b><span>Where we stopped</span></div><code>HANDOFF.md</code></div><p class="cx-cap" data-step="3">Just plain text files, the kind that end in <b>.md</b></p></div></div><div class="bottombar"></div></div>
+</section>
+
+<section data-gap="620" class="slide paper-soft" data-label="Bible">
+  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill cx-two"><div>
+    <code class="cx-fn" data-rise>BIBLE.md</code><h2 class="display" style="font-size:150px;margin-bottom:26px" data-blur>The <em>Bible.</em></h2>
+    <p class="sub" style="font-size:36px;max-width:540px;color:var(--ink)" data-rise>How we do things. Every session reads it before any work.</p>
+    <p class="cx-stat" data-step="5"><b>2,613</b> lines, and I keep adding to it</p>
+  </div>
+  <div class="cx-book" data-rise><i class="cx-ribbon"></i>
+    <div class="cx-page l"><p class="cx-kick">Contents</p>
+      <div class="cx-toc"><b>The 101</b></div>
+      <div class="cx-toc"><b>App DNA</b></div>
+      <div class="cx-toc"><b>Style Bible</b><span>UI and UX</span><div class="cx-chips"><i>Colour</i><i>Type</i><i>Page anatomy</i><i>Words</i><i>Charts</i><i>Never</i></div></div>
+      <div class="cx-toc"><b>How we work</b></div>
+    </div>
+    <div class="cx-page r"><p class="cx-kick">The 101</p><p class="cx-ask">Ask of every element, every time.</p>
+      <div class="cx-q" data-step="1"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>How does it make you feel?</div><div class="cx-q" data-step="2"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Is it clear what to do?</div><div class="cx-q" data-step="3"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Is it clear how to read the data?</div><div class="cx-q" data-step="4"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Nothing to add, nothing to subtract.</div>
+    </div>
+  </div></div></div>
+</section>
+
+<section data-gap="640" class="slide" data-label="Roadmap" style="background: linear-gradient(150deg, #FDE8E0 0%, #FAF0EC 50%, #F3F1FE 100%);">
+  <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <code class="cx-fn" data-rise>ROADMAP.md</code><div class="cx-rhead"><h2 class="display" style="font-size:120px" data-blur>The <em>Roadmap.</em></h2><p class="sub" style="font-size:36px;color:var(--ink);margin:0" data-rise>Every note I share goes on it, then it waits its turn.</p></div>
+    <div class="cx-flow">
+      <div class="cx-notes"><span class="cx-note" data-step="1">Can we just make a quick note?</span><span class="cx-note" data-step="1" style="transition-delay:.14s">Add this to the roadmap</span><span class="cx-note" data-step="1" style="transition-delay:.28s">One for later</span></div>
+      <svg class="cx-arrow" data-step="2" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h68M58 7l14 13-14 13"/></svg>
+      <div class="cx-board"><div class="cx-col " data-step="2" style="transition-delay:0.0s"><p>Open</p><span class="cx-card ">Deadlines columns</span><span class="cx-card ">Client overview modules</span></div><div class="cx-col " data-step="2" style="transition-delay:0.1s"><p>Next</p><span class="cx-card ">Cash key movements</span><span class="cx-card ">Group chart mapping</span></div><div class="cx-col dim" data-step="2" style="transition-delay:0.2s"><p>Blocked</p><span class="cx-card ">Live bank feeds</span><span class="cx-card ">Email adapter</span></div><div class="cx-col dim" data-step="2" style="transition-delay:0.3s"><p>Vetoed</p><span class="cx-card no">WhatsApp</span><span class="cx-card no">Month-end checklist</span></div></div>
+      <svg class="cx-arrow" data-step="3" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h68M58 7l14 13-14 13"/></svg>
+      <div class="cx-go"><span class="nx-me cx-me" data-step="3">Let’s go.</span><span class="cx-job" data-step="4"><i></i>Job 1</span><span class="cx-job" data-step="4" style="transition-delay:.12s"><i></i>Job 2</span><span class="cx-job" data-step="4" style="transition-delay:.24s"><i></i>Job 3</span></div>
+    </div>
+    <p class="cx-foot" data-step="5">Every ask lives here until it ships or I withdraw it. <em>Vetoed ideas stay vetoed.</em></p>
+  </div></div>
+</section>
+
+<section data-gap="820" class="slide ink" data-label="Handover">
+  <svg class="cx-sky" viewBox="0 0 1920 1080" aria-hidden="true">
+    <defs><linearGradient id="cx-arcg" x1="0" x2="1"><stop offset="0" stop-color="#A8B0F8"/><stop offset="1" stop-color="#D0F8B0"/></linearGradient><radialGradient id="cx-sung"><stop offset="0" stop-color="#FDE8B0" stop-opacity=".55"/><stop offset="1" stop-color="#FDE8B0" stop-opacity="0"/></radialGradient></defs>
+    <circle class="cx-star" cx="848" cy="696" r="1.6" style="animation-delay:0.3s"/><circle class="cx-star" cx="1137" cy="126" r="2.4" style="animation-delay:2.3s"/><circle class="cx-star" cx="1079" cy="249" r="1.6" style="animation-delay:0.3s"/><circle class="cx-star" cx="896" cy="101" r="2" style="animation-delay:0.4s"/><circle class="cx-star" cx="909" cy="90" r="1.6" style="animation-delay:3.8s"/><circle class="cx-star" cx="1331" cy="672" r="1.6" style="animation-delay:2.3s"/><circle class="cx-star" cx="852" cy="80" r="2" style="animation-delay:0.2s"/><circle class="cx-star" cx="1798" cy="166" r="2.4" style="animation-delay:1.7s"/><circle class="cx-star" cx="1147" cy="150" r="2.4" style="animation-delay:2.2s"/><circle class="cx-star" cx="1436" cy="215" r="1.6" style="animation-delay:2.3s"/><circle class="cx-star" cx="1348" cy="222" r="2.4" style="animation-delay:0.4s"/><circle class="cx-star" cx="1498" cy="94" r="1.6" style="animation-delay:2.5s"/><circle class="cx-star" cx="1056" cy="726" r="3" style="animation-delay:3.1s"/><circle class="cx-star" cx="993" cy="629" r="3" style="animation-delay:1.4s"/><circle class="cx-star" cx="1471" cy="828" r="2" style="animation-delay:0.3s"/><circle class="cx-star" cx="654" cy="567" r="3" style="animation-delay:3.5s"/><circle class="cx-star" cx="1533" cy="489" r="2.4" style="animation-delay:2.4s"/><circle class="cx-star" cx="1088" cy="458" r="2" style="animation-delay:3.0s"/><circle class="cx-star" cx="351" cy="530" r="3" style="animation-delay:0.2s"/><circle class="cx-star" cx="1408" cy="109" r="2.4" style="animation-delay:1.4s"/><circle class="cx-star" cx="757" cy="638" r="3" style="animation-delay:2.3s"/><circle class="cx-star" cx="974" cy="100" r="1.6" style="animation-delay:3.8s"/><circle class="cx-star" cx="1010" cy="743" r="1.6" style="animation-delay:0.2s"/><circle class="cx-star" cx="1476" cy="347" r="3" style="animation-delay:1.1s"/><circle class="cx-star" cx="830" cy="714" r="2.4" style="animation-delay:0.1s"/><circle class="cx-star" cx="985" cy="393" r="2" style="animation-delay:2.4s"/><circle class="cx-star" cx="1051" cy="90" r="2" style="animation-delay:3.1s"/><circle class="cx-star" cx="304" cy="786" r="2" style="animation-delay:1.6s"/><circle class="cx-star" cx="1824" cy="538" r="1.6" style="animation-delay:0.7s"/><circle class="cx-star" cx="862" cy="592" r="2.4" style="animation-delay:3.5s"/><circle class="cx-star" cx="1717" cy="470" r="2.4" style="animation-delay:2.8s"/><circle class="cx-star" cx="774" cy="729" r="3" style="animation-delay:3.8s"/><circle class="cx-star" cx="349" cy="114" r="2" style="animation-delay:0.6s"/><circle class="cx-star" cx="1388" cy="268" r="1.6" style="animation-delay:1.9s"/><circle class="cx-star" cx="1246" cy="216" r="2.4" style="animation-delay:1.1s"/><circle class="cx-star" cx="338" cy="459" r="2.4" style="animation-delay:2.4s"/><circle class="cx-star" cx="1454" cy="557" r="1.6" style="animation-delay:1.8s"/><circle class="cx-star" cx="1823" cy="828" r="3" style="animation-delay:1.6s"/><circle class="cx-star" cx="1026" cy="679" r="3" style="animation-delay:0.2s"/><circle class="cx-star" cx="942" cy="196" r="1.6" style="animation-delay:1.4s"/>
+    <path d="M60 920H1860" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+    <g data-step="1"><circle cx="190" cy="850" r="120" fill="rgba(168,176,248,.12)"/><path d="M226 893a56 56 0 1 1-59-92 46 46 0 0 0 59 92z" fill="#DDE1FC"/></g>
+    <path class="cx-arc" data-step="2" pathLength="1" d="M190 850Q960 -170 1730 850" fill="none" stroke="url(#cx-arcg)" stroke-width="4" stroke-linecap="round"/>
+    <g data-step="4"><circle cx="1730" cy="850" r="170" fill="url(#cx-sung)"/><circle cx="1730" cy="850" r="52" fill="#FBE3A4"/></g>
+  </svg>
+  <div class="frame" style="--pad-y:72px;position:relative"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill">
+    <code class="cx-fn on-ink" data-rise>HANDOFF.md</code><h2 class="display" style="font-size:120px;margin-bottom:16px" data-blur>The <em>Handover.</em></h2>
+    <p class="sub" style="font-size:34px;color:var(--paper);max-width:640px" data-rise>Every night, so the next session picks straight up.</p>
+  </div></div>
+  <div class="cx-doc" data-step="3"><code>HANDOFF.md</code><b>Start here</b><u></u><u></u><u style="width:62%"></u></div>
+  <div class="cx-lists">
+    <div><p class="cx-when" data-step="1">Tonight: finish up</p><div class="cx-row" data-step="1" style="transition-delay:0.12s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Pushes the day’s work</div><div class="cx-row" data-step="1" style="transition-delay:0.24s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Writes where we stopped</div><div class="cx-row" data-step="1" style="transition-delay:0.36s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Moves the roadmap on</div><div class="cx-row" data-step="1" style="transition-delay:0.48s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Raises the Bible’s bar</div></div>
+    <div><p class="cx-when" data-step="4">Morning: let’s go</p><div class="cx-row" data-step="4" style="transition-delay:0.12s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reads the handover first</div><div class="cx-row" data-step="4" style="transition-delay:0.24s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Checks what moved overnight</div><div class="cx-row" data-step="4" style="transition-delay:0.36s"><span class="cx-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Picks up the live jobs</div></div>
+  </div>
+</section>
+
+<section data-first="300" data-gap="2800" class="slide paper-soft" data-label="Soundcheck">
+  <div class="frame" style="--pad-y:84px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y" style="align-items:center;text-align:center">
+    <span class="nx-no sm" data-blur>3 Soundcheck</span><h2 class="display" style="font-size:100px" data-blur>I don’t review code.<br><em>I choose between pictures.</em></h2>
+    <div class="nx-opts"><div class="nx-opt " data-step="1" data-step-off="2" style="--r:-4deg;transition-delay:0s"><div class="top"><span class="L">A</span><span class="sc">9</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-a.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt win" data-step="1"  style="--r:-1.4deg;transition-delay:0.09s"><div class="top"><span class="L">B</span><span class="sc">9.5</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-b.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt " data-step="1" data-step-off="2" style="--r:1.4deg;transition-delay:0.18s"><div class="top"><span class="L">C</span><span class="sc">9</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-c.png" alt="The same panel drawn a different way, from Soundcheck"></div></div><div class="nx-opt " data-step="1" data-step-off="2" style="--r:4deg;transition-delay:0.27s"><div class="top"><span class="L">D</span><span class="sc">8.5</span></div><div class="nx-shot" ><img src="images/soundcheck/panel-d.png" alt="The same panel drawn a different way, from Soundcheck"></div></div></div>
+  </div></div>
+</section>
+
+<section data-from="0" data-to="9" class="slide" data-label="Let's go" style="background: linear-gradient(150deg, #DDDCFC 0%, #EAE8FF 45%, #EEF6E6 100%);">
+  <div class="nx-appwin" data-rise>
+    <div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><img src="images/shared/claude-logo.svg" alt="">Claude Code<span class="nx-tbno"><b>4</b>A simple start-up routine<span class="cx-tbfile">CLAUDE.md</span></span></div>
+    <div class="nx-body">
+      <div class="nx-side">
+        <div class="s m" data-step="2"><svg class="nx-i"><use href="#nx-crown"/></svg>Master</div>
+        <div class="s" data-step="7"><i></i>Job 1</div><div class="s" data-step="7" style="transition-delay:.12s"><i></i>Job 2</div><div class="s" data-step="7" style="transition-delay:.24s"><i></i>Job 3</div><div class="s" data-step="7" style="transition-delay:.36s"><i></i>Job 4</div>
+        <div class="pc" data-step="3"><span>pc1</span><span>pc2</span></div>
+      </div>
+      <div class="nx-chat">
+        <div class="nx-me">Let’s go.</div>
+        <div class="nx-list"><div class="nx-row" data-step="1"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Opens the app</div><div class="nx-row" data-step="2"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Takes the Master seat</div><div class="nx-row" data-step="3"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Asks which computers</div><div class="nx-row" data-step="4"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Pulls the latest code</div><div class="nx-row" data-step="5"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Reads the handoff</div><div class="nx-row" data-step="6"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Starts the daily reviews</div><div class="nx-row" data-step="7"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Splits the work into jobs</div><div class="nx-row" data-step="8"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Checks, merges, pushes</div></div>
+      </div>
+      <div class="nx-pane" data-step="1"><div class="url">localhost</div><div class="nx-shot" ><img src="images/slides/41a-app-showcase/cashflow-nov03.jpg" alt="Sidgrove Intelligence, demo company"></div></div>
+    </div>
+    <div class="nx-live" data-step="9">Live means the checks are green and the site is really deployed.</div>
+  </div>
+</section>
+
 <section data-nx-reuse class="slide" data-label="Vibe coding">
 
 
@@ -2351,334 +2357,6 @@ deck-stage { background: #0a0a0a; }
             <div class="tk-row"><span class="sg-ico a-amber" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><p class="tk-text">Security. <em>Get an engineer if it holds sensitive data.</em></p></div>
             <div class="tk-row"><span class="sg-ico a-amber" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></svg></span><p class="tk-text">Rabbit holes. <em>Don’t overbuild.</em></p></div>
             <div class="tk-row"><span class="sg-ico a-amber" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span><p class="tk-text">If an app already does it, <em>buy it.</em></p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide ink" data-label="02 Chat">
-
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:920px;height:920px;border-radius:50%;border:1px solid rgba(168,176,248,0.08);"></div>
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:1px solid rgba(208,248,176,0.08);"></div>
-
-    <div class="frame">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill center-y" style="align-items: center; text-align: center;">
-        <p class="stage-num">02 <span>of 04</span></p>
-        <h2 class="display" style="font-size: 150px;"><em>AI Chat Interfaces.</em></h2>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide" data-label="Chat">
-
-
-    <div class="frame" style="--pad-y: 100px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill" style="padding-top: 30px;">
-        <div class="way-head">
-          <div>
-            <h2 class="display" style="font-size: 84px;">AI Chat Interfaces. <em>The daily driver.</em></h2>
-            <p class="sub" style="font-size: 30px; margin-top: 18px;">The expert co-pilot you can use <em>on the fly at any time.</em></p>
-          </div>
-          <span class="way-verdict g">Use daily</span>
-        </div>
-
-        <div class="way-body">
-          <div>
-            <figure class="shot window">
-              <img src="images/slides/29-chat/claude-chat.png" alt="Claude answering: what are the current tax rate bands" style="max-height: 560px;">
-              <figcaption>claude.ai</figcaption>
-            </figure>
-          </div>
-
-          <div class="way-side">
-            <p class="way-label">What I use</p>
-            <div class="way-tools">
-              <div class="way-tool lead">
-                <span class="app-tile" style="--tile-bg:#FBF1EB; --tile-bd:rgba(217,119,87,0.28);"><img src="images/shared/claude-logo.svg" alt=""></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">Claude</h3>
-                </div>
-              </div>
-              <div class="way-tool">
-                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(66,133,244,0.30);"><svg viewBox="0 0 24 24"><path d="M12 1A11.3 11.3 0 0 0 23 12A11.3 11.3 0 0 0 12 23A11.3 11.3 0 0 0 1 12A11.3 11.3 0 0 0 12 1Z" fill="#4285F4"/></svg></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">Gemini</h3>
-                </div>
-              </div>
-              <div class="way-tool">
-                <span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">ChatGPT</h3>
-                </div>
-              </div>
-            </div>
-
-            <p class="way-label">Other options</p>
-            <div class="way-others">
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="9" height="9" fill="#F25022"/><rect x="12.5" y="2.5" width="9" height="9" fill="#7FBA00"/><rect x="2.5" y="12.5" width="9" height="9" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9" height="9" fill="#FFB900"/></svg></span>Microsoft Copilot</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(32,128,141,0.30);"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" fill="#20808D" d="M22.4 7.09H20.09V0.07L12.58 6.42V0.16H11.42V6.35L4.49 0V7.09H1.6V17.49H4.49V24L11.42 17.64V23.84H12.58V17.79L19.51 23.98V17.49H22.4Z M18.93 2.56V7.09H13.58Z M5.65 2.63L10.51 7.09H5.65Z M2.76 16.33V8.25H10.61L4.49 14.36V16.33Z M5.65 21.37V14.84L11.42 9.06V16.07Z M18.35 21.4L12.58 16.25V9.06L18.35 14.84Z M21.24 16.33H19.51V14.36L13.39 8.25H21.24Z"/></svg></span>Perplexity</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(77,107,254,0.28);"><img src="images/shared/logos/deepseek.png" alt="" style="width: calc(var(--ts) * 0.7); height: auto;"></span>DeepSeek</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide ink" data-label="03 Small stuff">
-
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:920px;height:920px;border-radius:50%;border:1px solid rgba(168,176,248,0.08);"></div>
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:1px solid rgba(208,248,176,0.08);"></div>
-
-    <div class="frame">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill center-y" style="align-items: center; text-align: center;">
-        <p class="stage-num">03 <span>of 04</span></p>
-        <h2 class="display" style="font-size: 150px;"><em>Other Daily (Gen)AI Tools.</em></h2>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide paper-soft" data-label="AI note takers">
-
-
-    <div class="frame" style="--pad-y: 100px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill" style="padding-top: 30px;">
-        <div class="way-head">
-          <div>
-            <h2 class="display" style="font-size: 84px;">AI <em>note takers.</em></h2>
-          </div>
-        </div>
-
-        <div class="way-body">
-          <div>
-            <div class="nt-stack">
-              <div class="appw">
-                <div class="appw-bar">
-                  <span class="appw-dot" style="background:#ff5f57;"></span><span class="appw-dot" style="background:#febc2e;"></span><span class="appw-dot" style="background:#28c840;"></span>
-                  <span class="appw-title">Loom · Acme catch-up · 32 min</span>
-                </div>
-                <div class="appw-body oe-stack" style="gap: 12px;">
-                  <div class="nt-head"><span class="nt-pill">Summary ready</span><span class="nt-meta">2 action items</span></div>
-                  <div class="oe-note"><span class="b"></span>Fees agreed: £1,850 a month from April</div>
-                  <div class="oe-note"><span class="b"></span>Move the payroll sign off date to 22nd of each month</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="way-side">
-            <p class="way-label">What I use</p>
-            <div class="way-tools">
-              <div class="way-tool lead">
-                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/site/loom.png" alt=""></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">Loom</h3>
-                </div>
-              </div>
-            </div>
-
-            <p class="way-label">Other options</p>
-            <div class="way-others">
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/fireflies.png" alt=""></span>Fireflies</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/vinyl.png" alt=""></span>Vinyl</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/granola.png" alt=""></span>Granola</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/fathom.png" alt=""></span>Fathom</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide paper-soft" data-label="Dictation">
-
-
-    <div class="frame" style="--pad-y: 100px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill" style="padding-top: 30px;">
-        <div class="way-head">
-          <div>
-            <h2 class="display" style="font-size: 84px;">Dictation. <em>Talk instead of type.</em></h2>
-            <p class="sub" style="font-size: 30px; margin-top: 18px;">The quickest way to <em>write a prompt.</em></p>
-          </div>
-        </div>
-
-        <div class="way-body">
-          <div>
-            <div class="nt-stack">
-              <div class="appw">
-                <div class="appw-bar">
-                  <span class="appw-dot" style="background:#ff5f57;"></span><span class="appw-dot" style="background:#febc2e;"></span><span class="appw-dot" style="background:#28c840;"></span>
-                  <span class="appw-title">Acapella · dictating</span>
-                </div>
-                <div class="appw-body oe-stack" style="gap: 14px;">
-                  <div class="oe-row">
-                    <span class="oe-mic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></span>
-                    <span class="oe-wave"><i style="height:28%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:44%"></i><i style="height:74%"></i><i style="height:32%"></i><i style="height:62%"></i><i style="height:96%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:26%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:36%"></i><i style="height:58%"></i><i style="height:30%"></i></span>
-                  </div>
-                  <p class="oe-cap">“Summarise this thread into three bullets and draft a reply”<span class="kb-caret"></span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="way-side">
-            <p class="way-label">What I use</p>
-            <div class="way-tools">
-              <div class="way-tool lead">
-                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/slides/41c-desktop-apps/acapella-icon.png" alt=""></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">Acapella</h3>
-                </div>
-              </div>
-            </div>
-
-            <p class="way-label">Other options</p>
-            <div class="way-others">
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/aquavoice.png" alt=""></span>Aqua Voice</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:#1A1A1A;"><img src="images/shared/logos/wisprflow.png" alt=""></span>Wispr Flow</span>
-              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/superwhisper.png" alt=""></span>superwhisper</span>            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide ink" data-label="04 Non-daily">
-
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:920px;height:920px;border-radius:50%;border:1px solid rgba(168,176,248,0.08);"></div>
-    <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:1px solid rgba(208,248,176,0.08);"></div>
-
-    <div class="frame">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill center-y" style="align-items: center; text-align: center;">
-        <p class="stage-num">04 <span>of 04</span></p>
-        <h2 class="display" style="font-size: 150px;">Non-daily <em>use cases.</em></h2>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide paper-soft" data-label="Spreadsheets">
-
-
-    <div class="frame" style="--pad-y: 100px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill" style="padding-top: 30px;">
-        <div class="way-head">
-          <div>
-            <h2 class="display" style="font-size: 84px;">Spreadsheet add-ons. <em>Used mindfully.</em></h2>
-          </div>
-          <span class="way-verdict a">Non-daily</span>
-        </div>
-
-        <div class="way-body">
-          <div>
-            <figure class="shot xl-shot"><img src="images/slides/50-spreadsheets/claude-for-excel.png" alt="Claude for Excel: a spreadsheet with the Claude sidebar on the right" onerror="this.closest('figure').classList.add('missing')"></figure>
-          </div>
-
-          <div class="way-side">
-            <p class="way-label">What I use</p>
-            <div class="way-tools">
-              <div class="way-tool lead">
-                <span class="app-tile" style="--tile-bg:#FBF1EB; --tile-bd:rgba(217,119,87,0.28);"><img src="images/shared/claude-logo.svg" alt=""></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">Claude for Excel</h3>
-                </div>
-                <span class="way-star">With care</span>
-              </div>
-              <div class="way-tool">
-                <span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>
-                <div class="way-tbody">
-                  <h3 class="way-tname">ChatGPT for Sheets</h3>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="bottombar"></div>
-    </div>
-  </section>
-
-<section data-nx-reuse class="slide" data-label="Claude Cowork">
-
-
-    <div class="frame" style="--pad-y: 100px;">
-      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
-
-      <div class="fill center-y">
-        <div class="way-head" style="margin-bottom: 28px;">
-          <div>
-            <h2 class="display" style="font-size: 88px;">Oh, and <em>Claude Cowork.</em></h2>
-            <p class="sub" style="margin-top: 14px; font-size: 27px; max-width: 1280px;">
-              <span class="pt">I barely touch it.</span>
-              <span class="pt">Cowork and orchestration layers are a shortcut with shortcomings, IMO. <em>Like junk food, or Ozempic.</em></span>
-            </p>
-          </div>
-          <span class="way-verdict a">Non-daily</span>
-        </div>
-
-        <div class="cw-grid">
-        <div class="tk-rows ni">
-          <div class="tk-row">
-            <span class="sg-ico a-brand" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span>
-            <p class="tk-text">The product that does whole tasks, end to end.</p>
-          </div>
-          <div class="tk-row">
-            <span class="sg-ico a-violet" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/></svg></span>
-            <p class="tk-text">Probably correctly. <em>Sometimes not.</em></p>
-          </div>
-          <div class="tk-row">
-            <span class="sg-ico a-info" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></span>
-            <p class="tk-text">Niche use cases <em>(I think so anyway).</em></p>
-          </div>
-          <div class="tk-row">
-            <span class="sg-ico a-teal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg></span>
-            <p class="tk-text">Lots of <em>hype.</em></p>
-          </div>
-          <div class="tk-foot">
-            <p class="way-label">Other options</p>
-            <div class="way-others">
-            <span class="way-other"><span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>ChatGPT Work</span>
-            <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="9" height="9" fill="#F25022"/><rect x="12.5" y="2.5" width="9" height="9" fill="#7FBA00"/><rect x="2.5" y="12.5" width="9" height="9" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9" height="9" fill="#FFB900"/></svg></span>Copilot agents</span>
-            <span class="way-other"><span class="app-tile" style="--tile-bg:#EFF1FE; --tile-bd:rgba(124,135,232,0.3);"><svg class="sg-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Orchestration layer products</span>
-            </div>
-          </div>
-        </div>
-
-          <div class="cw-simple">
-            <figure class="shot" style="align-self: center; width: 100%;">
-              <img src="images/slides/52-claude-cowork/cowork.png" alt="Claude Cowork: grab the year end working papers file and perform the entire year end review" onerror="this.closest('figure').classList.add('missing')">
-              <figcaption>Claude Cowork</figcaption>
-            </figure>
           </div>
         </div>
       </div>
@@ -2729,7 +2407,7 @@ deck-stage { background: #0a0a0a; }
           <div class="tw-card">
             <div class="tw-top"><span class="sg-ico lg a-emerald" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="tw-num">04</span></div>
             <h3 class="tw-title">Use it every day.</h3>
-            <p class="tk-text"><span class="pt">Chat as a daily copilot.</span><span class="pt">Build tools with Claude Code.</span><span class="pt">Use tools like AI dictation to augment workflow.</span><span class="pt">(It’s still incredible tech.)</span></p>
+            <p class="tk-text"><span class="pt">Build tools with Claude Code.</span><span class="pt">(It’s still incredible tech.)</span></p>
           </div>
         </div>
       </div>
@@ -3393,6 +3071,283 @@ deck-stage { background: #0a0a0a; }
     </div>
   </section>
 
+<section data-nx-reuse class="slide" data-label="Chat">
+
+
+    <div class="frame" style="--pad-y: 100px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill" style="padding-top: 30px;">
+        <div class="way-head">
+          <div>
+            <h2 class="display" style="font-size: 84px;">AI Chat Interfaces. <em>The daily driver.</em></h2>
+            <p class="sub" style="font-size: 30px; margin-top: 18px;">The expert co-pilot you can use <em>on the fly at any time.</em></p>
+          </div>
+          <span class="way-verdict g">Use daily</span>
+        </div>
+
+        <div class="way-body">
+          <div>
+            <figure class="shot window">
+              <img src="images/slides/29-chat/claude-chat.png" alt="Claude answering: what are the current tax rate bands" style="max-height: 560px;">
+              <figcaption>claude.ai</figcaption>
+            </figure>
+          </div>
+
+          <div class="way-side">
+            <p class="way-label">What I use</p>
+            <div class="way-tools">
+              <div class="way-tool lead">
+                <span class="app-tile" style="--tile-bg:#FBF1EB; --tile-bd:rgba(217,119,87,0.28);"><img src="images/shared/claude-logo.svg" alt=""></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">Claude</h3>
+                </div>
+              </div>
+              <div class="way-tool">
+                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(66,133,244,0.30);"><svg viewBox="0 0 24 24"><path d="M12 1A11.3 11.3 0 0 0 23 12A11.3 11.3 0 0 0 12 23A11.3 11.3 0 0 0 1 12A11.3 11.3 0 0 0 12 1Z" fill="#4285F4"/></svg></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">Gemini</h3>
+                </div>
+              </div>
+              <div class="way-tool">
+                <span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">ChatGPT</h3>
+                </div>
+              </div>
+            </div>
+
+            <p class="way-label">Other options</p>
+            <div class="way-others">
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="9" height="9" fill="#F25022"/><rect x="12.5" y="2.5" width="9" height="9" fill="#7FBA00"/><rect x="2.5" y="12.5" width="9" height="9" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9" height="9" fill="#FFB900"/></svg></span>Microsoft Copilot</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(32,128,141,0.30);"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" fill="#20808D" d="M22.4 7.09H20.09V0.07L12.58 6.42V0.16H11.42V6.35L4.49 0V7.09H1.6V17.49H4.49V24L11.42 17.64V23.84H12.58V17.79L19.51 23.98V17.49H22.4Z M18.93 2.56V7.09H13.58Z M5.65 2.63L10.51 7.09H5.65Z M2.76 16.33V8.25H10.61L4.49 14.36V16.33Z M5.65 21.37V14.84L11.42 9.06V16.07Z M18.35 21.4L12.58 16.25V9.06L18.35 14.84Z M21.24 16.33H19.51V14.36L13.39 8.25H21.24Z"/></svg></span>Perplexity</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(77,107,254,0.28);"><img src="images/shared/logos/deepseek.png" alt="" style="width: calc(var(--ts) * 0.7); height: auto;"></span>DeepSeek</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
+<section data-nx-reuse class="slide paper-soft" data-label="AI note takers">
+
+
+    <div class="frame" style="--pad-y: 100px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill" style="padding-top: 30px;">
+        <div class="way-head">
+          <div>
+            <h2 class="display" style="font-size: 84px;">AI <em>note takers.</em></h2>
+          </div>
+        </div>
+
+        <div class="way-body">
+          <div>
+            <div class="nt-stack">
+              <div class="appw">
+                <div class="appw-bar">
+                  <span class="appw-dot" style="background:#ff5f57;"></span><span class="appw-dot" style="background:#febc2e;"></span><span class="appw-dot" style="background:#28c840;"></span>
+                  <span class="appw-title">Loom · Acme catch-up · 32 min</span>
+                </div>
+                <div class="appw-body oe-stack" style="gap: 12px;">
+                  <div class="nt-head"><span class="nt-pill">Summary ready</span><span class="nt-meta">2 action items</span></div>
+                  <div class="oe-note"><span class="b"></span>Fees agreed: £1,850 a month from April</div>
+                  <div class="oe-note"><span class="b"></span>Move the payroll sign off date to 22nd of each month</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="way-side">
+            <p class="way-label">What I use</p>
+            <div class="way-tools">
+              <div class="way-tool lead">
+                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/site/loom.png" alt=""></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">Loom</h3>
+                </div>
+              </div>
+            </div>
+
+            <p class="way-label">Other options</p>
+            <div class="way-others">
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/fireflies.png" alt=""></span>Fireflies</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/vinyl.png" alt=""></span>Vinyl</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/granola.png" alt=""></span>Granola</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/fathom.png" alt=""></span>Fathom</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
+<section data-nx-reuse class="slide paper-soft" data-label="Dictation">
+
+
+    <div class="frame" style="--pad-y: 100px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill" style="padding-top: 30px;">
+        <div class="way-head">
+          <div>
+            <h2 class="display" style="font-size: 84px;">Dictation. <em>Talk instead of type.</em></h2>
+            <p class="sub" style="font-size: 30px; margin-top: 18px;">The quickest way to <em>write a prompt.</em></p>
+          </div>
+        </div>
+
+        <div class="way-body">
+          <div>
+            <div class="nt-stack">
+              <div class="appw">
+                <div class="appw-bar">
+                  <span class="appw-dot" style="background:#ff5f57;"></span><span class="appw-dot" style="background:#febc2e;"></span><span class="appw-dot" style="background:#28c840;"></span>
+                  <span class="appw-title">Acapella · dictating</span>
+                </div>
+                <div class="appw-body oe-stack" style="gap: 14px;">
+                  <div class="oe-row">
+                    <span class="oe-mic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></span>
+                    <span class="oe-wave"><i style="height:28%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:44%"></i><i style="height:74%"></i><i style="height:32%"></i><i style="height:62%"></i><i style="height:96%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:26%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:36%"></i><i style="height:58%"></i><i style="height:30%"></i></span>
+                  </div>
+                  <p class="oe-cap">“Summarise this thread into three bullets and draft a reply”<span class="kb-caret"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="way-side">
+            <p class="way-label">What I use</p>
+            <div class="way-tools">
+              <div class="way-tool lead">
+                <span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/slides/41c-desktop-apps/acapella-icon.png" alt=""></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">Acapella</h3>
+                </div>
+              </div>
+            </div>
+
+            <p class="way-label">Other options</p>
+            <div class="way-others">
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/aquavoice.png" alt=""></span>Aqua Voice</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:#1A1A1A;"><img src="images/shared/logos/wisprflow.png" alt=""></span>Wispr Flow</span>
+              <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><img src="images/shared/logos/superwhisper.png" alt=""></span>superwhisper</span>            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
+<section data-nx-reuse class="slide paper-soft" data-label="Spreadsheets">
+
+
+    <div class="frame" style="--pad-y: 100px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill" style="padding-top: 30px;">
+        <div class="way-head">
+          <div>
+            <h2 class="display" style="font-size: 84px;">Spreadsheet add-ons. <em>Used mindfully.</em></h2>
+          </div>
+          <span class="way-verdict a">Non-daily</span>
+        </div>
+
+        <div class="way-body">
+          <div>
+            <figure class="shot xl-shot"><img src="images/slides/50-spreadsheets/claude-for-excel.png" alt="Claude for Excel: a spreadsheet with the Claude sidebar on the right" onerror="this.closest('figure').classList.add('missing')"></figure>
+          </div>
+
+          <div class="way-side">
+            <p class="way-label">What I use</p>
+            <div class="way-tools">
+              <div class="way-tool lead">
+                <span class="app-tile" style="--tile-bg:#FBF1EB; --tile-bd:rgba(217,119,87,0.28);"><img src="images/shared/claude-logo.svg" alt=""></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">Claude for Excel</h3>
+                </div>
+                <span class="way-star">With care</span>
+              </div>
+              <div class="way-tool">
+                <span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>
+                <div class="way-tbody">
+                  <h3 class="way-tname">ChatGPT for Sheets</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
+<section data-nx-reuse class="slide" data-label="Claude Cowork">
+
+
+    <div class="frame" style="--pad-y: 100px;">
+      <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i></span></p><span class="page-chip"></span></div>
+
+      <div class="fill center-y">
+        <div class="way-head" style="margin-bottom: 28px;">
+          <div>
+            <h2 class="display" style="font-size: 88px;">Oh, and <em>Claude Cowork.</em></h2>
+            <p class="sub" style="margin-top: 14px; font-size: 27px; max-width: 1280px;">
+              <span class="pt">I barely touch it.</span>
+              <span class="pt">Cowork and orchestration layers are a shortcut with shortcomings, IMO. <em>Like junk food, or Ozempic.</em></span>
+            </p>
+          </div>
+          <span class="way-verdict a">Non-daily</span>
+        </div>
+
+        <div class="cw-grid">
+        <div class="tk-rows ni">
+          <div class="tk-row">
+            <span class="sg-ico a-brand" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span>
+            <p class="tk-text">The product that does whole tasks, end to end.</p>
+          </div>
+          <div class="tk-row">
+            <span class="sg-ico a-violet" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/></svg></span>
+            <p class="tk-text">Probably correctly. <em>Sometimes not.</em></p>
+          </div>
+          <div class="tk-row">
+            <span class="sg-ico a-info" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></span>
+            <p class="tk-text">Niche use cases <em>(I think so anyway).</em></p>
+          </div>
+          <div class="tk-row">
+            <span class="sg-ico a-teal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg></span>
+            <p class="tk-text">Lots of <em>hype.</em></p>
+          </div>
+          <div class="tk-foot">
+            <p class="way-label">Other options</p>
+            <div class="way-others">
+            <span class="way-other"><span class="app-tile" style="--tile-bg:#101014; --tile-bd:#101014;"><svg viewBox="0 0 2406 2406" aria-hidden="true"><use href="#oai-mark"/></svg></span>ChatGPT Work</span>
+            <span class="way-other"><span class="app-tile" style="--tile-bg:#FFFFFF; --tile-bd:rgba(30,30,70,0.21);"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="9" height="9" fill="#F25022"/><rect x="12.5" y="2.5" width="9" height="9" fill="#7FBA00"/><rect x="2.5" y="12.5" width="9" height="9" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9" height="9" fill="#FFB900"/></svg></span>Copilot agents</span>
+            <span class="way-other"><span class="app-tile" style="--tile-bg:#EFF1FE; --tile-bd:rgba(124,135,232,0.3);"><svg class="sg-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Orchestration layer products</span>
+            </div>
+          </div>
+        </div>
+
+          <div class="cw-simple">
+            <figure class="shot" style="align-self: center; width: 100%;">
+              <img src="images/slides/52-claude-cowork/cowork.png" alt="Claude Cowork: grab the year end working papers file and perform the entire year end review" onerror="this.closest('figure').classList.add('missing')">
+              <figcaption>Claude Cowork</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar"></div>
+    </div>
+  </section>
+
 </deck-stage>
 <script>
   // Page chips number themselves, so slides can be added, removed or reordered
@@ -3419,11 +3374,11 @@ deck-stage { background: #0a0a0a; }
      ════════════════════════════════════════════════════════════════════ -->
 <script type="application/json" id="speaker-notes">
 [{"say":["Everyone keeps telling us AI native is the future. I think it is a lie, and I will show you what I do instead."]},
-{"say":["Before we start, in case you do not know me. I spent fifty thousand dollars on tokens last month, running multiple Claude subscriptions. I am on Xero's XPAC. And that is my desk."],"src":["Dave's own figure for last month. Recheck it before each talk."]},
 {"say":["If it is not AI native then it is not the future of accounting, right? Or of anything, for that matter."],"src":["CPA Practice Advisor, 7 Apr 2026 and 5 Feb 2026, funding headlines with the company names left off.","Beyond Capital (VC) Substack: What We Look for in AI-Native Startups (and Why Most Miss the Mark)."]},
 {"say":["Startups cannot get funding if they are not AI native. It is the buzzword. The more AI native you are the better, right?"],"ask":"The dialog is a joke. The point stands: Basis raised $100M at a $1.15B valuation in February 2026 and the money is following the label."},
 {"say":["Well, what does it actually mean?","Honestly, I do not really know. No one really seems to, but it sounds on trend, and that is what matters, apparently."],"src":["Searching it turns up founder essays, VC blogs and marketing pages. There is no settled definition."]},
-{"say":["What I think it means: driven at the core by an AI driven workflow, invariably through GenAI agents. So what is GenAI, and what are GenAI agents?"]},
+{"say":["What I think it means: driven at the core by an AI driven workflow, invariably through GenAI agents."]},
+{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that. If I am not doing something, you probably do not need to either.","So what is GenAI, and what are GenAI agents?"]},
 {"say":["AI has been around since the 1950s. GenAI is just the latest evolution. One click per era."],"src":["Source: vibes based. It is an impression, not data."]},
 {"say":["The scientific term is transformer-based LLMs: autoregressive prediction machines. They are advanced autocomplete. Each click is one prediction.","Transformer-based large language models. Strip the branding away and it is autocomplete: the same trick as the predictive strip on your phone, trained on most of the written internet.","Pattern recognition, not understanding. It has no model of your client, your ledger or the law; it has a very good sense of what text usually comes next."],"ask":"'Reasoning models think before they answer.' They generate more tokens before the final ones. Same mechanism, longer run; better results on many tasks, still no checker."},
 {"say":["Probabilistic by design. So is machine learning, before anyone suggests that form of AI native is different.","Optimised to be plausible, not correct. They make mistakes by design.","Prompt to tokens to a probability over the next token. The dropdown is the whole story: a ranking by plausibility, nothing checked.","'Turn the randomness off and it is the same guess every run. Still a guess.'"],"ask":"Temperature zero: yes, that removes the sampling. It does not add a checker. The output is still the most plausible continuation, not a verified fact. OpenAI's own Sept 2025 hallucination paper: benchmarks reward guessing over abstaining."},
@@ -3438,9 +3393,15 @@ deck-stage { background: #0a0a0a; }
 {"say":["So what do I recommend? Use it as a copilot. Build with it. Lead it, do not be led."]},
 {"say":["My answer. Keep the model out of the process; have it write the tools that run the process. Code does the same thing every run. It drafts and flags; you take the exceptions and sign.","The other shape that works is an ancillary layer: the deterministic process already runs, and the model sits on top of it as an exception layer, reading the output and raising a call to action only when something needs a human. Nothing moves unless you move it.","This is also the vendors' own engineering guidance (Anthropic's Building effective agents, OpenAI's agent guide): simplest thing first, deterministic tools, human checkpoints."],"ask":"'Claude Code is an agent.' Yes. In a sandbox, on code I read before it ships. The line is not agent or not; it is can it touch live client data and is the output reviewable before it lands."},
 {"say":["I can hear you thinking it: you are about to show me a fleet of agents. Yes. They build the software. They are not in the accounting workflow."],"ask":"In my build a mistake fails a test before anything ships. In an accounting workflow a mistake posts to a ledger. The AI inside the app reads and flags, and I make the click."},
-{"say":["First, and this is what I recommend most: build. Use GenAI to build deterministic tools that run without it, often through vibe coding."]},
+{"say":["This is what I recommend most: build. Use GenAI to build deterministic tools that run without it, often through vibe coding."]},
 {"say":["Deterministic is the core of the practice: pre-set logic, the same answer every run, testable once. This toolkit - rules, APIs, RPA, formulas, Power Query, VBA, Apps Script, Stream Deck, SaaS - is what most of my accounting still runs on. AI - OCR, ML, GenAI - augments that core; it never replaces it."]},
-{"say":["So how do I build those deterministic tools? Vibe coding. Everything in this section - the app, the slides, the websites, the brand - was built this way."]},
+{"say":["And that is what I have used to transform my practice, through Sidgrove Intelligence."]},
+{"say":["Sidgrove Intelligence: the app that sits between my clients and the work I do. Every line of it was written with Claude Code. Solid surfaces, dense where it needs to be; it is a product, not a demo.","Think of it as an orchestration layer: Xero, the sheets, payroll and Slack, with one way in and one way out. And the future is embedding something like this directly into the ledger."]},
+{"say":["This is the whole point. Everything in the firm was disjointed workflows and separate products, largely driven by spreadsheets.","Sidgrove Intelligence is the orchestration app I have built, and it has productised all of that into one product."]},
+{"say":["Xero, Paycircle, Companies House and the rest, all into one app. Deterministic at its core. AI savvy, never AI native."]},
+{"say":["SWITCH TO THE LIVE APP NOW. Circle demo mode only. Walk through the connections, then the tour. If the demo fails, the backup screens come after Thank you."]},
+{"say":["Three of them. A media group: the last twelve months against the year before, and which customers make the money. A chiropractic studio: new patients every month, by practitioner, and what each visit brings in. And a clinic with two sites: revenue side by side, month by month, and how full each diary is. Different businesses, so different dashboards. Figures are changed and the logos are blurred; everything else is real."]},
+{"say":["So how did I build all of that? Vibe coding. The app, the slides, the websites, the brand: all built this way."]},
 {"say":["This is my vibe coding stack, and what each one does in plain terms. Claude Code writes the code. GitHub keeps every version safe, and nothing goes live unless the checks pass. Vercel puts the app online. Supabase stores the data and who can log in, and each client only ever sees their own.","I do not write code. I run the system that does, and I hold the standard."],"src":["Published list prices, check before the talk and swap for real bills: Supabase Pro $25 and Vercel Pro $20 per seat; GitHub Team $4 per user; Claude Max from $100. Usage on top."]},
 {"say":["First I installed two helpers. shadcn gives me ready-made parts, so every page matches and nothing drifts. Impeccable gives the AI design expertise, so it critiques every screen and catches AI slop. In its own words: turn AI slop into interfaces you are proud to ship."],"src":["ui.shadcn.com and impeccable.style, captured 5 Nov 2026. Sidgrove Intelligence repo: 24 stock components plus 218 of our own."]},
 {"say":["Second, I give it context. Claude has no taste of its own, it has mine, written down. Plans for particular projects come and go, but I only work from three key files every day: the Bible, the roadmap and the handover. They are just plain text files, MD files, that Claude reads."],"src":["docs/BIBLE.md, docs/ROADMAP.md and docs/HANDOFF.md in the Sidgrove Intelligence repo."]},
@@ -3449,23 +3410,9 @@ deck-stage { background: #0a0a0a; }
 {"say":["Every night it does a handover. It pushes the day’s work, writes where we stopped, moves the roadmap on and raises the Bible’s bar from whatever I corrected that day.","In the morning the new session reads it first, so nothing gets lost between sessions."],"src":["CLAUDE.md, the finish up and let’s go sections. docs/HANDOFF.md is loaded at the start of every session."]},
 {"say":["Third, I set up Soundcheck to make review clear. I do not review code, I choose between pictures. It can be something Claude has suggested or something I want it to look at. Before anything big is rebuilt, Claude draws options of the same thing, each one scored, with its weakest part owned up to and the one it would pick.","I pick a letter, and only then does it get built. Around 400 cards so far."],"src":["A real card: the panel that slides in from the side, 18 Oct 2026. Scores 9, 9.5, 9, 8.5."]},
 {"say":["Fourth, a simple start-up routine. I say let’s go and the same thing happens every time. One more file drives it: CLAUDE.md.","1. Opens the app in a browser pane, so it can see what it builds.","2. Takes the seat of Master, the one lead session.","3. Asks which computers we are using today.","4. Pulls the latest code and checks nothing moved overnight.","5. Reads the handoff: where the last session stopped.","6. Starts the daily reviews in the background: the Bible review, the joy review and how-we-work.","7. Splits the work into jobs and sends a worker down each one.","8. Every lane is seen on screen, checked, merged and pushed in one batch.","Live means the checks are green and the site is really deployed, not just that the code looks right."]},
-{"say":["And that is what I have used to transform my practice, through Sidgrove Intelligence."]},
-{"say":["Sidgrove Intelligence: the app that sits between my clients and the work I do. Every line of it was written with Claude Code. Solid surfaces, dense where it needs to be; it is a product, not a demo.","Think of it as an orchestration layer: Xero, the sheets, payroll and Slack, with one way in and one way out. And the future is embedding something like this directly into the ledger."]},
-{"say":["This is the whole point. Everything in the firm was disjointed workflows and separate products, largely driven by spreadsheets.","Sidgrove Intelligence is the orchestration app I have built, and it has productised all of that into one product."]},
-{"say":["Xero, Paycircle, Companies House and the rest, all into one app. Deterministic at its core. AI savvy, never AI native."]},
-{"say":["SWITCH TO THE LIVE APP NOW. Circle demo mode only. Walk through the connections, then the tour. If the demo fails, the backup screens come after Thank you."]},
-{"say":["Three of them. A media group: the last twelve months against the year before, and which customers make the money. A chiropractic studio: new patients every month, by practitioner, and what each visit brings in. And a clinic with two sites: revenue side by side, month by month, and how full each diary is. Different businesses, so different dashboards. Figures are changed and the logos are blurred; everything else is real."]},
 {"say":["The wrap on vibe coding, having seen it all: use it for internal tools and prototypes, slides, simple websites, brand assets. The warnings: get an engineer if it holds sensitive data, do not disappear down rabbit holes overbuilding, and if an app already does it, buy it."]},
-{"say":["Stage one of four: chat. The daily driver."]},
-{"say":["Chat is the daily driver. Talk to it like a colleague, check it like a junior.","Also out there: check where the data goes before client work; DeepSeek's app is China-hosted."]},
-{"say":["Stage three: the everyday extras. Note takers and dictation: daily, but not core."]},
-{"say":["Note takers. Loom on the calls I choose, off for anything sensitive. Recording a client: say so in words every time; a bot in the participant list is not telling them. Know where the transcript goes."],"ask":"'Consent isn't the UK GDPR test.' Agreed: lawful basis plus telling people. Saying it out loud, every time, with a policy behind it, keeps you on the right side. Otter and Granola both face live US class actions on recording."},
-{"say":["Dictation. Acapella, my own: talk instead of type, in any app, transcribed on this machine first. Aqua Voice and Wispr Flow are the big cloud ones, superwhisper another on-device option. This is the single biggest everyday win."]},
-{"say":["Now the two I use with caution: the spreadsheet add-ins, and Cowork."]},
-{"say":["In your apps: it queried one supplier with a reason; you still answer it and the other 37 still get your eyes.","The stat is deliberately the hard one: fixing errors in real workbooks."],"src":["SpreadsheetBench 2 (arXiv 2606.29955, 29 Jun 2026): 321 real multi-sheet tasks; best model 34.89% overall, 12.00% on debugging.","Deel Inc: reverse charge is right for a US-established B2B supplier; if a UK Deel entity billed with a GB VAT number, 20% would be right, which is why the tool queries rather than decides."]},
-{"say":["Oh, and Cowork. The product that does whole tasks end to end; I barely touch it. Niche use cases, lots of hype. Hand an agent a whole job unwatched and the best still fail most of the time."]},
 {"say":["This is where it is all heading. I want to share, so I am building the ultimate tool to share my work for free.","Sidgrove Stems is the app I run my practice on, a page at a time. If you like a page, take it."]},
-{"say":["Four things to take home. It will not replace us, not as claimed; it is being oversold. It is probabilistic, not intelligent: not correct every time, and it hallucinates by design. Copilot, never the pilot: never autonomous end to end, and nothing posted unreviewed. And use it every day: chat, build tools with Claude Code, and augment with dictation, add-ons, brand, sites and slides."]},
+{"say":["Four things to take home. It will not replace us, not as claimed; it is being oversold. It is probabilistic, not intelligent: not correct every time, and it hallucinates by design. Copilot, never the pilot: never autonomous end to end, and nothing posted unreviewed. And use it every day: build tools with Claude Code."]},
 {"say":["Thank you. Questions now or find me after."]},
 {"say":["Only if the live demo fails. Not part of the running order."]},
 {"say":["Daily cashflow, pulled over the bank and ledger APIs every morning. This is the demo client, Circle; the real ones look the same.","And the weekly cashflow report lands in Slack automatically: balance, net, spend, income, top payments. Nobody has to open the app."]},
@@ -3494,7 +3441,12 @@ deck-stage { background: #0a0a0a; }
 {"say":["sidgrove.com: described, built and deployed with Claude Code. No agency, no template."]},
 {"say":["Brand assets with Claude Design: the same engine as Claude Code, tailored for design work. Logos, colour tokens, templates."]},
 {"say":["The wrap on vibe coding, having seen it all: use it for internal tools and prototypes, slides, simple websites, brand assets. The warnings: get an engineer if it holds sensitive data, do not disappear down rabbit holes overbuilding, and if an app already does it, buy it."]},
-{"say":["MCP: the plumbing that plugs a model straight into your apps - Xero, Slack, the inbox. Powerful, and the bit to be most careful with. Reading is one thing; giving it write access to the ledger is another. And anything it reads, a document, an email, a web page, can carry instructions it will follow: prompt injection. I let it read; I do not let it post."],"ask":"'The connectors are sandboxed.' The connector is; the model's judgement about what it just read is not."}]
+{"say":["MCP: the plumbing that plugs a model straight into your apps - Xero, Slack, the inbox. Powerful, and the bit to be most careful with. Reading is one thing; giving it write access to the ledger is another. And anything it reads, a document, an email, a web page, can carry instructions it will follow: prompt injection. I let it read; I do not let it post."],"ask":"'The connectors are sandboxed.' The connector is; the model's judgement about what it just read is not."},
+{"say":["Chat is the daily driver. Talk to it like a colleague, check it like a junior.","Also out there: check where the data goes before client work; DeepSeek's app is China-hosted."]},
+{"say":["Note takers. Loom on the calls I choose, off for anything sensitive. Recording a client: say so in words every time; a bot in the participant list is not telling them. Know where the transcript goes."],"ask":"'Consent isn't the UK GDPR test.' Agreed: lawful basis plus telling people. Saying it out loud, every time, with a policy behind it, keeps you on the right side. Otter and Granola both face live US class actions on recording."},
+{"say":["Dictation. Acapella, my own: talk instead of type, in any app, transcribed on this machine first. Aqua Voice and Wispr Flow are the big cloud ones, superwhisper another on-device option. This is the single biggest everyday win."]},
+{"say":["In your apps: it queried one supplier with a reason; you still answer it and the other 37 still get your eyes.","The stat is deliberately the hard one: fixing errors in real workbooks."],"src":["SpreadsheetBench 2 (arXiv 2606.29955, 29 Jun 2026): 321 real multi-sheet tasks; best model 34.89% overall, 12.00% on debugging.","Deel Inc: reverse charge is right for a US-established B2B supplier; if a UK Deel entity billed with a GB VAT number, 20% would be right, which is why the tool queries rather than decides."]},
+{"say":["Oh, and Cowork. The product that does whole tasks end to end; I barely touch it. Niche use cases, lots of hype. Hand an agent a whole job unwatched and the best still fail most of the time."]}]
 </script>
 
 <div id="notes-panel" hidden aria-live="polite">
