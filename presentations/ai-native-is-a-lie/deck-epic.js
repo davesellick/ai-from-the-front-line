@@ -17,7 +17,7 @@
     once(el, ms);
     return el;
   };
-  const flash = (s) => add(s, 'e-flash', null, 700);
+  const flash = (s) => add(s, 'e-flash', null, 260);
   const ring = (s, x, y, c, delay = 0) => {
     const el = add(s, 'e-ring', { left: x + 'px', top: y + 'px', animationDelay: delay + 'ms' }, 1800 + delay);
     el.style.setProperty('--e-c', c);
@@ -63,7 +63,40 @@
       };
       walk(root);
     };
-    slides.forEach((s) => s.querySelectorAll('h1.display, h2.display').forEach(split));
+    /* Inline-block letters lose the font's kerning, so each letter keeps its natural advance. */
+    const keepKerning = (h) => {
+      const k = (h.closest('section').getBoundingClientRect().width / 1920) || 1;
+      const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+      const nat = new Map();
+      for (let t = walker.nextNode(); t; t = walker.nextNode()) {
+        const r = document.createRange();
+        const lefts = [];
+        for (let a = 0; a <= t.length; a++) {
+          r.setStart(t, Math.min(a, t.length - 1)); r.setEnd(t, Math.min(a + 1, t.length));
+          const b = r.getBoundingClientRect();
+          lefts.push(a === t.length ? b.right : b.left);
+        }
+        nat.set(t, lefts);
+      }
+      return { k, nat };
+    };
+    const fix = (h, widths) => {
+      h.querySelectorAll('.e-c').forEach((c, n) => {
+        const w = c.getBoundingClientRect().width / widths.k;
+        const adv = widths.flat[n];
+        if (adv) c.style.marginRight = (adv - w).toFixed(2) + 'px';
+      });
+    };
+    document.fonts.ready.then(() => slides.forEach((s) => s.querySelectorAll('h1.display, h2.display').forEach((h) => {
+      const m = keepKerning(h);
+      const flat = [];
+      m.nat.forEach((lefts, t) => {
+        const text = t.textContent;
+        for (let a = 0; a < text.length; a++) if (text[a].trim()) flat.push((lefts[a + 1] - lefts[a]) / m.k);
+      });
+      split(h);
+      fix(h, { k: m.k, flat });
+    })));
   }
 
   /* Option C: light runs round the main card on every slide */
@@ -95,7 +128,7 @@
       else if (['AI native everywhere', 'No funding', "Let's go", 'Trust, but measure', 'The stack'].includes(l)) shake(s, true);
     }
     if (epic === 'b') {
-      if (l === "It's a lie" && n === 2) ring(s, 960, 540, GREEN);
+      if (l === "It's a lie" && n === 2) setTimeout(() => { shake(s); ring(s, 960, 540, GREEN); ring(s, 960, 540, PERI, 150); }, 300);
     }
     if (epic === 'c') {
       if (l === "It's a lie") { beam(s, true); if (n === 2) { ring(s, 960, 540, GREEN); ring(s, 960, 540, PERI, 200); } }
