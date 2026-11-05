@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Native is a Lie - Soundcheck</title>
+<style>
+@font-face { font-family: "DM Sans"; src: url("../../fonts/web/dm-sans-variable.woff2") format("woff2"); font-weight: 100 1000; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display.otf") format("opentype"); font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display-italic.otf") format("opentype"); font-style: italic; font-display: swap; }
+
+:root {
+  --peri: #A8B0F8; --peri-700: #4A56B8; --peri-100: #E4E6FE;
+  --green: #D0F8B0; --green-600: #4E7D28; --green-100: #E9FBDA;
+  --ink: #1E1E46; --ink-deep: #10102B; --ink-700: #4A4A70; --ink-400: #8E8EA8;
+  --paper: #FAFAF7; --claude: #D97757;
+  --serif: "Very Vogue", Georgia, serif;
+  --sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --lift: 0 1px 0 #fff inset, 0 30px 60px -28px rgba(50,56,130,.28), 0 4px 14px -6px rgba(50,56,130,.12);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { background: var(--ink-deep); }
+deck-stage { font-family: var(--sans); color: var(--ink); }
+.slide { overflow: hidden; font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.display { font-family: var(--serif); font-weight: 400; line-height: .98; letter-spacing: -.012em; }
+.display em { font-style: italic; color: var(--peri-700); }
+svg.i { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.tag { position: absolute; right: 30px; top: 26px; z-index: 9; font-size: 17px; font-weight: 600; color: var(--ink-700); background: #fff; border-radius: 999px; padding: 7px 16px; box-shadow: 0 6px 16px -8px rgba(30,30,70,.3); }
+
+/* Build steps */
+[data-step] { opacity: 0; translate: 0 14px; transition: opacity .55s ease, translate .6s cubic-bezier(.2,.7,.2,1); }
+[data-step].on { opacity: 1; translate: 0 0; }
+[data-step].off { opacity: 0; translate: 0 -14px; }
+@keyframes rise { from { opacity: 0; translate: 0 22px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes breathe { 50% { transform: scale(1.05); opacity: .75; } }
+@keyframes travel { to { offset-distance: 100%; } }
+.slide[data-deck-active] [data-rise] { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+.slide[data-deck-active] [data-fade] { animation: fade 1.1s ease both; animation-delay: var(--d, 0s); }
+.draw { fill: none; stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: 1 !important; translate: 0 0 !important; transition: stroke-dashoffset 1s cubic-bezier(.5,.1,.2,1); }
+.draw.on { stroke-dashoffset: 0; }
+.caret { display: inline-block; width: 3px; height: 1em; margin-left: 4px; vertical-align: -.14em; background: currentColor; animation: blink 1.1s steps(1) infinite; }
+
+/* Shared: the prompt bar */
+.prompt { display: inline-flex; align-items: center; gap: 18px; background: #fff; border-radius: 24px; padding: 16px 16px 16px 20px; box-shadow: var(--lift); }
+.prompt .mark { width: 50px; height: 50px; border-radius: 15px; background: rgba(217,119,87,.14); display: grid; place-items: center; flex: none; }
+.prompt .mark img { width: 26px; height: 26px; }
+.prompt .text { font-size: 33px; letter-spacing: -.01em; white-space: nowrap; min-width: 860px; }
+.prompt .kbd { height: 50px; padding: 0 20px; border-radius: 15px; background: var(--ink); color: var(--paper); font-size: 20px; font-weight: 600; display: flex; align-items: center; flex: none; }
+
+/* Symbols carry the colour */
+.sym { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-size: 27px; flex: none; }
+.t-peri { background: var(--peri-100); color: var(--peri-700); }
+.t-green { background: var(--green-100); color: var(--green-600); }
+.t-claude { background: rgba(217,119,87,.14); color: #B85C3D; }
+.t-amber { background: #FDF0D8; color: #9A6A12; }
+.t-rose { background: #FCE6EC; color: #B8456A; }
+.t-sky { background: #DFF1FB; color: #2B78A8; }
+
+/* ───────── A · DAYLIGHT ───────── */
+.a { background: linear-gradient(150deg, #E3E2FD 0%, #F1EFFF 46%, #F7FBF1 100%); }
+.a .bloom { position: absolute; border-radius: 50%; filter: blur(70px); }
+.a-cover { position: absolute; left: 150px; top: 196px; }
+.a-cover h1 { font-size: 232px; }
+.a-cover .lie { position: relative; display: inline-block; }
+.a-cover .lie svg { position: absolute; left: -2%; bottom: -34px; width: 104%; height: 46px; overflow: visible; }
+.a-cover .lie path { fill: none; stroke: var(--claude); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+.slide[data-deck-active] .a-cover .lie path { animation: draw 1s .9s cubic-bezier(.5,.1,.2,1) both; }
+.a-cover .prompt { margin-top: 84px; }
+.byline { position: absolute; right: 150px; bottom: 80px; display: flex; align-items: center; gap: 22px; text-align: right; }
+.byline b { display: block; font-size: 31px; letter-spacing: -.02em; }
+.byline span { font-size: 21px; color: var(--ink-700); }
+.byline img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 12px 28px -8px rgba(30,30,70,.3); }
+
+.a-head { position: absolute; left: 150px; top: 92px; }
+.a-head h2 { font-size: 124px; }
+.a-head p { margin-top: 16px; font-size: 36px; color: var(--ink-700); }
+.a-loop { position: absolute; left: 160px; top: 340px; width: 1600px; height: 640px; }
+.a-loop svg.paths { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.a-loop .node { position: absolute; top: 216px; width: 340px; height: 208px; background: #fff; border-radius: 34px; box-shadow: var(--lift); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; font-size: 38px; font-weight: 600; letter-spacing: -.02em; }
+.a-loop .node .sym { width: 68px; height: 68px; font-size: 34px; border-radius: 20px; }
+.a-loop .sw { left: 0; } .a-loop .llm { right: 0; }
+.a-loop .say { position: absolute; left: 800px; transform: translateX(-50%); background: #fff; border-radius: 999px; padding: 18px 34px; font-size: 32px; font-weight: 500; white-space: nowrap; box-shadow: var(--lift); display: flex; gap: 14px; align-items: center; }
+.a-loop .say .sym { width: 42px; height: 42px; font-size: 22px; border-radius: 13px; }
+.a-loop .q { top: 72px; } .a-loop .r { top: 482px; }
+.a-loop .round { position: absolute; left: 800px; top: 320px; transform: translate(-50%, -50%); text-align: center; font-size: 30px; color: var(--ink-700); line-height: 1.2; white-space: nowrap; }
+.a-loop .round b { font-family: var(--serif); font-weight: 400; font-style: italic; color: var(--peri-700); font-size: 120px; display: block; line-height: 1; }
+.a-loop .dot { position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--peri-700); box-shadow: 0 0 0 9px rgba(74,86,184,.16); offset-path: path("M340 270 C 620 60, 980 60, 1260 270 L 1260 370 C 980 580, 620 580, 340 370 Z"); offset-rotate: 0deg; animation: travel 3s linear infinite; }
+
+.a-go-left { position: absolute; left: 130px; top: 0; bottom: 0; width: 570px; display: flex; flex-direction: column; justify-content: center; }
+.a-go-left h2 { font-size: 196px; }
+.a-go-left .two { margin-top: 26px; font-size: 34px; color: var(--ink-700); }
+.a-go-left .live { margin-top: 56px; display: flex; gap: 18px; font-size: 29px; line-height: 1.32; letter-spacing: -.01em; font-weight: 500; }
+.a-card { position: absolute; left: 740px; right: 90px; top: 74px; bottom: 74px; background: #fff; border-radius: 40px; box-shadow: var(--lift); padding: 26px 46px; display: flex; flex-direction: column; justify-content: space-between; }
+.a-row { display: flex; align-items: center; gap: 24px; font-size: 28px; line-height: 1.22; letter-spacing: -.012em; padding: 9px 0; }
+.a-row[data-step] { opacity: .26; translate: 0 0; }
+.a-row[data-step].on { opacity: 1; }
+.a-row .tx { flex: 1; text-wrap: balance; }
+.a-row .tick { width: 36px; height: 36px; flex: none; color: var(--green-600); font-size: 34px; opacity: 0; scale: .5; transition: opacity .4s .25s, scale .5s .25s cubic-bezier(.3,1.6,.5,1); }
+.a-row.on .tick { opacity: 1; scale: 1; }
+
+/* ───────── B · STAGE ───────── */
+.b { background: radial-gradient(ellipse at 50% 42%, #24245A 0%, #15153A 46%, #0C0C24 100%); color: #fff; }
+.b .display em { color: var(--green); }
+.b .tag { background: rgba(255,255,255,.1); color: #fff; box-shadow: none; }
+.b .ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; translate: -50% -50%; border: 1px solid rgba(168,176,248,.14); }
+.slide[data-deck-active] .b-breathe { animation: breathe 7s ease-in-out infinite; }
+.b-cover { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-bottom: 70px; }
+.b-cover h1 { font-size: 262px; }
+.b-cover .prompt { margin-top: 74px; background: rgba(255,255,255,.08); box-shadow: 0 0 0 1px rgba(255,255,255,.14); }
+.b-cover .prompt .text { color: #fff; text-align: left; }
+.b-cover .prompt .kbd { background: var(--paper); color: var(--ink); }
+.b-by { position: absolute; bottom: 58px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 18px; font-size: 26px; color: rgba(255,255,255,.78); }
+.b-by img { width: 68px; height: 68px; border-radius: 50%; object-fit: cover; }
+.b-by b { color: #fff; font-weight: 600; }
+
+.b-head { position: absolute; left: 130px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+.b-head h2 { font-size: 168px; }
+.b-head p { margin-top: 34px; font-size: 40px; line-height: 1.24; color: rgba(255,255,255,.82); letter-spacing: -.01em; }
+.b-orbit { position: absolute; left: 880px; top: 90px; width: 900px; height: 900px; }
+.b-orbit svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.b-orbit .node { position: absolute; top: 450px; transform: translate(-50%, -50%); background: #1F1F52; box-shadow: 0 0 0 1px rgba(168,176,248,.4), 0 0 60px rgba(168,176,248,.22); border-radius: 26px; padding: 20px 34px; font-size: 36px; font-weight: 600; z-index: 3; }
+.b-orbit .say { position: absolute; left: 450px; translate: -50% -50%; font-size: 34px; font-weight: 500; white-space: nowrap; background: #15153A; padding: 8px 24px; border-radius: 999px; z-index: 2; }
+.b-orbit .say[data-step] { translate: -50% -30%; } .b-orbit .say[data-step].on { translate: -50% -50%; }
+.b-orbit .q { top: 90px; color: var(--green); } .b-orbit .r { top: 810px; color: var(--peri); }
+.b-orbit .round { position: absolute; left: 450px; top: 450px; translate: -50% -50%; text-align: center; font-size: 32px; color: rgba(255,255,255,.72); }
+.b-orbit .round[data-step] { translate: -50% -46%; } .b-orbit .round[data-step].on { translate: -50% -50%; }
+.b-orbit .round b { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 210px; line-height: 1; color: #fff; }
+.b-orbit .comet { position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--green); box-shadow: 0 0 34px 10px rgba(208,248,176,.55); offset-path: path("M90 450 A360 360 0 1 1 810 450 A360 360 0 1 1 90 450"); offset-rotate: 0deg; animation: travel 3s linear infinite; }
+
+.b-go-h { position: absolute; left: 130px; top: 84px; font-size: 118px; }
+.b-spot-wrap { position: absolute; left: 130px; right: 130px; top: 290px; height: 470px; }
+.b-spot { position: absolute; inset: 0; display: flex; align-items: center; gap: 56px; font-size: 92px; line-height: 1.1; letter-spacing: -.025em; font-weight: 500; }
+.b-spot .n { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--green); font-size: 210px; line-height: 1; flex: none; width: 170px; }
+.b-spot.fin { font-size: 72px; line-height: 1.16; }
+.b-rail { position: absolute; left: 130px; right: 130px; bottom: 96px; display: flex; justify-content: space-between; align-items: center; }
+.b-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: rgba(168,176,248,.22); }
+.b-rail .fill { position: absolute; left: 0; top: 50%; height: 2px; width: calc((var(--n, 0) - 1) / 7 * 100%); background: var(--green); transition: width .7s ease; }
+.b-rail .pip[data-step] { opacity: 1; translate: 0 0; position: relative; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; font-weight: 600; background: #17173E; box-shadow: 0 0 0 2px rgba(168,176,248,.3); color: rgba(255,255,255,.6); transition: all .5s; }
+.b-rail .pip.on { background: var(--green); color: var(--ink); box-shadow: 0 0 30px rgba(208,248,176,.5); }
+
+/* ───────── C · SESSION ───────── */
+.c { background: linear-gradient(150deg, #DDDCFA 0%, #EDEBFB 55%, #EEF6E6 100%); }
+.win { position: absolute; left: 60px; right: 60px; top: 50px; bottom: 50px; background: #fff; border-radius: 30px; box-shadow: 0 50px 90px -40px rgba(40,44,120,.42), 0 6px 18px -8px rgba(40,44,120,.16); display: grid; grid-template-columns: 372px 1fr; overflow: hidden; }
+.side { background: #F6F5F1; padding: 34px 22px; display: flex; flex-direction: column; gap: 6px; }
+.side .brand { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; padding: 0 12px 24px; letter-spacing: -.015em; }
+.side .brand img { width: 28px; height: 28px; }
+.side .it { display: flex; align-items: center; gap: 14px; padding: 15px 14px; border-radius: 16px; font-size: 25px; color: var(--ink-700); letter-spacing: -.01em; }
+.side .it .d { width: 12px; height: 12px; border-radius: 50%; background: rgba(30,30,70,.14); flex: none; }
+.side .it.now { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 6px 16px -10px rgba(30,30,70,.3); }
+.side .it.now .d { background: var(--claude); }
+.side .it.done .d { background: var(--green-600); }
+.side .me { margin-top: auto; display: flex; align-items: center; gap: 14px; padding: 12px; font-size: 24px; font-weight: 600; }
+.side .me img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; }
+.side .me span { display: block; font-size: 19px; font-weight: 400; color: var(--ink-700); }
+.pane { position: relative; padding: 48px 72px; display: flex; flex-direction: column; min-width: 0; }
+.c-cover { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.c-cover img.m { width: 76px; height: 76px; margin-bottom: 34px; }
+.c-cover h1 { font-size: 172px; }
+.c-cover .prompt { margin-top: 70px; box-shadow: 0 0 0 1.5px rgba(30,30,70,.1), 0 24px 44px -26px rgba(50,56,130,.3); }
+.c-cover .prompt .text { font-size: 30px; min-width: 790px; text-align: left; }
+.c-h { font-size: 84px; }
+.c-sub { margin-top: 8px; font-size: 30px; color: var(--ink-700); }
+.thread { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-top: 18px; }
+.bub { max-width: 860px; font-size: 32px; line-height: 1.24; letter-spacing: -.012em; padding: 20px 30px; border-radius: 26px; display: flex; gap: 16px; align-items: center; }
+.bub small { font-size: 21px; font-weight: 600; flex: none; opacity: .75; }
+.bub.me { align-self: flex-end; background: var(--peri-100); color: #2F3887; border-bottom-right-radius: 8px; }
+.bub.ai { align-self: flex-start; background: #F4F3EE; border-bottom-left-radius: 8px; }
+.roundchip { align-self: center; font-size: 25px; color: var(--ink-700); display: flex; align-items: center; gap: 12px; padding: 8px 4px; }
+.roundchip b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 54px; color: var(--peri-700); line-height: 1; }
+.c-say { align-self: flex-end; background: var(--peri-100); color: #2F3887; font-family: var(--serif); font-size: 72px; line-height: 1; padding: 16px 40px 20px; border-radius: 30px; border-bottom-right-radius: 8px; }
+.c-list { margin-top: 18px; display: flex; flex-direction: column; flex: 1; justify-content: center; }
+.c-row { display: flex; align-items: center; gap: 18px; font-size: 29px; letter-spacing: -.012em; padding: 10px 0; line-height: 1.2; }
+.c-row .box { width: 34px; height: 34px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 2px rgba(30,30,70,.2); display: grid; place-items: center; color: #fff; font-size: 21px; transition: all .4s; }
+.c-row[data-step] { opacity: .34; translate: 0 0; }
+.c-row[data-step].on { opacity: 1; }
+.c-row.on .box { background: var(--green-600); box-shadow: none; }
+.c-live > span:last-child { text-wrap: balance; }
+.c .tag { top: 7px; right: 60px; }
+.c-live { display: flex; gap: 16px; align-items: center; background: var(--green-100); border-radius: 22px; padding: 18px 26px; font-size: 26px; line-height: 1.25; font-weight: 500; letter-spacing: -.01em; }
+
+
+/* ───────── Scorecard ───────── */
+.sc { position: absolute; inset: 64px 90px; display: flex; flex-direction: column; }
+.sc h2 { font-size: 112px; margin-bottom: 40px; }
+.sc-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; min-height: 0; }
+.sc-card { background: #fff; border-radius: 36px; box-shadow: var(--lift); padding: 40px 40px; display: flex; flex-direction: column; gap: 30px; }
+.sc-card header { display: flex; align-items: center; gap: 18px; }
+.sc-l { width: 70px; height: 70px; border-radius: 21px; display: grid; place-items: center; font-family: var(--serif); font-size: 46px; flex: none; }
+.sc-card h3 { font-size: 40px; font-weight: 600; letter-spacing: -.02em; }
+.sc-pick { margin-left: auto; font-size: 22px; font-weight: 600; color: var(--green-600); background: var(--green-100); padding: 8px 18px; border-radius: 999px; }
+.sc-what { font-size: 31px; line-height: 1.28; letter-spacing: -.012em; min-height: 160px; text-wrap: pretty; }
+.sc-card dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.sc-card dt { font-size: 21px; color: var(--ink-700); white-space: nowrap; }
+.sc-card dd { margin: 0; font-family: var(--serif); font-size: 84px; line-height: 1.1; color: var(--peri-700); }
+.sc-weak { font-size: 28.5px; text-wrap: pretty; line-height: 1.32; color: var(--ink-700); letter-spacing: -.008em; }
+.sc-weak b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 4v4M10 4v4"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M2 20h20"/></symbol>
+  <symbol id="i-pull" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8M16 17H8"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-cog" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/></symbol>
+  <symbol id="i-ask" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+</svg>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ═════════ A · DAYLIGHT ═════════ -->
+  <section class="slide a" data-label="A Cover">
+    <span class="tag">A · Daylight</span>
+    <i class="bloom" style="right:-120px;top:-120px;width:520px;height:520px;background:rgba(168,176,248,.5)"></i>
+    <i class="bloom" style="left:-160px;bottom:-160px;width:460px;height:460px;background:rgba(208,248,176,.4)"></i>
+    <div class="a-cover">
+      <h1 class="display" data-rise>AI Native<br>is a <span class="lie"><em>Lie.</em><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path pathLength="1" d="M4 26 C 60 12, 130 8, 190 16 S 270 30, 296 12"/></svg></span></h1>
+      <div class="prompt" data-rise style="--d:.25s">
+        <span class="mark"><img src="images/shared/claude-logo.svg" alt=""></span>
+        <span class="text"><span data-type="Here is how I actually use GenAI to transform my firm"></span><i class="caret"></i></span>
+        <span class="kbd">Return</span>
+      </div>
+    </div>
+    <div class="byline" data-fade style="--d:.5s"><div><b>Dave Sellick</b><span>Founder, Sidgrove</span></div><img src="images/shared/headshot.jpg" alt="Dave Sellick"></div>
+  </section>
+
+  <section class="slide a" data-label="A Agentic loop">
+    <span class="tag">A · Daylight</span>
+    <div class="a-head"><h2 class="display" data-rise>Agentic <em>AI.</em></h2><p data-rise style="--d:.15s">Software looping back and forth to the LLM.</p></div>
+    <div class="a-loop">
+      <svg class="paths" viewBox="0 0 1600 640" aria-hidden="true">
+        <path class="draw" data-step="1" pathLength="1" d="M340 270 C 620 60, 980 60, 1260 270" stroke="#A8B0F8" stroke-width="5" stroke-linecap="round"/>
+        <path class="draw" data-step="2" pathLength="1" d="M1260 370 C 980 580, 620 580, 340 370" stroke="#A8B0F8" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="node sw" data-rise><span class="sym t-peri"><svg class="i"><use href="#i-window"/></svg></span>Software</div>
+      <div class="node llm" data-rise style="--d:.12s"><span class="sym t-claude"><svg class="i"><use href="#i-spark"/></svg></span>LLM</div>
+      <div class="say q" data-step="1"><span class="sym t-peri"><svg class="i"><use href="#i-ask"/></svg></span>What next? Here's the output so far.</div>
+      <div class="say r" data-step="2"><span class="sym t-claude"><svg class="i"><use href="#i-spark"/></svg></span>Do this next.</div>
+      <div class="round" data-step="3"><b data-tick>1</b>round and round, until the task is done</div>
+      <i class="dot" data-step="3"></i>
+    </div>
+  </section>
+
+  <section class="slide a" data-label="A Let's go">
+    <span class="tag">A · Daylight</span>
+    <div class="a-go-left">
+      <h2 class="display" data-rise>Let's <em>go.</em></h2>
+      <p class="two" data-rise style="--d:.15s">Two words from me.</p>
+      <div class="live" data-step="9"><span class="sym t-green"><svg class="i"><use href="#i-check"/></svg></span><span>Live means the checks are green and the site is really deployed, not just that the code looks right.</span></div>
+    </div>
+    <div class="a-card" data-rise style="--d:.1s">
+      <div class="a-row" data-step="1"><span class="sym t-peri"><svg class="i"><use href="#i-window"/></svg></span><span class="tx">Opens the app in a browser pane, so it can see what it builds</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="2"><span class="sym t-amber"><svg class="i"><use href="#i-crown"/></svg></span><span class="tx">Takes the seat of Master, the one lead session</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="3"><span class="sym t-sky"><svg class="i"><use href="#i-laptop"/></svg></span><span class="tx">Asks which computers we're using today</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="4"><span class="sym t-green"><svg class="i"><use href="#i-pull"/></svg></span><span class="tx">Pulls the latest code and checks nothing moved overnight</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="5"><span class="sym t-claude"><svg class="i"><use href="#i-file"/></svg></span><span class="tx">Reads the handoff: where the last session stopped</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="6"><span class="sym t-rose"><svg class="i"><use href="#i-heart"/></svg></span><span class="tx">Starts the daily reviews in the background: the Bible review, the joy review and how-we-work</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="7"><span class="sym t-peri"><svg class="i"><use href="#i-branch"/></svg></span><span class="tx">Splits the work into lanes and sends a worker down each one</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+      <div class="a-row" data-step="8"><span class="sym t-green"><svg class="i"><use href="#i-check"/></svg></span><span class="tx">Every lane is seen on screen, checked, merged and pushed in one batch</span><svg class="i tick"><use href="#i-tick"/></svg></div>
+    </div>
+  </section>
+
+  <!-- ═════════ B · STAGE ═════════ -->
+  <section class="slide b" data-label="B Cover">
+    <span class="tag">B · Stage</span>
+    <i class="ring b-breathe" style="width:1500px;height:1500px"></i><i class="ring" style="width:1040px;height:1040px;border-color:rgba(208,248,176,.12)"></i>
+    <div class="b-cover">
+      <h1 class="display" data-rise>AI Native<br>is a <em>Lie.</em></h1>
+      <div class="prompt" data-rise style="--d:.25s">
+        <span class="mark"><img src="images/shared/claude-logo.svg" alt=""></span>
+        <span class="text"><span data-type="Here is how I actually use GenAI to transform my firm"></span><i class="caret"></i></span>
+        <span class="kbd">Return</span>
+      </div>
+    </div>
+    <div class="b-by" data-fade style="--d:.5s"><img src="images/shared/headshot.jpg" alt="Dave Sellick"><span><b>Dave Sellick</b>, Founder, Sidgrove</span></div>
+  </section>
+
+  <section class="slide b" data-label="B Agentic loop">
+    <span class="tag">B · Stage</span>
+    <div class="b-head"><h2 class="display" data-rise>Agentic <em>AI.</em></h2><p data-rise style="--d:.15s">Software looping back and forth to the LLM.</p></div>
+    <div class="b-orbit">
+      <svg viewBox="0 0 900 900" aria-hidden="true">
+        <circle cx="450" cy="450" r="360" fill="none" stroke="rgba(168,176,248,.16)" stroke-width="2"/>
+        <path class="draw" data-step="1" pathLength="1" d="M90 450 A360 360 0 0 1 810 450" stroke="#D0F8B0" stroke-width="4" stroke-linecap="round"/>
+        <path class="draw" data-step="2" pathLength="1" d="M810 450 A360 360 0 0 1 90 450" stroke="#A8B0F8" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div class="node" style="left:90px" data-rise>Software</div>
+      <div class="node" style="left:810px" data-rise>LLM</div>
+      <div class="say q" data-step="1">What next? Here's the output so far.</div>
+      <div class="say r" data-step="2">Do this next.</div>
+      <div class="round" data-step="3"><b data-tick>1</b>round and round</div>
+      <i class="comet" data-step="3"></i>
+    </div>
+  </section>
+
+  <section class="slide b" data-label="B Let's go" style="--n:0">
+    <span class="tag">B · Stage</span>
+    <h2 class="display b-go-h" data-rise>Let's <em>go.</em></h2>
+    <div class="b-spot-wrap">
+      <div class="b-spot" data-step="1" data-step-off="2"><span class="n">1</span><span>Opens the app in a browser pane, so it can see what it builds</span></div>
+      <div class="b-spot" data-step="2" data-step-off="3"><span class="n">2</span><span>Takes the seat of Master, the one lead session</span></div>
+      <div class="b-spot" data-step="3" data-step-off="4"><span class="n">3</span><span>Asks which computers we're using today</span></div>
+      <div class="b-spot" data-step="4" data-step-off="5"><span class="n">4</span><span>Pulls the latest code and checks nothing moved overnight</span></div>
+      <div class="b-spot" data-step="5" data-step-off="6"><span class="n">5</span><span>Reads the handoff: where the last session stopped</span></div>
+      <div class="b-spot" data-step="6" data-step-off="7" style="font-size:78px"><span class="n">6</span><span>Starts the daily reviews in the background: the Bible review, the joy review and how-we-work</span></div>
+      <div class="b-spot" data-step="7" data-step-off="8"><span class="n">7</span><span>Splits the work into lanes and sends a worker down each one</span></div>
+      <div class="b-spot" data-step="8" data-step-off="9"><span class="n">8</span><span>Every lane is seen on screen, checked, merged and pushed in one batch</span></div>
+      <div class="b-spot fin" data-step="9"><span>Live means the checks are green and the site is really deployed, not just that the code looks right.</span></div>
+    </div>
+    <div class="b-rail">
+      <i class="fill"></i>
+      <span class="pip" data-step="1">1</span><span class="pip" data-step="2">2</span><span class="pip" data-step="3">3</span><span class="pip" data-step="4">4</span><span class="pip" data-step="5">5</span><span class="pip" data-step="6">6</span><span class="pip" data-step="7">7</span><span class="pip" data-step="8">8</span>
+    </div>
+  </section>
+
+  <!-- ═════════ C · SESSION ═════════ -->
+  <section class="slide c" data-label="C Cover">
+    <span class="tag">C · Session</span>
+    <div class="win">
+      <aside class="side">
+        <div class="brand"><img src="images/shared/claude-logo.svg" alt="">This talk</div>
+        <div class="it"><i class="d"></i>The buzzword</div><div class="it"><i class="d"></i>What it actually is</div><div class="it"><i class="d"></i>The lie</div><div class="it"><i class="d"></i>What I recommend</div><div class="it"><i class="d"></i>How I build</div><div class="it"><i class="d"></i>Live demo</div>
+        <div class="me"><img src="images/shared/headshot.jpg" alt="Dave Sellick"><div>Dave Sellick<span>Founder, Sidgrove</span></div></div>
+      </aside>
+      <div class="pane">
+        <div class="c-cover">
+          <img class="m" src="images/shared/claude-logo.svg" alt="" data-rise>
+          <h1 class="display" data-rise style="--d:.1s">AI Native<br>is a <em>Lie.</em></h1>
+          <div class="prompt" data-rise style="--d:.25s">
+            <span class="text"><span data-type="Here is how I actually use GenAI to transform my firm"></span><i class="caret"></i></span>
+            <span class="kbd">Return</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide c" data-label="C Agentic loop">
+    <span class="tag">C · Session</span>
+    <div class="win">
+      <aside class="side">
+        <div class="brand"><img src="images/shared/claude-logo.svg" alt="">This talk</div>
+        <div class="it done"><i class="d"></i>The buzzword</div><div class="it now"><i class="d"></i>What it actually is</div><div class="it"><i class="d"></i>The lie</div><div class="it"><i class="d"></i>What I recommend</div><div class="it"><i class="d"></i>How I build</div><div class="it"><i class="d"></i>Live demo</div>
+        <div class="me"><img src="images/shared/headshot.jpg" alt="Dave Sellick"><div>Dave Sellick<span>Founder, Sidgrove</span></div></div>
+      </aside>
+      <div class="pane">
+        <h2 class="display c-h" data-rise>Agentic <em>AI.</em></h2>
+        <p class="c-sub" data-rise style="--d:.12s">Software looping back and forth to the LLM.</p>
+        <div class="thread">
+          <div class="bub me" data-step="1"><small>Software</small>What next? Here's the output so far.</div>
+          <div class="bub ai" data-step="2"><small>LLM</small>Do this next.</div>
+          <div class="bub me" data-step="3"><small>Software</small>Done. What next? Here's the output.</div>
+          <div class="bub ai" data-step="3"><small>LLM</small>Do this next.</div>
+          <div class="roundchip" data-step="4">Round <b data-tick>1</b> and round, until the task is done</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide c" data-label="C Let's go">
+    <span class="tag">C · Session</span>
+    <div class="win">
+      <aside class="side">
+        <div class="brand"><img src="images/shared/claude-logo.svg" alt="">This talk</div>
+        <div class="it done"><i class="d"></i>The buzzword</div><div class="it done"><i class="d"></i>What it actually is</div><div class="it done"><i class="d"></i>The lie</div><div class="it done"><i class="d"></i>What I recommend</div><div class="it now"><i class="d"></i>How I build</div><div class="it"><i class="d"></i>Live demo</div>
+        <div class="me"><img src="images/shared/headshot.jpg" alt="Dave Sellick"><div>Dave Sellick<span>Founder, Sidgrove</span></div></div>
+      </aside>
+      <div class="pane">
+        <div class="c-say" data-rise>Let's go.</div>
+        <div class="c-list">
+          <div class="c-row" data-step="1"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Opens the app in a browser pane, so it can see what it builds</div>
+          <div class="c-row" data-step="2"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Takes the seat of Master, the one lead session</div>
+          <div class="c-row" data-step="3"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Asks which computers we're using today</div>
+          <div class="c-row" data-step="4"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Pulls the latest code and checks nothing moved overnight</div>
+          <div class="c-row" data-step="5"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Reads the handoff: where the last session stopped</div>
+          <div class="c-row" data-step="6"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Starts the daily reviews in the background: the Bible review, the joy review and how-we-work</div>
+          <div class="c-row" data-step="7"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Splits the work into lanes and sends a worker down each one</div>
+          <div class="c-row" data-step="8"><span class="box"><svg class="i"><use href="#i-tick"/></svg></span>Every lane is seen on screen, checked, merged and pushed in one batch</div>
+        </div>
+        <div class="c-live" data-step="9"><span class="sym t-green" style="background:#fff"><svg class="i"><use href="#i-check"/></svg></span><span>Live means the checks are green and the site is really deployed, not just that the code looks right.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ THE CHOICE ═════════ -->
+  <section class="slide a" data-label="Scorecard">
+    <div class="sc">
+      <h2 class="display" data-rise>Pick a <em>letter.</em></h2>
+      <div class="sc-grid">
+        <article class="sc-card" data-rise style="--d:.08s">
+          <header><span class="sc-l t-peri">A</span><h3>Daylight</h3><span class="sc-pick">My pick</span></header>
+          <p class="sc-what">White cards on a soft lavender ground. Closest to your Group cashflow reference.</p>
+          <dl><div><dt>Feel</dt><dd>9</dd></div><div><dt>Clarity</dt><dd>9</dd></div><div><dt>Joy</dt><dd>9</dd></div><div><dt>On stage</dt><dd>8</dd></div></dl>
+          <p class="sc-weak"><b>Weakest part:</b> the least surprising of the three. "It's a lie" lands softer on a pale ground, so I'd use ink slides for the two or three big reveals.</p>
+        </article>
+        <article class="sc-card" data-rise style="--d:.16s">
+          <header><span class="sc-l t-green">B</span><h3>Stage</h3></header>
+          <p class="sc-what">Deep ink, glowing lines, one huge idea at a time. The most dramatic.</p>
+          <dl><div><dt>Feel</dt><dd>8</dd></div><div><dt>Clarity</dt><dd>7</dd></div><div><dt>Joy</dt><dd>7</dd></div><div><dt>On stage</dt><dd>7</dd></div></dl>
+          <p class="sc-weak"><b>Weakest part:</b> "Let's go" shows one step at a time, so the full list is never on screen. Dark slides also wash out in a bright room, and 32 of them get heavy.</p>
+        </article>
+        <article class="sc-card" data-rise style="--d:.24s">
+          <header><span class="sc-l t-claude">C</span><h3>Session</h3></header>
+          <p class="sc-what">The whole talk is an app window. The sidebar shows where we are, then the demo follows on naturally.</p>
+          <dl><div><dt>Feel</dt><dd>8</dd></div><div><dt>Clarity</dt><dd>8</dd></div><div><dt>Joy</dt><dd>8</dd></div><div><dt>On stage</dt><dd>6</dd></div></dl>
+          <p class="sc-weak"><b>Weakest part:</b> the window and sidebar take about a quarter of the screen, so everything is smaller, and they repeat on every slide. Clever at first, less so by slide 30.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="../../deck-stage.js"></script>
+<script src="deck-steps.js"></script>
+<script>
+  /* Look B: the rail's green line follows the current step. */
+  const stageEl = document.querySelector('deck-stage');
+  const goSlide = document.querySelector('.slide[data-label="B Let\'s go"]');
+  const follow = () => goSlide.style.setProperty('--n', Math.min(8, Number(goSlide.dataset.stepNow || 0)));
+  new MutationObserver(follow).observe(goSlide, { attributes: true, attributeFilter: ['data-step-now'] });
+  follow();
+</script>
+</body>
+</html>
