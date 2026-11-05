@@ -2,7 +2,7 @@
 
 Here is how I actually use GenAI to transform my firm.
 
-Live at `/ai-native`, which redirects to this folder. 36 slides plus backup screens after Thank you. The live demo starts from slide 25, The hub.
+Live at `/ai-native`, which redirects to this folder. 40 slides plus backup screens after Thank you. The live demo starts from slide 29, The hub.
 
 - Next: arrow keys, space or click. Each click reveals one step, then moves on.
 - N opens speaker notes. `?notes` opens a presenter window that follows the projector.
@@ -11,3 +11,4 @@ Live at `/ai-native`, which redirects to this folder. 36 slides plus backup scre
 - `soundcheck.html` is the three-look comparison that led to this design.
 
 Screens are Circle demo captures. Recount the headline numbers on The system slide before each talk.
+- `?epic=a`, `b`, `c` or `d` runs one of the four motion options in `deck-epic.css` and `deck-epic.js`. Without it the deck is unchanged.
