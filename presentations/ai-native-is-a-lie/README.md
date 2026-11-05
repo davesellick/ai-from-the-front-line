@@ -2,7 +2,7 @@
 
 Here is how I actually use GenAI to transform my firm.
 
-Live at `/ai-native`, which redirects to this folder. 38 slides plus backup screens after Thank you. The live demo starts from slide 26, The hub.
+Live at `/ai-native`, which redirects to this folder. 36 slides plus backup screens after Thank you. The live demo starts from slide 25, The hub.
 
 - Next: arrow keys, space or click. Each click reveals one step, then moves on.
 - N opens speaker notes. `?notes` opens a presenter window that follows the projector.
