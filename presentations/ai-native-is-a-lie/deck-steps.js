@@ -9,7 +9,7 @@
  *   data-no-advance     clicks inside this element do not move the deck
  *
  * One click moves one slide. Whatever a slide holds appears by itself in about a second.
- * data-from / data-to split one build across several slides; data-gap sets the step gap in ms.
+ * data-first sets the wait before the first step and data-gap the gap between steps, in ms.
  * Back returns to the previous slide fully built. ?steps=manual gives one click per step.
  * URL: ?steps=all opens every slide finished; ?step=N opens the slide at step N.
  */
@@ -98,7 +98,7 @@
   function autoPlay(slide) {
     clearTimeout(autoTimer);
     if (manual) return;
-    const first = 220;
+    const first = Number(slide.dataset.first || 220);
     const gap = Number(slide.dataset.gap || 140);
     const tick = () => {
       if (!slide.hasAttribute('data-deck-active') || nowStep(slide) >= lastStep(slide)) return;
