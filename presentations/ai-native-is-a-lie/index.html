@@ -662,14 +662,10 @@ deck-stage { background: #0a0a0a; }
 
 /* ── 11 · Section transition ────────────────────────────────────── */
 
-/* ── Why listen to me · desk photo, profile card built on the perm card ── */
-.who-grid { display: grid; grid-template-columns: minmax(0, 1fr) 840px; gap: 80px; align-items: center; }
-.who-photo { display: block; width: 100%; max-width: 640px; margin-top: 40px; aspect-ratio: 1400 / 780; object-fit: cover; object-position: center 62%; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
-.who-face { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-.slide[data-label="Why listen to me"] .perm-card { zoom: 1.2; width: 700px; }
-.slide[data-label="Why listen to me"] .perm-row { font-size: 22px; }
-.slide[data-label="Why listen to me"] .perm-row.prob .ck { display: inline-flex; align-items: center; justify-content: center; }
-.slide[data-label="Why listen to me"] .perm-btn { font-size: 21px; line-height: 1.25; text-wrap: balance; }
+/* ── Why listen to me · the photo fills the slide; the card stays on the wall, clear of the setup ── */
+.who-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.who-card { position: absolute; left: 32px; top: 28px; width: fit-content; box-sizing: border-box; padding: 24px 34px 26px; background: #fff; border-radius: 28px; box-shadow: 0 24px 60px -24px rgba(15,16,48,.55); }
+.who-close { margin: 12px 0 0; font-family: var(--font-sans); font-size: 25px; font-weight: 500; line-height: 1.25; letter-spacing: -.012em; color: var(--ink-500); white-space: nowrap; }
 
 /* ── Context · Bible, Roadmap, Handover ─────────────────────────── */
 .cx-files { display: flex; flex-direction: column; gap: 22px; width: 820px; font-family: var(--font-sans); }
@@ -1551,24 +1547,12 @@ deck-stage { background: #0a0a0a; }
     <p class="df"><span data-step="1">Driven at the core</span> <span data-step="2">by an AI driven workflow,</span> <span data-step="3" style="color:var(--periwinkle-700)">invariably through GenAI agents.</span></p></div></div><div class="bottombar"></div></div>
 </section>
 
-<section data-first="1400" data-gap="1700" class="slide ink" data-label="Why listen to me">
-  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
-    <div class="fill center-y"><div class="who-grid">
-      <div>
-        <h2 class="display" style="font-size:104px" data-blur>Hold up.<br>Why should you<br><em>listen to me?</em></h2>
-        <img class="who-photo" data-rise style="--d:.3s" src="images/slides/02-who-am-i/desk.jpg" alt="Dave's desk: two monitors above a wall of Stream Decks">
-      </div>
-      <div class="perm-card" data-card>
-        <div class="perm-head"><img class="who-face" src="images/shared/headshot.jpg" alt=""><div><p class="perm-title">Dave Sellick</p><p class="perm-sub">Founder, Sidgrove</p></div></div>
-        <div class="perm-rows">
-          <div class="perm-row" data-step="1"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> An early adopter and innovator</div>
-          <div class="perm-row" data-step="2"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> I run a firm by myself</div>
-          <div class="perm-row" data-step="3"><span class="ck"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Constantly pushing the boundaries of what’s possible</div>
-          <div class="perm-row prob" data-step="4"><span class="ck"><svg class="nx-i"><use href="#nx-alert"/></svg></span> Almost every hour I’m awake, exploring AI <span class="tag" data-step="5">Do not do that</span></div>
-        </div>
-        <div class="perm-actions"><span class="perm-btn" data-step="6" style="background:linear-gradient(180deg,#5E9432,#4E7D28)">If I’m not doing something, you probably don’t need to either</span></div>
-      </div>
-    </div></div><div class="bottombar"></div></div>
+<section class="slide" data-label="Why listen to me">
+  <img class="who-photo" src="images/slides/02-who-am-i/dave-setup.jpg" alt="Dave at his desk, with two monitors and a wall of Stream Decks behind him">
+  <div class="who-card">
+    <h2 class="display" style="font-size:70px;line-height:1.06">Hold up.<br>Why should you <em>listen to me?</em></h2>
+    <p class="who-close">If I’m not doing something, you probably don’t need to either.</p>
+  </div>
 </section>
 
 <section data-gap="320" data-nx-reuse class="slide" data-label="Hype curve">
@@ -2089,7 +2073,7 @@ deck-stage { background: #0a0a0a; }
 
     <!-- The product, not a feature: one wide window that runs off the bottom of the slide. -->
     <figure class="shot window si-hero" aria-hidden="true">
-      <img src="images/slides/41a-app-showcase/practice-overview-nov03.jpg" alt="">
+      <img src="images/slides/41a-app-showcase/practice-overview-nov05.jpg" alt="">
       <figcaption>Sidgrove Intelligence · practice overview · demo mode</figcaption>
     </figure>
   </section>
@@ -2102,7 +2086,7 @@ deck-stage { background: #0a0a0a; }
   </div>
   <div class="nx-sheets"><div class="nx-sheet" data-step="1" style="left:40px;top:300px;--r:-6deg;--dx:760px;--dy:280px;transition-delay:0.00s"><span class="n"><img src="images/shared/site/excel.png" alt="">Cashflow v7 FINAL.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:439px;top:353px;--r:-3deg;--dx:361px;--dy:227px;transition-delay:0.06s"><span class="n"><img src="images/shared/site/excel.png" alt="">VAT workings.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:778px;top:336px;--r:0deg;--dx:22px;--dy:244px;transition-delay:0.12s"><span class="n"><img src="images/shared/site/sheets.png" alt="">Month end checklist.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1177px;top:319px;--r:3deg;--dx:-377px;--dy:261px;transition-delay:0.18s"><span class="n"><img src="images/shared/site/excel.png" alt="">Payroll journals.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1516px;top:302px;--r:6deg;--dx:-716px;--dy:278px;transition-delay:0.24s"><span class="n"><img src="images/shared/site/excel.png" alt="">Deadlines tracker.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:45px;top:583px;--r:-4deg;--dx:755px;--dy:-3px;transition-delay:0.30s"><span class="n"><img src="images/shared/site/sheets.png" alt="">Accruals.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:444px;top:566px;--r:-1deg;--dx:356px;--dy:14px;transition-delay:0.36s"><span class="n"><img src="images/shared/site/excel.png" alt="">Forecast (Dave’s copy).xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:783px;top:549px;--r:2deg;--dx:17px;--dy:31px;transition-delay:0.42s"><span class="n"><img src="images/shared/site/excel.png" alt="">Prepayments.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1182px;top:532px;--r:5deg;--dx:-382px;--dy:48px;transition-delay:0.48s"><span class="n"><img src="images/shared/site/sheets.png" alt="">Management accounts.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1521px;top:585px;--r:-5deg;--dx:-721px;--dy:-5px;transition-delay:0.54s"><span class="n"><img src="images/shared/site/excel.png" alt="">Year end papers.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:50px;top:796px;--r:-2deg;--dx:750px;--dy:-216px;transition-delay:0.60s"><span class="n"><img src="images/shared/site/excel.png" alt="">Client list.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:449px;top:779px;--r:1deg;--dx:351px;--dy:-199px;transition-delay:0.66s"><span class="n"><img src="images/shared/site/sheets.png" alt="">Bookkeeping queries.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:788px;top:762px;--r:4deg;--dx:12px;--dy:-182px;transition-delay:0.72s"><span class="n"><img src="images/shared/site/excel.png" alt="">Proposals.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1127px;top:815px;--r:-6deg;--dx:-327px;--dy:-235px;transition-delay:0.78s"><span class="n"><img src="images/shared/site/excel.png" alt="">Cashflow v8 FINAL.xlsx</span><u></u><u></u><u></u></div><div class="nx-sheet" data-step="1" style="left:1526px;top:798px;--r:-3deg;--dx:-726px;--dy:-218px;transition-delay:0.84s"><span class="n"><img src="images/shared/site/sheets.png" alt="">Group recharges.xlsx</span><u></u><u></u><u></u></div></div>
   <i class="nx-wave" data-step="3"></i><i class="nx-wave b" data-step="3"></i>
-  <div class="nx-herowin" data-step="3"><div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>Sidgrove Intelligence</span></div><img src="images/slides/41a-app-showcase/cashflow-nov03.jpg" alt="Sidgrove Intelligence, demo company"></div>
+  <div class="nx-herowin" data-step="3"><div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>Sidgrove Intelligence</span></div><img src="images/slides/41a-app-showcase/cashflow-nov05.jpg" alt="Sidgrove Intelligence, demo company"></div>
 </section>
 
 <section data-nx-reuse class="slide" data-label="The hub">
@@ -2325,7 +2309,7 @@ deck-stage { background: #0a0a0a; }
         <div class="nx-me">Let’s go.</div>
         <div class="nx-list"><div class="nx-row" data-step="1"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Opens the app</div><div class="nx-row" data-step="2"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Takes the Master seat</div><div class="nx-row" data-step="3"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Asks which computers</div><div class="nx-row" data-step="4"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Pulls the latest code</div><div class="nx-row" data-step="5"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Reads the handoff</div><div class="nx-row" data-step="6"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Starts the daily reviews</div><div class="nx-row" data-step="7"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Splits the work into jobs</div><div class="nx-row" data-step="8"><span class="bx"><svg class="nx-i"><use href="#nx-tick"/></svg></span>Checks, merges, pushes</div></div>
       </div>
-      <div class="nx-pane" data-step="1"><div class="url">localhost</div><div class="nx-shot" ><img src="images/slides/41a-app-showcase/cashflow-nov03.jpg" alt="Sidgrove Intelligence, demo company"></div></div>
+      <div class="nx-pane" data-step="1"><div class="url">localhost</div><div class="nx-shot" ><img src="images/slides/41a-app-showcase/cashflow-nov05.jpg" alt="Sidgrove Intelligence, demo company"></div></div>
     </div>
     <div class="nx-live" data-step="9">Live means the checks are green and the site is really deployed.</div>
   </div>
@@ -2465,10 +2449,10 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Daily <em>cashflow</em></h2><p class="ai-note"><b>Jev</b></p></div>
       <div class="fill center-y">
         <div class="pair">
-          <i class="lens" aria-hidden="true" style="left: -45px; top: 92px; background-size: 1700px auto; background-image: url('images/slides/41a-app-showcase/cashflow-nov03.jpg'); background-position: -299px -162px;"></i>
-          <i class="lens" aria-hidden="true" style="left: -45px; top: 655px; background-size: 1800px auto; background-image: url('images/slides/41a-app-showcase/cashflow-nov03.jpg'); background-position: -300px -905px;"></i>
+          <i class="lens" aria-hidden="true" style="left: -45px; top: 92px; background-size: 1700px auto; background-image: url('images/slides/41a-app-showcase/cashflow-nov05.jpg'); background-position: -299px -162px;"></i>
+          <i class="lens" aria-hidden="true" style="left: -45px; top: 655px; background-size: 1800px auto; background-image: url('images/slides/41a-app-showcase/cashflow-nov05.jpg'); background-position: -300px -905px;"></i>
           <figure class="shot window">
-            <img src="images/slides/41a-app-showcase/cashflow-nov03.jpg" alt="Circle cash flow: every bank, a 12-month balance line and spend by supplier with real logos">
+            <img src="images/slides/41a-app-showcase/cashflow-nov05.jpg" alt="Circle cash flow: every bank, a 12-month balance line and spend by supplier with real logos">
             <figcaption></figcaption>
           </figure>
           <div class="slack-inset side cashflow-slack" aria-hidden="true">
@@ -2525,8 +2509,8 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Practice &amp; client <em>overview</em></h2></div>
       <div class="fill center-y">
         <div class="duo">
-        <figure class="shot window"><img src="images/slides/41a-app-showcase/practice-overview-tall-nov03.jpg" alt="Practice overview: every client with cash, bank lines, staff, packs, VAT, year end and confirmation statement"><figcaption></figcaption></figure>
-        <figure class="shot window"><img src="images/slides/41a-app-showcase/client-overview-nov03.jpg" alt="Circle's client overview: cash, net this month, things to action and the month-end checklist"><figcaption></figcaption></figure>
+        <figure class="shot window"><img src="images/slides/41a-app-showcase/practice-overview-tall-nov05.jpg" alt="Practice overview: every client with cash, bank lines, staff, packs, VAT, year end and confirmation statement"><figcaption></figcaption></figure>
+        <figure class="shot window"><img src="images/slides/41a-app-showcase/client-overview-nov05.jpg" alt="Circle's client overview: cash, net this month, things to action and the month-end checklist"><figcaption></figcaption></figure>
         </div>
       </div>
 
@@ -2541,8 +2525,8 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Deadlines &amp; <em>HMRC</em></h2></div>
       <div class="fill center-y">
         <div class="pair trio">
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/deadlines-practice-tall-nov03.jpg" alt="Practice deadlines: what is next, then every client's year-end accounts, confirmation statements and VAT"><figcaption></figcaption></figure>
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/deadlines-client-tall-nov03.jpg" alt="Circle's own deadlines page: what is next, the year ahead and each month's filings"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/deadlines-practice-tall-nov05.jpg" alt="Practice deadlines: one table by date, with every client's year-end accounts, confirmation statements, VAT and directors' loans"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/deadlines-client-tall-nov05.jpg" alt="Circle's own deadlines page: what is next, the year ahead and each month's filings"><figcaption></figcaption></figure>
           <div class="slack-inset side digest" aria-hidden="true">
             <div class="si-bar"><img src="images/shared/site/slack.svg" alt=""><span>#_filing_deadlines</span></div>
             <img class="sk-image" src="images/shared/slack/deadlines-digest-oct06.png" alt="">
@@ -2577,7 +2561,7 @@ deck-stage { background: #0a0a0a; }
       <div class="fill center-y">
         <div class="pair">
           <figure class="shot window">
-            <img src="images/slides/41a-app-showcase/pack-revenue-nov03.jpg" alt="Circle live management accounts pack: revenue by month and cumulative revenue against last year">
+            <img src="images/slides/41a-app-showcase/pack-summary-nov05.jpg" alt="Circle management accounts pack: the summary page with revenue, EBITDA, cash and the last 12 months, beside the pack's page list">
             <figcaption></figcaption>
           </figure>
           <div class="slack-inset side" aria-hidden="true">
@@ -2679,7 +2663,7 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Month <em>end</em></h2><p class="ai-note"><b>Claude Sonnet</b> <i>·</i> <b>Jev</b></p></div>
       <div class="fill center-y also-wrap">
         <div class="mosaic wide-side">
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/accruals-nov03.jpg" alt="Circle prepayments and accruals schedule with supplier logos, synced to Xero"><figcaption>Prepayments &amp; accruals</figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/accruals-nov05.jpg" alt="Circle prepayments and accruals schedule with supplier logos, synced to Xero"><figcaption>Prepayments &amp; accruals</figcaption></figure>
           <div class="mosaic-col">
             <figure class="shot window"><img src="images/slides/41a-app-showcase/payroll-realloc-nov03.jpg" alt="Payroll reallocations by department, posted to Xero"><figcaption>Payroll reallocations</figcaption></figure>
             <figure class="shot window"><img src="images/slides/41a-app-showcase/corp-tax-nov03.jpg" alt="Corporation tax accrual, month by month"><figcaption>Corporation tax</figcaption></figure>
@@ -2699,9 +2683,9 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Book<em>keeping</em></h2><p class="ai-note"><b>Claude Haiku</b> <i>·</i> <b>Jev</b></p></div>
       <div class="fill center-y">
         <div class="pair">
-          <i class="lens" aria-hidden="true" style="left: -45px; top: 335px; background-size: 1990px auto; background-image: url('images/slides/41a-app-showcase/bookkeeping-nov03.jpg'); background-position: -415px -531px;"></i>
+          <i class="lens" aria-hidden="true" style="left: -45px; top: 335px; background-size: 1990px auto; background-image: url('images/slides/41a-app-showcase/bookkeeping-nov05.jpg'); background-position: -415px -531px;"></i>
           <figure class="shot window">
-            <img src="images/slides/41a-app-showcase/bookkeeping-nov03.jpg" alt="Circle bookkeeping: every transaction with its supplier, the questions for the client and their answers">
+            <img src="images/slides/41a-app-showcase/bookkeeping-nov05.jpg" alt="Circle bookkeeping: every transaction with its supplier, the questions for the client and their answers">
             <figcaption></figcaption>
           </figure>
           <div class="slack-inset side" aria-hidden="true">
@@ -2740,8 +2724,8 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Payroll <em>review</em></h2><p class="ai-note"><b>Claude Sonnet</b></p></div>
       <div class="fill center-y">
         <div class="pair trio">
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/payroll-review-tall-nov03.jpg" alt="Circle payroll review: this month against last, line by line"><figcaption></figcaption></figure>
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/payroll-journal-tall-nov03.jpg" alt="The payroll journal for the month, balanced and ready to post to Xero"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/payroll-review-tall-nov05.jpg" alt="Circle payroll review: this month against last, line by line"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/payroll-journal-tall-nov05.jpg" alt="The payroll journal for the month, balanced and ready to post to Xero"><figcaption></figcaption></figure>
           <div class="slack-inset side" aria-hidden="true">
             <div class="si-bar"><img src="images/shared/site/slack.svg" alt=""><span>#circle_finance</span></div>
             <div class="si-msg">
@@ -2779,7 +2763,7 @@ deck-stage { background: #0a0a0a; }
       <div class="fill center-y">
         <div class="pair">
           <figure class="shot window">
-            <img src="images/slides/41a-app-showcase/vat-detail-nov03.jpg" alt="Circle VAT review box by box, ready for the client to sign off">
+            <img src="images/slides/41a-app-showcase/vat-detail-nov05.jpg" alt="Circle VAT review box by box, ready for the client to sign off">
             <figcaption></figcaption>
           </figure>
           <div class="slack-inset side" aria-hidden="true">
@@ -2828,7 +2812,7 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display">Company <em>info</em></h2></div>
       <div class="fill center-y">
         <div class="twin">
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/company-info-top-nov03.jpg" alt="Company information from Companies House: the company, its year-end lock, HMRC liabilities and the registered office. A made-up demo company"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/company-info-top-nov05.jpg" alt="Company information from Companies House: the company, its year-end lock, HMRC liabilities and the registered office. A made-up demo company"><figcaption></figcaption></figure>
           <figure class="shot window"><img src="images/slides/41a-app-showcase/company-info-people-nov03.jpg" alt="Further down the same page: the registered office, the officers, the persons with significant control and the cap table. A made-up demo company"><figcaption></figcaption></figure>
         </div>
       </div>
@@ -2890,7 +2874,7 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head"><h2 class="display"><em>Proposals</em></h2></div>
       <div class="fill center-y">
         <div class="hubside">
-          <figure class="shot window hs-hub"><img src="images/slides/41a-app-showcase/proposals-hub-wide-nov03.jpg" alt="Practice proposals: what to chase, drafts, won this year, and each proposal with its status. Names and figures changed"><figcaption></figcaption></figure>
+          <figure class="shot window hs-hub"><img src="images/slides/41a-app-showcase/proposals-hub-wide-nov05.jpg" alt="Practice proposals: what to chase, drafts, won this year, and each proposal with its status. Names and figures changed"><figcaption></figcaption></figure>
           <figure class="shot window hs-page"><img src="images/slides/41a-app-showcase/proposal-fees-oct22.jpg" alt="The proposal fees: recurring monthly services with the first three months discounted"><figcaption></figcaption></figure>
           <div class="slack-inset side" aria-hidden="true">
             <div class="si-bar"><img src="images/shared/site/slack.svg" alt=""><span>#proposals</span></div>
@@ -2918,13 +2902,17 @@ deck-stage { background: #0a0a0a; }
       <div class="feat-head has-sub"><h2 class="display">Embedded <em>AI</em></h2><p class="sub feat-sub">AI savvy, not <span class="hype">AI native<span class="hype-tag">Hype language</span></span> <em>Deterministic at its core.</em></p></div>
       <div class="fill center-y">
         <div class="shot-wrap">
-          <figure class="shot window"><img src="images/slides/41a-app-showcase/ai-integrations-nov03.jpg" alt="AI integrations: Claude, Jev, Gemini and other labs, what each one does, and the month spend against its budget"><figcaption></figcaption></figure>
+          <figure class="shot window"><img src="images/slides/41a-app-showcase/ai-integrations-nov05.jpg" alt="AI integrations: Claude, Jev, Gemini and other labs, what each one does, and the month spend against its budget"><figcaption></figcaption></figure>
         </div>
       </div>
 
       <div class="bottombar"></div>
     </div>
   </section>
+
+  <!-- The two desktop apps. The Setlist window is the live page set in a replica
+       of the desktop frame (desktop/tasks FramedForm.cs, Theme.cs), its task
+       titles rewritten; Acapella is the running app's own window. -->
 
 <section data-nx-reuse class="slide" data-label="Desktop apps">
     <div class="frame" style="--pad-y: 56px;">
@@ -2953,6 +2941,11 @@ deck-stage { background: #0a0a0a; }
       <div class="bottombar"></div>
     </div>
   </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       CLIENT DASHBOARDS · SECTION INTRO
+       ════════════════════════════════════════════════════════════════ -->
 
 <section data-nx-reuse class="slide" data-label="Slides">
 
@@ -3378,7 +3371,7 @@ deck-stage { background: #0a0a0a; }
 {"say":["Startups cannot get funding if they are not AI native. It is the buzzword. The more AI native you are the better, right?"],"ask":"The dialog is a joke. The point stands: Basis raised $100M at a $1.15B valuation in February 2026 and the money is following the label."},
 {"say":["Well, what does it actually mean?","Honestly, I do not really know. No one really seems to, but it sounds on trend, and that is what matters, apparently."],"src":["Searching it turns up founder essays, VC blogs and marketing pages. There is no settled definition."]},
 {"say":["What I think it means: driven at the core by an AI driven workflow, invariably through GenAI agents."]},
-{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that. If I am not doing something, you probably do not need to either.","So what is GenAI, and what are GenAI agents?"]},
+{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that.","If I am not doing something, you probably do not need to either.","So what is GenAI, and what are GenAI agents?"]},
 {"say":["AI has been around since the 1950s. GenAI is just the latest evolution. One click per era."],"src":["Source: vibes based. It is an impression, not data."]},
 {"say":["The scientific term is transformer-based LLMs: autoregressive prediction machines. They are advanced autocomplete. Each click is one prediction.","Transformer-based large language models. Strip the branding away and it is autocomplete: the same trick as the predictive strip on your phone, trained on most of the written internet.","Pattern recognition, not understanding. It has no model of your client, your ledger or the law; it has a very good sense of what text usually comes next."],"ask":"'Reasoning models think before they answer.' They generate more tokens before the final ones. Same mechanism, longer run; better results on many tasks, still no checker."},
 {"say":["Probabilistic by design. So is machine learning, before anyone suggests that form of AI native is different.","Optimised to be plausible, not correct. They make mistakes by design.","Prompt to tokens to a probability over the next token. The dropdown is the whole story: a ranking by plausibility, nothing checked.","'Turn the randomness off and it is the same guess every run. Still a guess.'"],"ask":"Temperature zero: yes, that removes the sampling. It does not add a checker. The output is still the most plausible continuation, not a verified fact. OpenAI's own Sept 2025 hallucination paper: benchmarks reward guessing over abstaining."},
