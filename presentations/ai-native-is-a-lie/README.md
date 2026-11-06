@@ -2,7 +2,7 @@
 
 Here is how I actually use GenAI to transform my firm.
 
-Live at `/ai-native`, which redirects to this folder. 41 slides plus backup screens after Thank you. The live walkthrough is slide 27.
+Live at `/ai-native`, which redirects to this folder. 43 slides plus backup screens after Thank you. The live walkthrough is slide 29.
 
 - One click per slide: each slide plays its own animation, so there are no timings to learn. `data-first` and `data-gap` set the pace. `?steps=manual` gives one click per step.
 - N opens speaker notes. `?notes` opens a presenter window that follows the projector.

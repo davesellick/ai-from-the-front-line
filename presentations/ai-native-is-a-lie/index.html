@@ -663,9 +663,14 @@ deck-stage { background: #0a0a0a; }
 /* ── 11 · Section transition ────────────────────────────────────── */
 
 /* ── Why listen to me · the photo fills the slide; the card stays on the wall, clear of the setup ── */
-.who-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.who-card { position: absolute; left: 32px; top: 28px; width: fit-content; box-sizing: border-box; padding: 24px 34px 26px; background: #fff; border-radius: 28px; box-shadow: 0 24px 60px -24px rgba(15,16,48,.55); }
-.who-close { margin: 12px 0 0; font-family: var(--font-sans); font-size: 25px; font-weight: 500; line-height: 1.25; letter-spacing: -.012em; color: var(--ink-500); white-space: nowrap; }
+.who-split { display: grid; grid-template-columns: minmax(0, 1fr) 880px; gap: 72px; align-items: center; }
+.who-photo { display: block; width: 880px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; border: 8px solid #fff; box-shadow: 0 2px 4px rgba(30,30,70,.06), 0 30px 70px -28px rgba(30,30,70,.4); }
+.who-close { margin: 36px 0 0; font-family: var(--font-sans); font-size: 34px; font-weight: 500; line-height: 1.3; letter-spacing: -.012em; color: var(--ink-500); max-width: 680px; }
+/* ── Back to it · AI native = GenAI agents driving the workflow ── */
+.bk-eq { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 34px; font-family: var(--font-sans); }
+.bk-term { background: #fff; border-radius: 30px; box-shadow: var(--nx-lift); padding: 34px 48px; font-family: var(--font-serif); font-size: 84px; line-height: 1; letter-spacing: -.012em; color: var(--ink); }
+.bk-term.hi { color: var(--periwinkle-700); font-style: italic; }
+.bk-op { font-size: 44px; font-weight: 600; color: var(--ink-500); }
 
 /* ── Context · Bible, Roadmap, Handover ─────────────────────────── */
 .cx-files { display: flex; flex-direction: column; gap: 22px; width: 820px; font-family: var(--font-sans); }
@@ -1548,11 +1553,31 @@ deck-stage { background: #0a0a0a; }
 </section>
 
 <section class="slide" data-label="Why listen to me">
-  <img class="who-photo" src="images/slides/02-who-am-i/dave-setup.jpg" alt="Dave at his desk, with two monitors and a wall of Stream Decks behind him">
-  <div class="who-card">
-    <h2 class="display" style="font-size:70px;line-height:1.06">Hold up.<br>Why should you <em>listen to me?</em></h2>
-    <p class="who-close">If I’m not doing something, you probably don’t need to either.</p>
-  </div>
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill who-split">
+    <div><h2 class="display" style="font-size:112px;line-height:1.04" data-blur>Hold up.<br>Why should you <em>listen to me?</em></h2>
+    <p class="who-close" data-rise style="--d:.4s">If I’m not doing something, you probably don’t need to either.</p></div>
+    <img class="who-photo" data-card src="images/slides/02-who-am-i/dave-setup.jpg" alt="Dave at his desk, with two monitors and a wall of Stream Decks behind him">
+  </div><div class="bottombar"></div></div>
+</section>
+
+<section class="slide paper-soft" data-label="Back to it">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y" style="align-items:center;text-align:center">
+    <h2 class="display" style="font-size:112px;margin-bottom:84px" data-blur>So, <em>back to it.</em></h2>
+    <div class="bk-eq">
+      <span class="bk-term" data-step="1">AI native</span>
+      <span class="bk-op" data-step="2">=</span>
+      <span class="bk-term hi" data-step="2">GenAI agents</span>
+      <span class="bk-op" data-step="3">driving</span>
+      <span class="bk-term" data-step="3">the workflow</span>
+    </div>
+  </div><div class="bottombar"></div></div>
+</section>
+
+<section class="slide ink" data-label="What is GenAI">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <h2 class="display" style="font-size:170px" data-blur>So what actually <em>is GenAI?</em></h2>
+    <p class="sub" data-step="1" style="font-size:44px;margin-top:40px">And how did we get to GenAI mania?</p>
+  </div><div class="bottombar"></div></div>
 </section>
 
 <section data-gap="320" data-nx-reuse class="slide" data-label="Hype curve">
@@ -3371,7 +3396,9 @@ deck-stage { background: #0a0a0a; }
 {"say":["Startups cannot get funding if they are not AI native. It is the buzzword. The more AI native you are the better, right?"],"ask":"The dialog is a joke. The point stands: Basis raised $100M at a $1.15B valuation in February 2026 and the money is following the label."},
 {"say":["Well, what does it actually mean?","Honestly, I do not really know. No one really seems to, but it sounds on trend, and that is what matters, apparently."],"src":["Searching it turns up founder essays, VC blogs and marketing pages. There is no settled definition."]},
 {"say":["What I think it means: driven at the core by an AI driven workflow, invariably through GenAI agents."]},
-{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that.","If I am not doing something, you probably do not need to either.","So what is GenAI, and what are GenAI agents?"]},
+{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that.","If I am not doing something, you probably do not need to either."]},
+{"say":["So, back to it. AI native, as far as I can tell, means GenAI agents driving the workflow. That is the thing being sold."]},
+{"say":["So what actually is GenAI? And how did we get to this mania about it?"]},
 {"say":["AI has been around since the 1950s. GenAI is just the latest evolution. One click per era."],"src":["Source: vibes based. It is an impression, not data."]},
 {"say":["The scientific term is transformer-based LLMs: autoregressive prediction machines. They are advanced autocomplete. Each click is one prediction.","Transformer-based large language models. Strip the branding away and it is autocomplete: the same trick as the predictive strip on your phone, trained on most of the written internet.","Pattern recognition, not understanding. It has no model of your client, your ledger or the law; it has a very good sense of what text usually comes next."],"ask":"'Reasoning models think before they answer.' They generate more tokens before the final ones. Same mechanism, longer run; better results on many tasks, still no checker."},
 {"say":["Probabilistic by design. So is machine learning, before anyone suggests that form of AI native is different.","Optimised to be plausible, not correct. They make mistakes by design.","Prompt to tokens to a probability over the next token. The dropdown is the whole story: a ranking by plausibility, nothing checked.","'Turn the randomness off and it is the same guess every run. Still a guess.'"],"ask":"Temperature zero: yes, that removes the sampling. It does not add a checker. The output is still the most plausible continuation, not a verified fact. OpenAI's own Sept 2025 hallucination paper: benchmarks reward guessing over abstaining."},
