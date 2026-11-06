@@ -100,8 +100,10 @@
     if (manual) return;
     const first = Number(slide.dataset.first || 220);
     const gap = Number(slide.dataset.gap || 140);
+    /* data-auto-to="n" pauses autoplay at step n until the presenter clicks on. */
+    const hold = slide.dataset.autoTo !== undefined && nowStep(slide) < Number(slide.dataset.autoTo) ? Number(slide.dataset.autoTo) : lastStep(slide);
     const tick = () => {
-      if (!slide.hasAttribute('data-deck-active') || nowStep(slide) >= lastStep(slide)) return;
+      if (!slide.hasAttribute('data-deck-active') || nowStep(slide) >= hold) return;
       setStep(slide, nowStep(slide) + 1);
       autoTimer = setTimeout(tick, gap);
     };
@@ -112,6 +114,10 @@
     driven = true;
     const slide = active();
     if (manual && nowStep(slide) < lastStep(slide)) setStep(slide, nowStep(slide) + 1);
+    else if (!manual && slide.dataset.autoTo !== undefined && nowStep(slide) < lastStep(slide)) {
+      setStep(slide, Math.max(nowStep(slide), Number(slide.dataset.autoTo)) + 1);
+      autoPlay(slide);
+    }
     else stage.goTo(stage.index + 1);
   }
   function back() {
