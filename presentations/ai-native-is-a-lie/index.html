@@ -1814,22 +1814,20 @@ deck-stage { background: #0a0a0a; }
     <div class="tox-tape b" data-step="1" aria-hidden="true"><span>HAZARD · DO NOT AUTOMATE · HAZARD · DO NOT AUTOMATE · HAZARD · DO NOT AUTOMATE · HAZARD · DO NOT AUTOMATE ·</span></div>
   </section>
 
-<section data-first="700" data-gap="2600" class="slide cream fe" data-label="Ready meals">
+<section data-first="700" data-gap="2200" class="slide cream fe" data-label="Ready meals">
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div></div>
   <div class="fe-head"><h2 class="display" style="font-size:104px" data-blur>It’s a false economy. <em>A shortcut with shortcomings.</em></h2></div>
-  <div class="fe-chart">
-    <svg viewBox="0 0 1300 520" aria-hidden="true">
-      <path class="fe-axis" d="M80 30V460H1260"/>
-      <text class="fe-ax" x="60" y="40" text-anchor="end">Cost</text><text class="fe-ax" x="1260" y="500" text-anchor="end">Time</text>
-      <path class="fe-line good" data-step="2" pathLength="1" d="M80 330C170 190 300 200 420 215C700 226 1000 229 1250 231"/>
-      <path class="fe-line bad" data-step="1" pathLength="1" d="M80 420C400 412 700 340 900 222S1180 46 1250 30"/>
-      <g data-step="1"><g class="fe-err" style="--d:1.0s"><circle cx="640" cy="352" r="15"/><path d="M640 345v7M640 357v.5"/></g><g class="fe-err" style="--d:1.3s"><circle cx="840" cy="262" r="15"/><path d="M840 255v7M840 267v.5"/></g><g class="fe-err" style="--d:1.6s"><circle cx="1010" cy="150" r="15"/><path d="M1010 143v7M1010 155v.5"/></g><g class="fe-err" style="--d:1.9s"><circle cx="1150" cy="72" r="15"/><path d="M1150 65v7M1150 77v.5"/></g></g>
-      <g class="fe-x" data-step="3"><circle cx="902" cy="222" r="16"/><circle cx="902" cy="222" r="34" class="ring"/></g>
-    </svg>
-    <p class="fe-key bad" data-step="1" style="right:70px;top:-6px">Agents doing the work</p>
-    <p class="fe-key good" data-step="2" style="left:250px;top:140px">Tools you build</p>
-    <p class="fe-call" data-step="3" style="left:940px;top:290px">The shortcut stops<br>being cheap</p>
-  </div>
+  <div class="sc-row2"><div class="sc-card bad" data-step="1">
+      <div class="sc-top"><span class="sc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="15" x="2" y="4" rx="2"/><rect width="8" height="7" x="6" y="8" rx="1"/><path d="M18 8v7"/><path d="M6 19v2"/><path d="M18 19v2"/></svg></span><div class="sc-t"><b>Ready meal</b><small>Agents run the month-end</small></div>
+        <div class="sc-score"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50"/><circle class="arc" cx="60" cy="60" r="50" pathLength="100" style="--s:12"/></svg><span><b data-count="12">12</b><small>Poor</small></span></div></div>
+      <div class="sc-row"><span>Tokens</span><i class="sc-bar"><i style="--w:88%"></i></i><b>High</b></div><div class="sc-row"><span>Errors</span><i class="sc-bar"><i style="--w:76%"></i></i><b>High</b></div><div class="sc-row"><span>Rework</span><i class="sc-bar"><i style="--w:82%"></i></i><b>High</b></div>
+      <p class="sc-foot">Ready in 4 mins</p>
+    </div><div class="sc-card good" data-step="2">
+      <div class="sc-top"><span class="sc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><div class="sc-t"><b>Home cooked</b><small>Tools you build</small></div>
+        <div class="sc-score"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50"/><circle class="arc" cx="60" cy="60" r="50" pathLength="100" style="--s:94"/></svg><span><b data-count="94">94</b><small>Excellent</small></span></div></div>
+      <div class="sc-row"><span>Tokens</span><i class="sc-bar"><i style="--w:8%"></i></i><b>Low</b></div><div class="sc-row"><span>Errors</span><i class="sc-bar"><i style="--w:4%"></i></i><b>Low</b></div><div class="sc-row"><span>Rework</span><i class="sc-bar"><i style="--w:6%"></i></i><b>Low</b></div>
+      <p class="sc-foot">Made by you</p>
+    </div></div>
 </section>
 
 <section data-nx-reuse class="slide" data-label="Hooked">
@@ -4609,6 +4607,30 @@ html.nx-final .fe-tl, html.nx-final .fe-holes circle { opacity: 1; scale: 1; } h
 .fe-key.bad { color: #C23A3F; } .fe-key.good { color: #3F7A22; }
 .fe-call { position: absolute; margin: 0; font-family: var(--font-serif); font-style: italic; font-size: 38px; line-height: 1.1; color: var(--ink); }
 html.nx-final .fe-err { opacity: 1; transform: none; } html.nx-final .fe-x .ring { animation: none !important; opacity: 0; }
+
+.sc-row2 { position: absolute; left: 50%; top: 290px; translate: -50% 0; display: flex; gap: 56px; font-family: var(--font-sans); }
+.sc-card { width: 640px; box-sizing: border-box; padding: 34px 38px 30px; border-radius: 32px; background: #fff; box-shadow: 0 40px 80px -30px rgba(27,28,58,.35), 0 0 0 1px rgba(27,28,58,.06); }
+.sc-card[data-step] { translate: 0 60px; scale: .94; } .sc-card[data-step].on { translate: 0 0; scale: 1; }
+.sc-top { display: flex; align-items: center; gap: 20px; margin-bottom: 26px; }
+.sc-ico { flex: none; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 22px; }
+.sc-ico svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.bad .sc-ico { background: #FDE7E7; color: #C23A3F; } .good .sc-ico { background: #E6F6DA; color: #3F7A22; }
+.sc-t { flex: 1; display: flex; flex-direction: column; } .sc-t b { font-size: 40px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; } .sc-t small { font-size: 22px; color: var(--ink-500, #4A4C6A); margin-top: 4px; }
+.sc-score { position: relative; width: 120px; height: 120px; flex: none; }
+.sc-score svg { width: 120px; height: 120px; rotate: -90deg; } .sc-score circle { fill: none; stroke: #EFEFF4; stroke-width: 11; }
+.sc-score .arc { stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
+.bad .sc-score .arc { stroke: #E5484D; } .good .sc-score .arc { stroke: #5E9432; }
+.sc-card.on .arc { transition: stroke-dashoffset 1.4s var(--nx-ease) .3s; stroke-dashoffset: calc(100 - var(--s)); }
+.sc-score > span { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.sc-score b { font-size: 40px; font-weight: 800; color: var(--ink); line-height: 1; } .sc-score small { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; }
+.bad .sc-score small { color: #C23A3F; } .good .sc-score small { color: #3F7A22; }
+.sc-row { display: flex; align-items: center; gap: 20px; padding: 16px 0; border-top: 1px solid #EFEFF4; font-size: 26px; color: var(--ink); }
+.sc-row > span { width: 120px; font-weight: 600; }
+.sc-bar { flex: 1; height: 14px; border-radius: 7px; background: #F1F1F5; overflow: hidden; } .sc-bar i { display: block; height: 100%; width: 0; border-radius: 7px; }
+.bad .sc-bar i { background: linear-gradient(90deg, #F7A1A3, #E5484D); } .good .sc-bar i { background: linear-gradient(90deg, #BFE8A0, #5E9432); }
+.sc-card.on .sc-bar i { transition: width 1s var(--nx-ease) .6s; width: var(--w); }
+.sc-row > b { width: 70px; text-align: right; font-weight: 800; font-size: 22px; } .bad .sc-row > b { color: #C23A3F; } .good .sc-row > b { color: #3F7A22; }
+.sc-foot { margin: 18px 0 0; display: inline-block; padding: 8px 16px; border-radius: 999px; font-size: 19px; font-weight: 600; background: #F4F4F8; color: var(--ink-500, #4A4C6A); }
 </style>
 <script>
   // Speaker notes panel. N toggles it. With ?notes on the URL the panel starts
