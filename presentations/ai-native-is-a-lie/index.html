@@ -2135,6 +2135,35 @@ deck-stage { background: #0a0a0a; }
   <div class="nx-herowin" data-step="0"><div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>Sidgrove Intelligence</span></div><img src="images/slides/41a-app-showcase/cashflow-nov05.jpg" alt="Sidgrove Intelligence, demo company"></div>
 </section>
 
+<section class="slide paper-soft" data-label="Connected">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <h2 class="display" style="font-size:112px;margin-bottom:70px" data-blur>Properly <em>connected.</em></h2>
+    <div class="cn-map">
+      <div class="cn-col" data-step="1"><p class="cn-kick">Live API connections</p><div class="cn-chips"><div class="wf-chip"><img src="images/shared/site/xero.svg" alt="">Xero</div><div class="wf-chip"><img src="images/shared/site/paycircle.png" alt="">Paycircle</div><div class="wf-chip">Companies House</div><div class="wf-chip">Client systems</div></div><p class="cn-note">Synced and checked, no copying and pasting</p></div>
+      <i class="cn-link" data-step="1"></i>
+      <div class="cn-hub" data-card><span>Sidgrove</span><b>Intelligence</b><small>Everything in one place</small></div>
+      <i class="cn-link" data-step="2"></i>
+      <div class="cn-col" data-step="2"><p class="cn-kick">Ad hoc data</p><div class="cn-chips one"><div class="wf-chip"><img src="images/shared/site/sheets.png" alt="">Google Sheets</div></div><p class="cn-note">For the one-off data that lives nowhere else</p></div>
+    </div>
+  </div><div class="bottombar"></div></div>
+</section>
+
+<section class="slide" data-label="GenAI where it works">
+  <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <h2 class="display" style="font-size:104px;margin-bottom:22px" data-blur>Yes, I use GenAI. <em>Where it works best.</em></h2>
+    <p class="sub" style="font-size:32px;margin-bottom:60px;--d:.2s" data-rise>Not just built with GenAI: it runs inside the app too, once the rules have done all they can.</p>
+    <div class="gx-bar">
+      <div class="gx-det" data-step="1"><b>Deterministic workflows</b><span>Do the work, the same way every time</span></div>
+      <div class="gx-gen" data-step="2"><b>GenAI</b><span>Picks up what’s left</span></div>
+    </div>
+    <div class="gx-cards">
+      <div class="gx-card" data-step="3"><b>Exception checking</b><span>Flags what looks wrong</span></div>
+      <div class="gx-card" data-step="3" style="transition-delay:.1s"><b>Reviewing</b><span>A second pair of eyes on the output</span></div>
+      <div class="gx-card" data-step="3" style="transition-delay:.2s"><b>The awkward bits</b><span>What rules can’t reach</span></div>
+    </div>
+  </div><div class="bottombar"></div></div>
+</section>
+
 <section data-nx-reuse class="slide" data-label="The hub">
 
 
@@ -3443,6 +3472,8 @@ deck-stage { background: #0a0a0a; }
 {"say":["Sidgrove Intelligence: the app that sits between my clients and the work I do. Every line of it was written with Claude Code. Solid surfaces, dense where it needs to be; it is a product, not a demo.","Think of it as an orchestration layer: Xero, the sheets, payroll and Slack, with one way in and one way out. And the future is embedding something like this directly into the ledger."]},
 {"say":["This is the whole point. Everything in the firm was disjointed workflows and separate products, largely driven by spreadsheets."]},
 {"say":["Sidgrove Intelligence is the orchestration app I have built, and it has productised all of that into one product."]},
+{"say":["It is properly connected. Live API connections into Xero, Paycircle, Companies House and the client systems that matter, synced and checked, so nothing is copied and pasted.","And where I need ad hoc data that lives nowhere else, I bring it in through Google Sheets."]},
+{"say":["And yes, I use GenAI. This is not just built with GenAI; it runs inside the app too. But I use it where I think it works best.","Deterministic workflows do the work first, the same way every time. When I have exhausted what rules can do, GenAI picks up what is left: exception checking, reviewing and the awkward bits.","I am not anti GenAI. I am anti letting it run the whole thing."]},
 {"say":["Xero, Paycircle, Companies House and the rest, all into one app. Deterministic at its core. AI savvy, never AI native."]},
 {"say":["SWITCH TO THE LIVE APP NOW. Circle demo mode only. Walk through the connections, then the tour. If the demo fails, the backup screens come after Thank you."]},
 {"say":["Three of them. A media group: the last twelve months against the year before, and which customers make the money. A chiropractic studio: new patients every month, by practitioner, and what each visit brings in. And a clinic with two sites: revenue side by side, month by month, and how full each diary is. Different businesses, so different dashboards. Figures are changed and the logos are blurred; everything else is real."]},
@@ -5246,6 +5277,28 @@ html.nx-final *, html.nx-final *::before, html.nx-final *::after { transition: n
 .nx-sheet[data-step] { translate: 0 60px; scale: .7; rotate: calc(var(--r) * 3); transition: opacity .35s ease, translate .6s cubic-bezier(.2,1.2,.35,1), scale .6s cubic-bezier(.2,1.2,.35,1), rotate .6s ease; }
 .nx-sheet[data-step].on { translate: 0 0; scale: 1; rotate: var(--r); }
 .slide[data-label="One product"]:is([data-step-now="2"], [data-step-now="3"]) .nx-sheet.on { translate: var(--dx) var(--dy); scale: .1; rotate: calc(var(--r) * 12); opacity: 0; transition: translate .85s cubic-bezier(.65,0,.5,1), scale .85s cubic-bezier(.65,0,.5,1), rotate .85s ease, opacity .25s linear .62s; transition-delay: 0s, 0s, 0s, .62s; }
+/* ── Connected · APIs in, Sheets for ad hoc ── */
+.cn-map { display: grid; grid-template-columns: 1fr 110px 400px 110px 1fr; align-items: center; font-family: var(--font-sans); }
+.cn-kick { font-size: 22px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--periwinkle-700); margin: 0 0 20px; }
+.cn-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; } .cn-chips.one { grid-template-columns: 1fr; width: fit-content; }
+.cn-map .wf-chip { font-size: 26px; padding: 16px 24px 16px 16px; } .cn-map .wf-chip img { width: 36px; height: 36px; }
+.cn-note { font-size: 24px; color: var(--ink-500); margin: 22px 0 0; line-height: 1.3; }
+.cn-link { display: block; height: 4px; margin: 0 14px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--periwinkle-700) 0 14px, transparent 14px 24px); opacity: .55; }
+.cn-hub { background: var(--ink); color: #fff; border-radius: 34px; padding: 50px 40px; text-align: center; box-shadow: var(--nx-lift); }
+.cn-hub span { display: block; font-size: 24px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.cn-hub b { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 72px; line-height: 1.05; margin-top: 8px; }
+.cn-hub small { display: block; font-size: 24px; color: rgba(255,255,255,.75); margin-top: 16px; }
+/* ── GenAI where it works · deterministic first, GenAI for the rest ── */
+.gx-bar { display: grid; grid-template-columns: 3fr 1fr; gap: 12px; font-family: var(--font-sans); }
+.gx-bar > div { border-radius: 26px; padding: 34px 38px; color: #fff; }
+.gx-bar b { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 54px; line-height: 1.05; }
+.gx-bar span { display: block; font-size: 25px; margin-top: 10px; opacity: .9; }
+.gx-det { background: linear-gradient(160deg, #4E7D28, #355A1A); }
+.gx-gen { background: linear-gradient(160deg, #5B67D6, #3E48A8); }
+.gx-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 28px; margin-left: 30%; font-family: var(--font-sans); }
+.gx-card { background: #fff; border-radius: 22px; padding: 24px 28px; box-shadow: var(--nx-lift); }
+.gx-card b { display: block; font-size: 27px; font-weight: 700; color: var(--periwinkle-700); letter-spacing: -.01em; }
+.gx-card span { display: block; font-size: 22px; color: var(--ink-700); margin-top: 6px; line-height: 1.3; }
 .nx-herowin { position: absolute; left: 300px; right: 300px; top: 320px; bottom: -40px; background: #fff; border-radius: 22px 22px 0 0; overflow: hidden; z-index: 4; box-shadow: 0 0 120px rgba(208,248,176,.28), 0 40px 90px -30px rgba(0,0,0,.8); }
 .nx-herowin[data-step] { translate: 0 0; scale: .2; transform-origin: 50% 40%; transition: opacity .25s ease, scale .8s cubic-bezier(.2,1.25,.35,1); }
 .nx-herowin[data-step].on { scale: 1; }
