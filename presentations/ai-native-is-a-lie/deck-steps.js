@@ -166,4 +166,6 @@
     startLive(first);
     autoPlay(first);
   }
+  /* index.html hides the deck and holds transitions until this point. */
+  requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('nx-ready')));
 })();
