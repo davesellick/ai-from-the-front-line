@@ -668,7 +668,11 @@ deck-stage { background: #0a0a0a; }
 /* ── Why listen to me · the photo fills the slide; the card stays on the wall, clear of the setup ── */
 .who-split { display: grid; grid-template-columns: minmax(0, 1fr) 880px; gap: 72px; align-items: center; }
 .who-photo { display: block; width: 880px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; border: 8px solid #fff; box-shadow: 0 2px 4px rgba(30,30,70,.06), 0 30px 70px -28px rgba(30,30,70,.4); }
-.who-close.who-lead { font-weight: 700; color: var(--ink); }
+/* Why listen to me: three anchored points, never loose lines. */
+.who-pts { list-style: none; margin: 40px 0 0; padding: 0; max-width: 700px; display: flex; flex-direction: column; gap: 18px; font-family: var(--font-sans); font-size: 32px; font-weight: 500; line-height: 1.3; letter-spacing: -.012em; color: var(--ink-500); }
+.who-pts li { position: relative; padding-left: 34px; }
+.who-pts li::before { content: ''; position: absolute; left: 2px; top: .5em; width: 12px; height: 12px; border-radius: 50%; background: var(--periwinkle-500, #6E78E0); }
+.who-pts b { font-weight: 700; color: var(--ink); }
 .who-close { margin: 36px 0 0; font-family: var(--font-sans); font-size: 34px; font-weight: 500; line-height: 1.3; letter-spacing: -.012em; color: var(--ink-500); max-width: 680px; }
 /* ── Back to it · AI native = GenAI agents driving the workflow ── */
 .bk-eq { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 34px; font-family: var(--font-sans); }
@@ -1569,9 +1573,11 @@ deck-stage { background: #0a0a0a; }
 <section class="slide" data-label="Why listen to me">
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill who-split">
     <div><h2 class="display" style="font-size:112px;line-height:1.04" data-blur>But…<br>Why should you <em>listen to me?</em></h2>
-    <p class="who-close who-lead" data-rise style="--d:.4s">Obsessive early adopter.</p>
-    <p class="who-close" data-rise style="--d:.5s;margin-top:10px">Currently working with GenAI almost every waking hour.</p>
-    <p class="who-close" data-rise style="--d:.6s;margin-top:28px">If I’m not doing something, you probably don’t need to either.</p></div>
+    <ul class="who-pts">
+      <li data-rise style="--d:.4s"><b>Obsessive early adopter.</b></li>
+      <li data-rise style="--d:.5s">Currently working with GenAI almost every waking hour.</li>
+      <li data-rise style="--d:.6s">If I’m not doing something, you probably don’t need to either.</li>
+    </ul></div>
     <img class="who-photo" data-card src="images/slides/02-who-am-i/dave-setup.jpg" alt="Dave at his desk, with two monitors and a wall of Stream Decks behind him">
   </div><div class="bottombar"></div></div>
 </section>
