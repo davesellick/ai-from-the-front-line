@@ -3765,6 +3765,7 @@ svg.nx-i { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-wid
 [data-step] { opacity: 0; translate: 0 18px; transition: opacity .6s ease, translate .7s var(--nx-ease), scale .7s var(--nx-ease), rotate .7s var(--nx-ease); }
 [data-step].on { opacity: 1; translate: 0 0; }
 [data-step].off { opacity: 0; translate: 0 -18px; pointer-events: none; }
+.slide.nx-snap, .slide.nx-snap *, .slide.nx-snap *::before, .slide.nx-snap *::after { transition: none !important; }
 svg [data-step] { translate: 0 0; }
 span[data-step] { display: inline-block; }
 span.rd-row[data-step], div.rd-row[data-step] { display: flex; }

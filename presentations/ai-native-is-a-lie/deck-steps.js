@@ -49,6 +49,13 @@
   }
 
   function setStep(slide, n, animate = true) {
+    /* A reset (landing on a slide, coming back, print) snaps with no transitions, so a slide
+       seen before never plays its build backwards before playing it forwards again. */
+    if (!animate) {
+      slide.classList.add('nx-snap');
+      clearTimeout(slide._snapTimer);
+      slide._snapTimer = setTimeout(() => slide.classList.remove('nx-snap'), 0);
+    }
     slide.dataset.stepNow = n;
     slide.querySelectorAll('[data-step]').forEach((el) => {
       const wasOn = el.classList.contains('on');
@@ -63,6 +70,7 @@
       if (on && el.dataset.done !== '1') { el.dataset.done = '1'; countUp(el, animate); }
       if (!on) { el.dataset.done = ''; el.textContent = '0'; }
     });
+    if (!animate) void slide.offsetWidth; /* commit the snapped state before transitions return */
   }
 
   function clearTimers() { timers.forEach(clearInterval); timers.clear(); }
