@@ -5,7 +5,7 @@
  *   data-step-off="n"   gone again from step n (gets the class "off")
  *   data-count="19352"  counts up from 0 when it comes on
  *   data-tick           adds 1 (or data-tick-by) every 1.5s while it is on
- *   data-type="text"    types itself out when the slide opens (data-type-delay in ms)
+ *   data-type="text"    types itself out when the slide opens (data-type-delay in ms, data-type-speed ms per letter)
  *   data-no-advance     clicks inside this element do not move the deck
  *
  * One click moves one slide. Whatever a slide holds appears by itself in about a second.
@@ -86,7 +86,7 @@
         const id = setInterval(() => {
           el.textContent = text.slice(0, ++i);
           if (i >= text.length) { clearInterval(id); timers.delete(id); }
-        }, 42);
+        }, Number(el.dataset.typeSpeed || 42));
         timers.add(id);
       }, Number(el.dataset.typeDelay || 700));
       timers.add(wait);
