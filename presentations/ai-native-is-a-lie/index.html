@@ -668,6 +668,7 @@ deck-stage { background: #0a0a0a; }
 /* ── Why listen to me · the photo fills the slide; the card stays on the wall, clear of the setup ── */
 .who-split { display: grid; grid-template-columns: minmax(0, 1fr) 880px; gap: 72px; align-items: center; }
 .who-photo { display: block; width: 880px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; border: 8px solid #fff; box-shadow: 0 2px 4px rgba(30,30,70,.06), 0 30px 70px -28px rgba(30,30,70,.4); }
+.who-close.who-lead { font-weight: 700; color: var(--ink); }
 .who-close { margin: 36px 0 0; font-family: var(--font-sans); font-size: 34px; font-weight: 500; line-height: 1.3; letter-spacing: -.012em; color: var(--ink-500); max-width: 680px; }
 /* ── Back to it · AI native = GenAI agents driving the workflow ── */
 .bk-eq { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 34px; font-family: var(--font-sans); }
@@ -1567,8 +1568,10 @@ deck-stage { background: #0a0a0a; }
 
 <section class="slide" data-label="Why listen to me">
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill who-split">
-    <div><h2 class="display" style="font-size:112px;line-height:1.04" data-blur>Hold up.<br>Why should you <em>listen to me?</em></h2>
-    <p class="who-close" data-rise style="--d:.4s">If I’m not doing something, you probably don’t need to either.</p></div>
+    <div><h2 class="display" style="font-size:112px;line-height:1.04" data-blur>But…<br>Why should you <em>listen to me?</em></h2>
+    <p class="who-close who-lead" data-rise style="--d:.4s">Obsessive early adopter.</p>
+    <p class="who-close" data-rise style="--d:.5s;margin-top:10px">Currently working with GenAI almost every waking hour.</p>
+    <p class="who-close" data-rise style="--d:.6s;margin-top:28px">If I’m not doing something, you probably don’t need to either.</p></div>
     <img class="who-photo" data-card src="images/slides/02-who-am-i/dave-setup.jpg" alt="Dave at his desk, with two monitors and a wall of Stream Decks behind him">
   </div><div class="bottombar"></div></div>
 </section>
@@ -1577,7 +1580,7 @@ deck-stage { background: #0a0a0a; }
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div></div>
   <div class="bt-head"><p class="bt-kick" data-rise>So, back to it</p><h2 class="display" data-blur style="--d:.12s">AI native = <em>GenAI agents</em><br>driving the workflow.</h2></div>
   <div class="bt-rail" data-step="1"><i class="bt-fill"></i></div>
-  <div class="bt-st s0" data-step="1" style="left:300px;--i:0"><div class="bt-card"><img src="images/shared/site/pleo.png" alt=""><b>Receipts in</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s1" data-step="1" style="left:630px;--i:1"><div class="bt-card"><img src="images/shared/site/xero.svg" alt=""><b>Posted to Xero</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s2" data-step="1" style="left:960px;--i:2"><div class="bt-card"><img src="images/shared/site/paycircle.png" alt=""><b>Payroll run</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s3" data-step="1" style="left:1290px;--i:3"><div class="bt-card"><img src="images/shared/site/sheets.png" alt=""><b>Report built</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s4" data-step="1" style="left:1620px;--i:4"><div class="bt-card"><img src="images/shared/site/slack.svg" alt=""><b>Sent to client</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div>
+  <div class="bt-st s0" data-step="1" style="left:300px;--i:0"><div class="bt-card"><img class="full" src="images/shared/site/apron.svg" alt="Apron"><b>Receipts in</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s1" data-step="1" style="left:630px;--i:1"><div class="bt-card"><img src="images/shared/site/xero.svg" alt=""><b>Posted to Xero</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s2" data-step="1" style="left:960px;--i:2"><div class="bt-card"><img src="images/shared/site/paycircle.png" alt=""><b>Payroll run</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s3" data-step="1" style="left:1290px;--i:3"><div class="bt-card"><img src="images/shared/site/sheets.png" alt=""><b>Report built</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div><div class="bt-st s4" data-step="1" style="left:1620px;--i:4"><div class="bt-card"><img src="images/shared/site/slack.svg" alt=""><b>Sent to client</b><span class="bt-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div><i class="bt-node"></i></div>
   <div class="bt-agent" data-step="2"><span class="o"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><em>Agent</em></div>
   <div class="bt-human" data-step="3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Human in the loop: <b>nobody</b></div>
 </section>
@@ -1642,7 +1645,7 @@ deck-stage { background: #0a0a0a; }
       <div class="fill split">
 
         <div>
-          <p class="ai-kicker">‘AI’, as most people mean it, is GenAI:</p>
+          <p class="ai-kicker">The scientific term:</p>
           <h2 class="display" style="font-size: 104px; margin-bottom: 36px;">
             Transformer-based<br><em>LLMs.</em>
           </h2>
@@ -2241,7 +2244,7 @@ deck-stage { background: #0a0a0a; }
 {"say":["Well, what does it actually mean?"]},
 {"say":["Honestly, I do not really know. No one really seems to, but it sounds on trend, and that is what matters, apparently."],"src":["Searching it turns up founder essays, VC blogs and marketing pages. There is no settled definition."]},
 {"say":["What I think it means: driven at the core by an AI driven workflow, invariably through GenAI agents."]},
-{"say":["Hold up. Why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. I spend almost every hour I am awake at the moment exploring AI. Do not do that.","If I am not doing something, you probably do not need to either."]},
+{"say":["But… why should you listen to me? I am an early adopter and innovator. I run a firm by myself, and I am constantly pushing the boundaries of what is possible. Obsessive early adopter: I am currently working with GenAI almost every waking hour. Do not do that.","If I am not doing something, you probably do not need to either."]},
 {"say":["So, back to it. AI native, as far as I can tell, means GenAI agents driving the workflow. That is the thing being sold.","Receipts in, posted to Xero, payroll run, report built, sent to the client. The agent drives every step and there is nobody in the loop."]},
 {"say":["So what actually is GenAI? And how did we get to this mania about it?"]},
 {"say":["AI has been around since the 1950s. GenAI is just the latest evolution. One click per era."],"src":["Source: vibes based. It is an impression, not data."]},
@@ -4249,7 +4252,9 @@ html.nx-final .wm-agent.on:nth-of-type(even) { opacity: 0; }
 .bt-st { position: absolute; top: 560px; width: 270px; margin-left: -135px; --lit: 0; }
 .bt-st[data-step] { translate: 0 40px; transition: opacity .4s ease calc(var(--i) * .1s), translate .7s cubic-bezier(.2,1.3,.4,1) calc(var(--i) * .1s); } .bt-st[data-step].on { translate: 0 0; }
 .bt-card { position: relative; height: 190px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: #fff; border-radius: 28px; font-family: var(--font-sans); translate: 0 calc(var(--lit) * -12px); box-shadow: 0 calc(16px + var(--lit) * 20px) 44px -22px rgba(30,30,70,.45), 0 0 0 calc(1px + var(--lit) * 3px) color-mix(in srgb, var(--periwinkle-500) calc(var(--lit) * 100%), rgba(30,30,70,.07)); }
-.bt-card img { width: 70px; height: 70px; object-fit: contain; }
+/* Every logo sits on the same rounded app-icon tile. */
+.bt-card img { width: 84px; height: 84px; box-sizing: border-box; padding: 16px; object-fit: contain; background: #F3F3F8; border-radius: 22px; }
+.bt-card img.full { padding: 0; }
 .bt-card b { font-size: 27px; font-weight: 600; color: var(--ink); letter-spacing: -.015em; }
 .bt-ok { position: absolute; right: -14px; top: -14px; width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: var(--green-600); box-shadow: 0 6px 14px -4px rgba(78,125,40,.6); scale: var(--lit); }
 .bt-ok svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
