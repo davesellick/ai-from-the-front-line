@@ -1697,8 +1697,8 @@ deck-stage { background: #0a0a0a; }
       <div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
 
       <div class="fill center-y" style="align-items: center; text-align: center;">
-        <div style="margin-bottom: 90px;">
-          <h2 class="display" style="font-size: 112px;">
+        <div style="margin-bottom: 110px;">
+          <h2 class="display" style="font-size: 136px;">
             It’s probabilistic. <em>By design.</em>
           </h2>
         </div>
@@ -1723,8 +1723,8 @@ deck-stage { background: #0a0a0a; }
         <!-- The popover hangs under the last chip on the right, so the line
              sits on the left of that same band rather than centred under a
              hole: the two read as one row. -->
-        <div style="width: 100%; display: flex; margin-top: 78px; margin-bottom: 120px;">
-          <p class="sub" data-step="2" style="font-size: 40px; text-align: left; max-width: 900px;">
+        <div style="width: 100%; display: flex; margin-top: 150px;">
+          <p class="sub" data-step="2" style="font-size: 48px; text-align: left; max-width: 900px;">
             Optimised to be <em>plausible,</em> not correct.
           </p>
         </div>
@@ -3332,7 +3332,8 @@ html[data-screen="venue"] .mark { background: #FAD67C; }
    two-line card's hairline sat 2px above its neighbours'. */
 .why-tagline { min-height: calc(2px + 26px + 2 * 1.5 * 23px); }
 /* 10: the line under the pipeline starts where the pipeline starts. */
-.slide[data-label="Probabilistic"] .pipe-hero + div > .sub { padding-left: 58px; }
+.slide[data-label="Probabilistic"] .pipe-hero { zoom: 1.15; margin: 0 -60px; }
+.slide[data-label="Probabilistic"] .pipe-hero + div > .sub { margin-left: -60px; }
 /* 29, 69, 70: the verdict pill's label sits on the sub's line, not 8px above it. */
 .way-head:has(.sub) > .way-verdict { position: relative; top: 8px; }
 /* Every logo has rounded corners: the mark itself, not only its tile. */
