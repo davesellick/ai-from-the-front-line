@@ -2059,6 +2059,18 @@ deck-stage { background: #0a0a0a; }
   </div></div>
 </section>
 
+<section class="slide paper-soft" data-label="Key workflows" data-first="300" data-gap="300">
+  <div class="frame" style="--pad-y:84px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
+    <h2 class="display" style="font-size:104px;margin-bottom:56px" data-blur>Some of my key workflows <em>in vibe coding.</em></h2>
+    <div class="kw-grid">
+      <div class="kw-card" data-step="1"><span class="kw-n">1</span><p class="kw-t">shadcn and Impeccable</p></div>
+      <div class="kw-card" data-step="2"><span class="kw-n">2</span><p class="kw-t">Context</p><p class="kw-s"><span>Bible</span><span>Roadmap</span><span>Handover</span></p></div>
+      <div class="kw-card" data-step="3"><span class="kw-n">3</span><p class="kw-t">Soundcheck</p></div>
+      <div class="kw-card" data-step="4"><span class="kw-n">4</span><p class="kw-t">Let’s go</p></div>
+    </div>
+  </div></div>
+</section>
+
 <section class="slide" data-label="Set up 1">
   <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
     <div class="nx-sitehead"><span class="nx-no" data-blur>1</span><h2 class="display" style="font-size:92px" data-blur>I installed shadcn and <em>Impeccable.</em></h2></div>
@@ -2274,6 +2286,7 @@ deck-stage { background: #0a0a0a; }
 {"say":["And yes, I use GenAI. This is not just built with GenAI; it runs inside the app too. But I use it where I think it works best.","Deterministic workflows do the work first, the same way every time. When I have exhausted what rules can do, GenAI picks up what is left: exception checking, reviewing and the awkward bits.","I am not anti GenAI. I am anti letting it run the whole thing."]},
 {"say":["SWITCH TO THE LIVE APP NOW. Circle demo mode only. Walk through the connections, then the tour. If the demo fails, switch to the other presentation."]},
 {"say":["This is my vibe coding stack, and what each one does in plain terms. Claude Code writes the code. GitHub keeps every version safe, and nothing goes live unless the checks pass. Vercel puts the app online. Supabase stores the data and who can log in, and each client only ever sees their own.","I do not write code. I run the system that does, and I hold the standard."]},
+{"say":["Some of my key workflows in vibe coding. Four of them: shadcn and Impeccable, context through the Bible, the Roadmap and the Handover, Soundcheck, and then let’s go."]},
 {"say":["First I installed two helpers. shadcn gives me ready-made parts, so every page matches and nothing drifts. Impeccable gives the AI design expertise, so it critiques every screen and catches AI slop. In its own words: turn AI slop into interfaces you are proud to ship."],"src":["ui.shadcn.com and impeccable.style, captured 5 Nov 2026. Sidgrove Intelligence repo: 24 stock components plus 218 of our own."]},
 {"say":["Second, I give it context. Claude has no taste of its own, it has mine, written down. Plans for particular projects come and go, but I only work from three key files every day: the Bible, the roadmap and the handover. They are just plain text files, MD files, that Claude reads."],"src":["docs/BIBLE.md, docs/ROADMAP.md and docs/HANDOFF.md in the Sidgrove Intelligence repo."]},
 {"say":["The Bible is the fundamental principles. I started with a few and I keep adding to it. Every session reads it before any work.","At the top is the 101: four questions for every element, every time. How does it make you feel? Is it clear what to do? Is it clear how to read the data? Nothing to add, nothing to subtract.","Then the app DNA, the style bible with the UI and UX rules, and how we work."],"src":["docs/BIBLE.md and docs/BIBLE-PART-3.md: 2,613 lines on 4 Nov 2026."]},
@@ -4624,8 +4637,15 @@ html.nx-final .ov-src em { opacity: 1; scale: 1; }
 .cg.l { left: 110px; text-align: right; } .cg.r { left: 1300px; width: 560px; }
 .cg-k { margin: 0 0 12px; font-size: 19px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
 .cg-row { display: flex; flex-wrap: wrap; gap: 10px; } .cg.l .cg-row { justify-content: flex-end; }
-.cc { display: inline-flex; align-items: center; gap: 12px; height: 56px; box-sizing: border-box; padding: 0 20px 0 10px; border-radius: 14px; background: #fff; }
-.cc b { font-size: 21px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.cc:not(.nx-app) { display: inline-flex; align-items: center; gap: 12px; height: 56px; box-sizing: border-box; padding: 0 20px 0 10px; border-radius: 14px; background: #fff; }
+/* Key workflows: four numbered cards, each one a slide that follows. */
+.kw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; font-family: var(--font-sans); }
+.kw-card { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; box-sizing: border-box; padding: 40px 36px 44px; border-radius: 28px; background: #fff; box-shadow: var(--nx-lift); }
+.kw-n { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 30px; font-weight: 700; }
+.kw-t { margin: 14px 0 0; font-size: 40px; font-weight: 700; line-height: 1.12; letter-spacing: -.02em; color: var(--ink); }
+.kw-s { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.kw-s span { padding: 8px 16px; border-radius: 999px; background: #F1F1F8; font-size: 22px; font-weight: 600; color: var(--ink-500); }
+.cc:not(.nx-app) b { font-size: 21px; font-weight: 600; color: var(--ink); white-space: nowrap; }
 .cc-i { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: #fff; border: 1px solid #E8E8EF; overflow: hidden; }
 .cc-i img { width: 24px; height: 24px; object-fit: contain; border-radius: 5px; }
 .cc-i svg { width: 20px; height: 20px; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
