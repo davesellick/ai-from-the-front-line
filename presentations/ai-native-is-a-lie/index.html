@@ -1866,7 +1866,7 @@ deck-stage { background: #0a0a0a; }
       <div class="topbar" style="margin-bottom: 20px;"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
 
       <div class="fill" style="display:flex; flex-direction:column; justify-content:center;">
-        <div class="cp-top"><p class="cp-kick">How do I use it?</p>
+        <div class="cp-top">
         <h2 class="display cp-h"><span class="cp-l"><span class="cp-n">1</span>As a copilot, <em>never the pilot.</em><span class="hl-flag cp-flag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Human-led, not human in the loop</span></span></h2></div>
 
         <div class="vs-grid">
@@ -2277,7 +2277,7 @@ deck-stage { background: #0a0a0a; }
 {"say":["Agentic AI is toxic, and before long it will need ripping out."],"ask":"That is my forecast, not a fact."},
 {"say":["It is a false economy. A shortcut with shortcomings. Like eating ready meals to free up time for the gym, when you could just cook at home. Same with agents freeing up time for advisory: if the compliance is done without integrity, the insights are bad anyway.","When you could just cook nutrient dense food at home.","The ready meal is GenAI agents running the work end to end. Home cooked is building tools that do the same thing every time. Which is my approach, and that is what I am about to show you."]},
 {"say":["So what do I recommend? Use it as a copilot. Build with it. Lead it, do not be led."]},
-{"say":["How do I use it? Two ways. One, as a copilot, never the pilot.","The pilot: agentic AI autonomously completing end-to-end tasks. Claude runs the close and posts it.","The copilot: it augments, we stay in charge. An exception layer: it flags, you choose to act. It breaks down steep learning curves. Claude builds the tool, the tool runs the close, you sign off."],"ask":"'Claude Code is an agent.' Yes. In a sandbox, on code I read before it ships. The line is not agent or not; it is can it touch live client data and is the output reviewable before it lands.","ifAsked":"Do you use agents? Yes. Claude writes the code, runs the tests and shows me the result. It never runs the month-end."},
+{"say":["Two ways. One, as a copilot, never the pilot.","The pilot: agentic AI autonomously completing end-to-end tasks. Claude runs the close and posts it.","The copilot: it augments, we stay in charge. An exception layer: it flags, you choose to act. It breaks down steep learning curves. Claude builds the tool, the tool runs the close, you sign off."],"ask":"'Claude Code is an agent.' Yes. In a sandbox, on code I read before it ships. The line is not agent or not; it is can it touch live client data and is the output reviewable before it lands.","ifAsked":"Do you use agents? Yes. Claude writes the code, runs the tests and shows me the result. It never runs the month-end."},
 {"say":["Two, to build. That is the one I will spend most of today on.","This is what I recommend most: build. Use GenAI to build deterministic tools that run without it, often through vibe coding."]},
 {"say":["What are deterministic tools? Pre-set logic: the same input gives the same answer, every time. Fixed rules, spreadsheets, Power Query, VBA, Apps Script, code, open APIs, RPA and Zapier, Stream Deck and SaaS. You test them once and trust them on every run, and the output is clear and auditable. They sit at the core of my practice."]},
 {"say":["How do I build? Vibe coding. Everything you are about to see was built this way: the app, these slides, the websites and the brand."]},
@@ -4450,6 +4450,7 @@ html.nx-final .lv-cur, html.nx-final .lv-pill i { animation: none !important; }
 
 /* ---- Copilot: how do I use it ---- */
 .cp-top { margin-bottom: 8px; }
+.slide[data-label="Copilot, never the pilot"] .cp-n { width: 96px; height: 96px; font-size: 48px; background: var(--green); color: var(--ink); }
 .cp-kick { font-family: var(--font-sans); font-weight: 700; font-size: 26px; letter-spacing: .16em; text-transform: uppercase; color: var(--periwinkle-700, #5560C8); margin: 0 0 18px; }
 .cp-kick.on-ink { display: inline-grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; border: 3px solid var(--green); color: var(--green); font-size: 40px; letter-spacing: 0; margin: 0 auto 26px; }
 .cp-h { font-size: 88px; line-height: 1.08; display: flex; flex-direction: column; gap: 6px; }
