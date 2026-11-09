@@ -2088,8 +2088,8 @@ deck-stage { background: #0a0a0a; }
   <div class="frame" style="--pad-y:72px"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div><div class="fill center-y">
     <div class="nx-sitehead"><span class="nx-no" data-blur>1</span><h2 class="display" style="font-size:92px" data-blur>I installed shadcn and <em>Impeccable.</em></h2></div>
     <div class="nx-sites">
-      <div class="nx-site" data-step="1"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>ui.shadcn.com</span></div><img src="images/shared/site-shadcn.png" alt="shadcn: website"></div><p><b>shadcn:</b> ready-made parts, so every page matches.</p></div>
-      <div class="nx-site" data-step="2"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>impeccable.style</span></div><img src="images/shared/site-impeccable.png" alt="Impeccable: website"></div><p><b>Impeccable:</b> a design expert for AI, to catch AI slop.</p></div>
+      <div class="nx-site" data-step="1"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>ui.shadcn.com</span></div><img src="images/shared/site-shadcn.png" alt="shadcn: website"></div><p class="nx-kind"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>MCP connector</p><p><b>shadcn:</b> ready-made parts, so every page matches.</p></div>
+      <div class="nx-site" data-step="2"><div class="nx-browser"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>impeccable.style</span></div><img src="images/shared/site-impeccable.png" alt="Impeccable: website"></div><p class="nx-kind"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a2 2 0 1 1 4 0v2h4v4h-2a2 2 0 1 0 0 4h2v4h-4v-2a2 2 0 1 0-4 0v2H6v-4h2a2 2 0 1 0 0-4H6V6h4z"/></svg>Claude plugin</p><p><b>Impeccable:</b> a design expert for AI, to catch AI slop.</p></div>
     </div>
   </div></div>
 </section>
@@ -4652,7 +4652,9 @@ html.nx-final .ov-src em { opacity: 1; scale: 1; }
 .cg-row { display: flex; flex-wrap: wrap; gap: 10px; } .cg.l .cg-row { justify-content: flex-end; }
 .cc:not(.nx-app) { display: inline-flex; align-items: center; gap: 12px; height: 56px; box-sizing: border-box; padding: 0 20px 0 10px; border-radius: 14px; background: #fff; }
 /* Key workflows: four numbered cards, each one a slide that follows. */
-.kw-scene { position: relative; width: 1180px; height: 520px; margin: 0 auto; font-family: var(--font-sans); }
+.nx-site p.nx-kind { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 -6px; padding: 8px 18px 8px 14px; border-radius: 999px; background: var(--periwinkle-50); color: var(--periwinkle-700); font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: .01em; width: max-content; }
+.nx-kind svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.kw-scene {position: relative; width: 1180px; height: 520px; margin: 0 auto; font-family: var(--font-sans); }
 .kw-win { position: absolute; inset: 0 140px; border-radius: 28px; background: var(--ink); box-shadow: 0 40px 90px rgba(30,30,70,.28); overflow: hidden; }
 .kw-bar { display: flex; gap: 10px; padding: 22px 26px; border-bottom: 1px solid rgba(255,255,255,.08); }
 .kw-bar i { width: 14px; height: 14px; border-radius: 50%; }
