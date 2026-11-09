@@ -1531,8 +1531,8 @@ deck-stage { background: #0a0a0a; }
     <figure class="ev-cut" data-step="1" style="left:150px;top:330px;width:500px;--r:-2.5deg"><img src="images/by-slide/02-ai-native-everywhere/digits-scaling-new-heights.png" alt="Scaling New Heights 2025 recap: The Future is AI-Native with Digits"></figure>
     <figure class="ev-cut" data-step="2" style="left:715px;top:310px;width:470px;--r:1.5deg"><img src="images/by-slide/02-ai-native-everywhere/kpmg-ai-native-businesses.png" alt="KPMG announces Client Technology and Innovation Group to build AI-native businesses"></figure>
     <figure class="ev-cut" data-step="3" style="left:1250px;top:340px;width:520px;--r:2.5deg"><img src="images/by-slide/02-ai-native-everywhere/yc-ai-native-companies.png" alt="Y Combinator: Building AI Native Companies, Tom Blomfield"></figure>
-    <figure class="ev-cut" data-step="4" style="left:560px;top:722px;width:340px;--r:2deg"><img src="images/by-slide/02-ai-native-everywhere/business-insider-consulting.png" alt="Business Insider: Consulting’s race to become AI native"></figure>
-    <figure class="ev-cut" data-step="5" style="left:980px;top:712px;width:600px;--r:-1.5deg"><img src="images/by-slide/02-ai-native-everywhere/accounting-today-ai-native-firm.png" alt="Accounting Today: The AI Native firm"></figure>
+    <figure class="ev-cut low" data-step="4" style="left:620px;top:752px;width:320px;--r:2deg"><img src="images/by-slide/02-ai-native-everywhere/business-insider-consulting.png" alt="Business Insider: Consulting’s race to become AI native"></figure>
+    <figure class="ev-cut low" data-step="5" style="left:1010px;top:722px;width:600px;--r:-1.5deg"><img src="images/by-slide/02-ai-native-everywhere/accounting-today-ai-native-firm.png" alt="Accounting Today: The AI Native firm"></figure>
   </div>
   <div class="ev-dim" data-step="6" aria-hidden="true"></div>
   <div class="ev-modal" data-step="6"><div class="rd-card">
@@ -4206,6 +4206,7 @@ html:not([data-epic]) .slide[data-deck-active] .nx-breathe { animation: none; }
 .ev-cut img { display: block; width: 100%; height: auto; border-radius: 10px; }
 .ev-cut[data-step] { translate: 0 -60px; scale: 1.12; transition: opacity .25s ease, translate .45s cubic-bezier(.2,1.3,.4,1), scale .45s cubic-bezier(.2,1.3,.4,1); }
 .ev-cut[data-step].on { translate: 0 0; scale: 1; }
+.ev-cut.low[data-step] { translate: 0 60px; } .ev-cut.low[data-step].on { translate: 0 0; } /* the bottom row rises into place, so it never crosses the headlines above */
 .ev-card[data-step] { translate: 0 -90px; scale: 1.22; rotate: -6deg; transition: opacity .3s ease, translate .55s cubic-bezier(.2,1.3,.4,1), scale .55s cubic-bezier(.2,1.3,.4,1), rotate .55s cubic-bezier(.2,1.3,.4,1); }
 .ev-card[data-step].on { translate: 0 0; scale: 1; rotate: var(--r, 0deg); }
 .ev-card .nx-news { height: 300px; }
