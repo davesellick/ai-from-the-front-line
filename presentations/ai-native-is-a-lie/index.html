@@ -1662,7 +1662,7 @@ deck-stage { background: #0a0a0a; }
             
             <span class="pt">A very advanced autocomplete, <em>based on pattern recognition.</em></span>
           </p>
-          <p class="ai-note" style="margin-top: 30px; width: fit-content; font-size: 19px;"><b>Auto-regressive</b> <i>·</i> reads everything so far, predicts the next token (or word), repeats</p>
+          <p class="ai-note" style="margin-top: 30px; font-size: 25px;"><b>Auto-regressive</b><br>Reads everything so far, predicts the next token (or word), repeats</p>
         </div>
 
         <div class="kb-mock">
@@ -4771,6 +4771,14 @@ html.nx-final .v2-lines i { width: var(--w); }
 
 .slide.ink .ai-kicker { color: var(--periwinkle-300, #A8B0F8); }
 .cq2 .ag { width: 540px; box-sizing: border-box; } .cq2 .ag .ag-row { justify-content: center; } .cq2 .ag .ag-k { text-align: center; }
+/* Readable from the back of the room */
+.slide.cq2[data-label="Connected"] .ai { width: 112px; }
+.slide.cq2[data-label="Connected"] .ai b { font-size: 18px; color: rgba(255,255,255,.8); }
+.slide[data-label="Connected"] .ag-k { font-size: 21px; }
+.slide[data-label="An LLM"] .ai-note { font-size: 25px; white-space: normal; max-width: 640px; border-radius: 22px; padding: 14px 24px 14px 20px; line-height: 1.35; }
+.slide[data-label="Probabilistic"] .ph-chip.tok span { font-size: 22px; }
+.slide[data-label="Vibe coding intro"] .vb-nm small, .slide[data-label="Vibe coding intro"] .vb-st { font-size: 19px; }
+
 </style>
 <script>
   // Speaker notes panel. N toggles it. With ?notes on the URL the panel starts
