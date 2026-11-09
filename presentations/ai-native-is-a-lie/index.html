@@ -2207,12 +2207,8 @@ deck-stage { background: #0a0a0a; }
               <div>
                 <div style="font-family: var(--font-sans); font-size: 34px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; line-height: 1;">Dave Sellick</div>
                 <div class="byline" style="margin-top: 10px;">Founder, Sidgrove</div>
-              </div>
               <a class="ty-follow" href="https://www.linkedin.com/in/davesellick/" aria-label="Dave Sellick on LinkedIn"> <span class="ty-li-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.339 18.337V9.755H5.667v8.582zM7.005 8.55a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.332 9.787v-4.71c0-2.52-.538-4.456-3.486-4.456-1.416 0-2.366.777-2.754 1.513h-.04V9.755h-2.56v8.582h2.667v-4.245c0-1.12.212-2.204 1.6-2.204 1.367 0 1.386 1.28 1.386 2.276v4.173z"/></svg></span> <span class="ty-li-text"><b>Follow on LinkedIn</b><small>for more truth · /in/davesellick</small></span> </a>
-            </div>
-            <div class="qr-block land">
-              <img src="images/slides/57-thank-you/qr.png" alt="QR code: AI walkthrough recordings">
-              <p>Scan for the <b>AI walkthrough recordings</b></p>
+              </div>
             </div>
           </div>
         </div>
@@ -3084,6 +3080,18 @@ p.perm-sub { font-size: 20px; } .perm-row .ck { font-size: 20px; } .perm-actions
 }
 /* ── Thank you: landscape card ───────────────────────────── */
 .ty-land { display: grid; grid-template-columns: 1fr auto; gap: 44px; align-items: center; }
+/* No QR code: the card hugs the LinkedIn details. */
+.slide[data-label="Thank you"] .fill { grid-template-columns: auto 1fr !important; gap: 170px !important; }
+.slide[data-label="Thank you"] .contact-card { justify-self: stretch; width: auto; padding: 64px 72px; }
+.slide[data-label="Thank you"] .ty-land { grid-template-columns: auto; }
+.slide[data-label="Thank you"] .ty-left { flex-direction: row; align-items: center; justify-content: center; text-align: left; gap: 56px; }
+.slide[data-label="Thank you"] .ty-left > img { width: 250px !important; height: 250px !important; border-width: 6px !important; }
+.slide[data-label="Thank you"] .ty-left > div > div:first-child { font-size: 54px !important; }
+.slide[data-label="Thank you"] .ty-left .byline { font-size: 30px; margin-top: 14px !important; }
+.slide[data-label="Thank you"] .ty-left .ty-follow { margin-top: 34px; padding: 14px 30px 14px 14px; }
+.slide[data-label="Thank you"] .ty-left .ty-follow b { font-size: 27px; }
+.slide[data-label="Thank you"] .ty-left .ty-follow small { font-size: 20px; }
+.slide[data-label="Thank you"] .ty-li-tile { width: 56px; height: 56px; border-radius: 15px; }
 .ty-left { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
 .qr-block.land { width: auto; padding: 0 0 0 44px; border-top: 0; border-left: 1px solid rgba(30,30,70,0.18); }
 .qr-block.land img { width: 360px; height: 360px; }
