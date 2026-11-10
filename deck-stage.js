@@ -7,6 +7,7 @@
  *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
  *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
  *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *      Press H to hide it completely while presenting; H again brings it back.
  *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
  *      scaled with `transform: scale()` to fit the viewport, letterboxed.
  *      Set the `noscale` attribute to render at authored size (1:1) — the
@@ -300,6 +301,7 @@
       this._slides = [];
       this._notes = [];
       this._hideTimer = null;
+      this._overlayOff = false;
       this._mouseIdleTimer = null;
       this._storageKey = STORAGE_PREFIX + (location.pathname || '/');
 
@@ -572,7 +574,7 @@
     }
 
     _flashOverlay() {
-      if (!this._overlay) return;
+      if (!this._overlay || this._overlayOff) return;
       this._overlay.setAttribute('data-visible', '');
       if (this._hideTimer) clearTimeout(this._hideTimer);
       this._hideTimer = setTimeout(() => {
@@ -631,6 +633,13 @@
         this._go(this._slides.length - 1, 'keyboard');
       } else if (key === 'r' || key === 'R') {
         this._go(0, 'keyboard');
+      } else if (key === 'h' || key === 'H') {
+        // Presenting: hide the toolbar for good until H is pressed again.
+        this._overlayOff = !this._overlayOff;
+        if (this._overlayOff) {
+          if (this._hideTimer) clearTimeout(this._hideTimer);
+          this._overlay.removeAttribute('data-visible');
+        }
       } else if (/^[0-9]$/.test(key)) {
         // 1..9 jump to that slide; 0 jumps to 10.
         const n = key === '0' ? 9 : parseInt(key, 10) - 1;
