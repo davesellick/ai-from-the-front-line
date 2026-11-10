@@ -3837,7 +3837,8 @@ html.nx-final *, html.nx-final *::before, html.nx-final *::after { transition: n
 
 /* Cover */
 .nx-pulse { position: absolute; left: 640px; top: 470px; width: 1900px; height: 1900px; margin: -950px 0 0 -950px; border-radius: 50%; border: 2px solid var(--periwinkle-700); opacity: 0; }
-.slide[data-deck-active] .nx-pulse { animation: nxWave 2.4s 1.15s var(--nx-ease) both; }
+/* forwards, not both: with both the first frame (a small ring) sits on screen through the delay. */
+.slide[data-deck-active] .nx-pulse { animation: nxWave 2.4s 1.15s var(--nx-ease) forwards; }
 .slide[data-deck-active] .nx-pulse.two { animation-delay: 1.42s; }
 .cover-prompt .cover-prompt-text { white-space: nowrap; min-width: 690px; }
 .slide[data-label="Cover"] .cover-prompt { max-width: none; }
