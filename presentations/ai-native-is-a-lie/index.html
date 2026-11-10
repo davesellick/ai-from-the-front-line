@@ -2043,19 +2043,14 @@ deck-stage { background: #0a0a0a; }
   <div class="frame"><div class="topbar"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div></div>
   <div class="gq-left">
     <h2 class="display" style="font-size:96px;line-height:1.02" data-blur>Augmented by GenAI. <em>Not AI native.</em></h2>
-    <ol class="gq-list">
-      <li class="first"><b>1</b><span>Deterministic rules run first</span></li>
-      <li data-step="1"><b>2</b><span>GenAI reads what’s left</span></li>
-      <li data-step="2"><b>3</b><span>It shows its working</span></li>
-      <li data-step="4" class="you"><b>4</b><span>I make the call</span></li>
-    </ol>
+    <p class="sub" data-rise style="--d:.3s;font-size:38px;max-width:640px;margin-top:34px;color:var(--ink)">GenAI reviews the workflow. <em>It doesn’t drive it.</em></p>
   </div>
-  <div class="gq-win" data-card><div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>Prepayments &amp; Accruals · Findings</span></div>
-    <div class="gq-shot"><img src="images/slides/41a-app-showcase/ai-finding-li.jpg" alt="A finding: GenAI read the LinkedIn invoice, quotes the subscription period and proposes a twelve month prepayment, with Add to schedule and Ignore buttons">
-      <i class="gq-ring" data-step="1" style="left:386px;top:433px;width:566px;height:51px"></i><span class="gq-tag" data-step="1" style="left:690px;top:376px">Reads the invoice</span><i class="gq-ring" data-step="2" style="left:9px;top:367px;width:306px;height:84px"></i><span class="gq-tag" data-step="2" style="left:320px;top:388px">Quotes its source</span><i class="gq-ring" data-step="3" style="left:88px;top:488px;width:75px;height:32px"></i><span class="gq-tag" data-step="3" style="left:174px;top:466px">Says how sure it is</span><i class="gq-ring you" data-step="4" style="left:9px;top:524px;width:210px;height:42px"></i><span class="gq-tag you" data-step="4" style="left:228px;top:534px">I make the call</span>
-    </div>
+  <div class="gq-side">
+    <div class="gq-core"><span class="cx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span><div><b>The core workflow</b><span>Deterministic rules. Same answer every time.</span></div><em>No GenAI</em></div>
+    <p class="gq-k" data-step="1">Alongside it<i>Claude Sonnet and Opus</i></p>
+    <div class="cx-files kx gq-cards"><div class="cx-file a" data-step="1"><span class="cx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span><div><b>Reads documents</b><span>Pulls the dates off an invoice and quotes its source</span></div></div><div class="cx-file b" data-step="2"><span class="cx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>Reviews the work</b><span>Checks what the rules have already done</span></div></div><div class="cx-file d" data-step="3"><span class="cx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a3 3 0 0 0 6 0z"/><path d="m19 7-3 7a3 3 0 0 0 6 0z"/></svg></span><div><b>Makes the odd judgement call</b><span>Says how sure it is, then I decide</span></div></div></div>
   </div>
-  <div class="gq-spend" data-step="5"><p class="k">GenAI spend this month</p><p class="v">£0.76 <small>of £15</small></p><i class="bar"><i style="width:5%"></i></i><p class="m">Small, targeted jobs: reads, checks and quick judgements.</p></div>
+  <div class="gq-spend" data-step="4" style="left:150px;top:690px"><p class="k">GenAI spend this month</p><p class="v">£0.76 <small>of £15</small></p><i class="bar"><i style="width:5%"></i></i><p class="m">Small, targeted jobs: reads, checks and quick judgements.</p></div>
 </section>
 
 <section class="slide ink" data-label="Live demo">
@@ -4151,6 +4146,15 @@ html.nx-final *, html.nx-final *::before, html.nx-final *::after { transition: n
 .gq-tag { position: absolute; white-space: nowrap; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: #fff; font-family: var(--font-sans); font-size: 21px; font-weight: 600; letter-spacing: -.01em; box-shadow: 0 14px 30px -10px rgba(15,16,48,.55); z-index: 2; }
 .gq-tag.you { background: #3F8A1A; }
 .gq-tag[data-step] { translate: 0 10px; scale: .9; transition: opacity .35s ease .15s, translate .55s var(--nx-ease) .15s, scale .55s cubic-bezier(.2,1.4,.4,1) .15s; } .gq-tag[data-step].on { translate: 0 0; scale: 1; }
+.gq-side { position: absolute; left: 900px; top: 170px; width: 880px; font-family: var(--font-sans); }
+.gq-core { display: flex; align-items: center; gap: 26px; padding: 30px 34px; border-radius: 28px; background: var(--ink); color: #fff; box-shadow: 0 26px 60px -30px rgba(30,30,70,.6); }
+.gq-core .cx-ic { flex: none; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 22px; background: rgba(208,248,176,.16); color: var(--green); }
+.gq-core .cx-ic svg { width: 44px; height: 44px; }
+.gq-core div { display: flex; flex-direction: column; gap: 6px; } .gq-core b { font-family: var(--font-serif); font-weight: 400; font-size: 50px; line-height: 1; letter-spacing: -.02em; } .gq-core div span { font-size: 26px; color: rgba(255,255,255,.75); }
+.gq-core em { margin-left: auto; font-style: normal; font-size: 20px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 10px 16px; border-radius: 999px; background: var(--green); color: var(--ink); white-space: nowrap; }
+.gq-k { display: flex; align-items: center; gap: 16px; margin: 40px 0 18px; font-size: 22px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-500, #4A4C6A); }
+.gq-k i { font-style: normal; letter-spacing: 0; text-transform: none; font-size: 20px; font-weight: 600; padding: 7px 14px; border-radius: 999px; background: #FBF1EB; color: #B5573A; }
+.gq-cards { width: 880px; }
 .gq-spend { position: absolute; left: 1350px; top: 790px; width: 470px; box-sizing: border-box; padding: 26px 30px 28px; background: #fff; border-radius: 24px; z-index: 6; font-family: var(--font-sans); rotate: -2deg; box-shadow: 0 2px 4px rgba(30,30,70,.06), 0 40px 80px -30px rgba(30,30,70,.55); }
 .gq-spend .k { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-500); }
 .gq-spend .v { margin: 8px 0 14px; font-family: var(--font-serif); font-size: 64px; line-height: 1; color: var(--ink); }
