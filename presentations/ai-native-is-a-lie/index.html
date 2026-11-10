@@ -1904,6 +1904,31 @@ deck-stage { background: #0a0a0a; }
     </div>
   </section>
 
+<section class="slide kd" data-label="Know enough" data-first="500" data-gap="900" style="background: linear-gradient(160deg, #FAFAF7 0%, #F1F0EA 100%);">
+  <div class="frame" style="--pad-y: 90px;">
+    <div class="topbar" style="margin-bottom: 20px;"><p class="section-tag"><span class="nx-ch"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i class=""></i><i class=""></i><i class=""></i></span></p><span class="page-chip"></span></div>
+    <div class="fill split">
+      <div class="kd-left">
+        <span class="cp-n" data-blur>2</span>
+        <h2 class="display" style="font-size:104px;line-height:1.04;margin:26px 0 30px" data-blur>Know enough to be <em>dangerous.</em></h2>
+        <p class="sub" data-rise style="--d:.3s;font-size:38px;max-width:680px;color:var(--ink)">The more domain experience leading it, <em>the better the output.</em></p>
+      </div>
+      <div class="kd-chart">
+        <p class="kd-y"><span>Human-led</span><span>AI on its own</span></p>
+        <div class="kd-plot">
+          <svg class="kd-svg" viewBox="0 0 760 620" aria-hidden="true"><path class="kd-grid" d="M380 0V620M0 310H760"/><path class="kd-path" data-step="4" d="M150 480 C 330 470, 470 330, 596 150"/></svg>
+          <div class="kd-pt slop" data-step="1" style="left:150px;top:480px"><i></i><b>Complete AI slop</b><small>No experience, AI on its own</small></div>
+          <div class="kd-pt slop2" data-step="2" style="left:600px;top:480px"><i></i><b>Still slop</b><small>Experience, but nobody leading</small></div>
+          <div class="kd-pt mid" data-step="3" style="left:150px;top:150px"><i></i><b>Hit and miss</b><small>Leading, without the experience</small></div>
+          <div class="kd-pt good" data-step="4" style="left:600px;top:150px"><i></i><b>Quality output</b><small>Experience, leading the AI</small></div>
+        </div>
+        <p class="kd-x"><span>No experience</span><span>Domain expert</span></p>
+      </div>
+    </div>
+    <div class="bottombar"></div>
+  </div>
+</section>
+
 <section data-nx-reuse class="slide ink" data-label="01 Build">
 
     <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:920px;height:920px;border-radius:50%;border:1px solid rgba(168,176,248,0.08);"></div>
@@ -1914,9 +1939,9 @@ deck-stage { background: #0a0a0a; }
 
       <div class="fill center-y" style="align-items: center; text-align: center;">
         
-        <h2 class="display bd-h"><span class="bd-n">2</span><em>Build.</em></h2>
+        <h2 class="display bd-h"><span class="bd-n">3</span><em>Build.</em></h2>
         <p class="bd-line">Using GenAI to build deterministic tools<br><em>that run without it.</em></p>
-        <p class="bd-focus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></svg>This is what I’ll focus on.</p>
+        <p class="bd-focus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></svg>This is the one that’s been transformational for me.</p>
       </div>
 
       <div class="bottombar"></div>
@@ -2255,7 +2280,8 @@ deck-stage { background: #0a0a0a; }
 {"say":["It is a false economy. A shortcut with shortcomings. Like eating ready meals to free up time for the gym, when you could just cook at home. Same with agents freeing up time for advisory: if the compliance is done without integrity, the insights are bad anyway.","When you could just cook nutrient dense food at home.","The ready meal is GenAI agents running the work end to end. Home cooked is building tools that do the same thing every time. Which is my approach, and that is what I am about to show you."]},
 {"say":["So what do I recommend? Use it as a copilot. Build with it. Lead it, do not be led."]},
 {"say":["Two ways. One, as a copilot, never the pilot.","The pilot: agentic AI autonomously completing end-to-end tasks. Claude runs the close and posts it.","The copilot: it augments, we stay in charge. An exception layer: it flags, you choose to act. It breaks down steep learning curves. Claude builds the tool, the tool runs the close, you sign off."],"ask":"'Claude Code is an agent.' Yes. In a sandbox, on code I read before it ships. The line is not agent or not; it is can it touch live client data and is the output reviewable before it lands.","ifAsked":"Do you use agents? Yes. Claude writes the code, runs the tests and shows me the result. It never runs the month-end."},
-{"say":["Two, to build. That is the one I will spend most of today on.","This is what I recommend most: build. Use GenAI to build deterministic tools that run without it, often through vibe coding."]},
+{"say":["Number two: know enough to be dangerous, at least. What I have found is that the more domain experience someone has, the better the outcome.","No experience and the AI running on its own: complete AI slop. Experience but nobody leading it: still slop. Leading it without the experience: hit and miss.","Someone with domain experience leading the AI: that is where the quality output is."]},
+{"say":["Three, to build. That is the one I will spend most of today on.","This is what I recommend most: build. Use GenAI to build deterministic tools that run without it, often through vibe coding."]},
 {"say":["What are deterministic tools? Pre-set logic: the same input gives the same answer, every time. Fixed rules, spreadsheets, Power Query, VBA, Apps Script, code, open APIs, RPA and Zapier, Stream Deck and SaaS. You test them once and trust them on every run, and the output is clear and auditable. They sit at the core of my practice."]},
 {"say":["How do I build? Vibe coding. Everything you are about to see was built this way: the app, these slides, the websites and the brand."]},
 {"say":["Sidgrove Intelligence: the app that sits between my clients and the work I do. Every line of it was written with Claude Code. Solid surfaces, dense where it needs to be; it is a product, not a demo.","Think of it as an orchestration layer: Xero, the sheets, payroll and Slack, with one way in and one way out. And the future is embedding something like this directly into the ledger."]},
@@ -3838,6 +3864,23 @@ html.nx-final *, html.nx-final *::before, html.nx-final *::after { transition: n
 
 /* Cover */
 .nx-pulse { position: absolute; left: 640px; top: 470px; width: 1900px; height: 1900px; margin: -950px 0 0 -950px; border-radius: 50%; border: 2px solid var(--periwinkle-700); opacity: 0; }
+/* ── Know enough to be dangerous: domain experience × who leads ── */
+.kd-chart { display: grid; grid-template-columns: auto 760px; grid-template-rows: 620px auto; gap: 18px 22px; font-family: var(--font-sans); margin-right: 20px; }
+.kd-y { margin: 0; writing-mode: vertical-rl; rotate: 180deg; display: flex; flex-direction: row-reverse; justify-content: space-between; padding: 26px 0; font-size: 24px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-500, #4A4C6A); }
+.kd-x { grid-column: 2; margin: 0; display: flex; justify-content: space-between; padding: 0 26px; font-size: 24px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-500, #4A4C6A); }
+.kd-plot { position: relative; width: 760px; height: 620px; border-radius: 36px; overflow: hidden; background: radial-gradient(120% 120% at 100% 0%, #D0F8B0 0%, rgba(208,248,176,.55) 28%, rgba(255,255,255,.9) 55%, rgba(248,214,206,.75) 80%, #F3BDB3 100%); box-shadow: 0 30px 70px -34px rgba(30,30,70,.45), inset 0 0 0 1px rgba(30,30,70,.06); }
+.kd-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.kd-grid { fill: none; stroke: rgba(30,30,70,.12); stroke-width: 2; stroke-dasharray: 3 9; stroke-linecap: round; }
+.kd-path { fill: none; stroke: var(--green-600); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 640; stroke-dashoffset: 640; }
+.kd-path.on { transition: stroke-dashoffset 1.1s var(--nx-ease); stroke-dashoffset: 0; }
+.kd-pt { position: absolute; width: 300px; margin: -17px 0 0 -150px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; }
+.kd-pt[data-step] { translate: 0 0; scale: .7; } .kd-pt[data-step].on { scale: 1; }
+.kd-pt i { width: 34px; height: 34px; border-radius: 50%; background: #C0503F; box-shadow: 0 0 0 8px rgba(192,80,63,.18); margin-bottom: 14px; }
+.kd-pt b { font-size: 34px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); line-height: 1.1; }
+.kd-pt small { font-size: 21px; font-weight: 500; color: var(--ink-500, #4A4C6A); }
+.kd-pt.mid i { background: #D9A441; box-shadow: 0 0 0 8px rgba(217,164,65,.2); }
+.kd-pt.good i { width: 46px; height: 46px; margin-top: -6px; background: var(--green-600); box-shadow: 0 0 0 10px rgba(78,125,40,.2), 0 0 0 24px rgba(78,125,40,.1); }
+.kd-pt.good b { font-size: 40px; }
 /* forwards, not both: with both the first frame (a small ring) sits on screen through the delay. */
 .slide[data-deck-active] .nx-pulse { animation: nxWave 2.4s 1.15s var(--nx-ease) forwards; }
 .slide[data-deck-active] .nx-pulse.two { animation-delay: 1.42s; }
