@@ -1,6 +1,6 @@
 # AI Native is a Lie
 
-Here is how I actually use GenAI to transform my firm.
+Here's how I'm actually transforming my accounting practice with GenAI.
 
 Live at `/ai-native`, which redirects to this folder. 40 slides. The live walkthrough is slide 30.
 
