@@ -19,3 +19,15 @@ Recaptured 03 Nov 2026 (files ending `-nov03`) from Sidgrove Intelligence at mas
 Retaken from the latest app code: deadlines (both), overviews, cashflow, accruals, bookkeeping, payroll review and journal, VAT, company info, proposals and integrations. Live P&L and corp tax stay on the 03/11 shots, because the capture server has no Xero credentials and those pages would show an error.
 
 Text changed for the slides: the bookkeeping client note, the VAT "days late" line (the demo return is a year old) and the user name in the practice sidebar. The Setlist shots had real client names and logos, so those rows now use the deck's made-up clients and the old files are gone.
+
+## 16/11/2026 round
+
+Retaken from Sidgrove Intelligence at master `1ad6e34bbb` (files ending `-nov16`), the same way as before: private local dev server, demo mode, every write blocked and the server given no way to reach Xero. Each new file has the same pixel size as the one it replaces, so no frame on a slide changed shape.
+
+Retaken: practice overview (hero and tall), cashflow, forecast, deadlines (both), prepayments (`accruals` and the wider `ai-schedule`), payroll reallocations, bookkeeping, payroll review and journal, VAT, year-end P&L review and balance sheet, company info (both), forms hub, proposals hub and AI integrations. The older files they replace are gone.
+
+Text changed for the slides, as in earlier rounds: the prepayment line "Test" reads Tidewell Insurance, the payroll note "test" reads "Pay rise from May", the two proposal drafts read "Annual accounts & tax" and Tidewell Studio, the "Ledger unavailable" pill is hidden and the VAT banner's "374 days late." reads "Not filed yet." (the demo return is a year old). The stopped-models line on AI integrations is opened.
+
+Lenses: the two cashflow lenses still land on the bank accounts and the Software - Bus Dev rows, so they were left alone. The bookkeeping lens moved to `-403px -547px` to start on a whole row and the prepayments lens moved to `-337px -771px`, where the LinkedIn line now sits.
+
+Not retaken, because the page needs Xero and shows an error without it: the management pack (`pack-summary-nov05.jpg`; it now reads Xero's own P&L and says "P&L did not load" on every month), the client overview (`client-overview-nov05.jpg`; its key figures and revenue panels wait on the pack), live P&L and corp tax (03/11) and the 13-week forecast (14/10). The new starter form, the group pages, the proposal fees shot and the two `-li` lens sources are also unchanged.
