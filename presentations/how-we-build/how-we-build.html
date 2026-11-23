@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>How we build</title>
+<style>
+/* Type and colour are the Sidgrove deck system, copied from
+   presentations/ai-native-is-a-lie/index.html (@font-face, :root tokens,
+   .slide ground, .display, .sub, .bottombar). Fonts load from the repo's own
+   fonts/ folder, so the slide renders offline from this folder. */
+@font-face { font-family: "DM Sans"; src: url("../../fonts/web/dm-sans-variable.woff2") format("woff2"); font-weight: 100 1000; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display.otf") format("opentype"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display-italic.otf") format("opentype"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Very Vogue Text"; src: url("../../fonts/nicky-laatz-very-vogue-text.otf") format("opentype"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue Text"; src: url("../../fonts/nicky-laatz-very-vogue-text-italic.otf") format("opentype"); font-weight: 400 700; font-style: italic; font-display: swap; }
+
+:root {
+  --periwinkle:       #A8B0F8;
+  --periwinkle-50:    #EFF1FE;
+  --periwinkle-100:   #DDE1FC;
+  --periwinkle-200:   #C4CAFA;
+  --periwinkle-500:   #7C87E8;
+  --periwinkle-700:   #4A56B8;
+
+  --green:            #D0F8B0;
+  --green-200:        #E6FCD1;
+  --green-400:        #A5DE72;
+  --green-600:        #4E7D28;
+
+  --ink:              #1E1E46;
+  --ink-700:          #2B2D5E;
+  --ink-500:          #3E4270;
+  --ink-300:          #6A6F94;
+  --ink-100:          #D5D7E4;
+
+  --paper:            #FAFAF7;
+  --paper-soft:       #F1F0EA;
+  --paper-card:       #FFFFFF;
+
+  --font-serif:       "Very Vogue", "Very Vogue Text", "Fraunces", Georgia, serif;
+  --font-sans:        "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card:
+    0 1px 2px rgba(30,30,70,0.05),
+    0 10px 22px -12px rgba(74,86,184,0.16),
+    0 28px 56px -28px rgba(30,30,70,0.18);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; background: #0a0a0a; color: var(--ink);
+  font-family: var(--font-sans); letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+body { display: grid; place-items: center; min-height: 100vh; overflow: hidden; }
+.slide {
+  width: 1920px; height: 1080px; flex: none;
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #F6F5FE 0%, #FAFAF7 46%, #F4F7EE 100%);
+  color: var(--ink); font-family: var(--font-sans);
+  transform-origin: center center;
+}
+.slide::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(1100px 820px at 104% -6%, rgba(168,176,248,0.40) 0%, rgba(168,176,248,0.14) 34%, transparent 66%),
+    radial-gradient(900px 720px at -6% 106%, rgba(208,248,176,0.38) 0%, rgba(208,248,176,0.12) 36%, transparent 66%);
+}
+.slide::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse at 50% 30%, transparent 60%, rgba(30,30,70,0.025) 100%);
+}
+.frame {
+  position: relative; z-index: 2; height: 100%;
+  padding: 80px 120px 52px;
+  display: flex; flex-direction: column;
+}
+h1 {
+  font-family: var(--font-serif); font-weight: 400;
+  letter-spacing: -0.025em; line-height: 0.96;
+  color: var(--ink); margin: 0;
+}
+h1 em { font-style: italic; color: var(--periwinkle-700); padding-inline-end: 0.06em; }
+.sub {
+  font-family: var(--font-sans); font-size: 30px; font-weight: 400;
+  letter-spacing: -0.01em; line-height: 1.4; color: var(--ink-500); margin: 14px 0 0;
+}
+.foot {
+  display: flex; justify-content: space-between; align-items: center; margin-top: auto;
+  font-size: 18px; color: var(--ink-300);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand img { height: 22px; width: auto; opacity: 0.82; display: block; }
+.card { background: var(--paper-card); border: 1px solid var(--ink-100); box-shadow: var(--shadow-card); }
+
+/* Title */
+.head { display: flex; align-items: flex-end; justify-content: space-between; }
+h1 { font-size: 114px; }
+.key { display: flex; gap: 28px; font-size: 19px; color: var(--ink-500); padding-bottom: 12px; }
+.key span { display: inline-flex; align-items: center; gap: 10px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+.dot.c { background: var(--green-600); }
+.dot.g { background: var(--periwinkle-500); }
+
+/* The flow */
+.flow {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 0.92fr 1.05fr 1.3fr 1.05fr 1.12fr 0.9fr;
+  gap: 22px;
+}
+.step {
+  position: relative; border-radius: 22px;
+  padding: 24px 22px 24px;
+  display: flex; flex-direction: column;
+}
+.step + .step::before {
+  content: ""; position: absolute; left: -17px; top: 46px;
+  width: 12px; height: 12px;
+  border-top: 2.5px solid var(--ink-300); border-right: 2.5px solid var(--ink-300);
+  transform: rotate(45deg);
+}
+.step.dave { border-color: var(--green-400); }
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.ico {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: var(--periwinkle-50); color: var(--periwinkle-700);
+}
+.dave .ico { background: var(--green-200); color: var(--green-600); }
+.ico svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.num { font-size: 17px; font-weight: 600; color: var(--ink-300); letter-spacing: 0.04em; }
+h2 {
+  font-family: var(--font-serif); font-weight: 400; font-size: 40px; line-height: 1;
+  margin: 0 0 16px; letter-spacing: -0.02em; color: var(--ink);
+}
+ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+li { font-size: 20px; line-height: 1.3; color: var(--ink); padding-left: 18px; position: relative; }
+li::before { content: ""; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--periwinkle-500); }
+.dave li::before { background: var(--green-600); }
+li small { display: block; font-size: 17px; color: var(--ink-500); margin-top: 2px; }
+.models { display: flex; flex-direction: column; gap: 7px; margin: 2px 0 0; }
+.model {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  font-size: 17px; padding: 7px 12px; border-radius: 10px; background: var(--periwinkle-50);
+}
+.model b { font-weight: 600; color: var(--periwinkle-700); }
+.model span { color: var(--ink-500); }
+.quote { font-family: var(--font-serif); font-style: italic; font-size: 24px; color: var(--green-600); }
+
+/* Foundations */
+.base { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.band {
+  border-radius: 22px; padding: 26px 30px 28px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.band.rules { background: var(--ink); color: var(--paper); box-shadow: var(--shadow-card); }
+.band h3 {
+  margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 34px; letter-spacing: -0.015em;
+  display: flex; align-items: baseline; gap: 16px;
+}
+.band h3 span { font-family: var(--font-sans); font-size: 18px; font-weight: 400; letter-spacing: 0; }
+.rules h3 span { color: var(--periwinkle-200); }
+.days h3 span { color: var(--ink-500); }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tile { border-radius: 14px; padding: 14px 16px; }
+.rules .tile { background: var(--ink-700); }
+.days .tile { background: var(--periwinkle-50); }
+.tile b { display: block; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.tile i { font-style: normal; font-size: 17px; line-height: 1.3; display: block; }
+.rules .tile i { color: var(--periwinkle-200); }
+.days .tile b { color: var(--periwinkle-700); }
+.days .tile i { color: var(--ink-500); }
+</style>
+</head>
+<body>
+<main class="slide" id="slide"><div class="frame">
+
+  <header class="head">
+    <div>
+      <h1>How we <em>build</em></h1>
+      <p class="sub">One accountant, a few computers and a team of Claude agents</p>
+    </div>
+    <div class="key">
+      <span><i class="dot c"></i>Dave</span>
+      <span><i class="dot g"></i>Claude</span>
+    </div>
+  </header>
+
+  <section class="flow">
+
+    <article class="step card dave">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/></svg></div>
+        <span class="num">01</span>
+      </div>
+      <h2>Ideas in</h2>
+      <ul>
+        <li>Dave dictates<small>Acapella voice dictation</small></li>
+        <li>Into Claude Code desktop</li>
+        <li>Or into Slack</li>
+      </ul>
+    </article>
+
+    <article class="step card">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <span class="num">02</span>
+      </div>
+      <h2>One Master</h2>
+      <ul>
+        <li>One Master session a day<small>on the main PC</small></li>
+        <li>raz and flo run second computer sessions</li>
+        <li>Fed by a queue and Slack prompts</li>
+      </ul>
+    </article>
+
+    <article class="step card">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10"/><path d="M18 10c0 4-6 3-11.5 7.5"/></svg></div>
+        <span class="num">03</span>
+      </div>
+      <h2>Workers build</h2>
+      <ul>
+        <li>One lane each<small>own worktree, own branch</small></li>
+        <li>The model fits the job
+          <div class="models">
+            <div class="model"><b>Fable 5.2</b><span>design and UI</span></div>
+            <div class="model"><b>Opus 5.5</b><span>most work</span></div>
+            <div class="model"><b>Sonnet</b><span>the mechanical</span></div>
+          </div>
+        </li>
+        <li>Second readers check money and security</li>
+      </ul>
+    </article>
+
+    <article class="step card">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <span class="num">04</span>
+      </div>
+      <h2>See it</h2>
+      <ul>
+        <li>Every screen change, rendered</li>
+        <li>Before and after</li>
+        <li>Desktop and phone widths</li>
+        <li>Browser pane, Claude in Chrome and Playwright</li>
+      </ul>
+    </article>
+
+    <article class="step card dave">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="10" rx="1.5"/><rect x="13" y="5" width="8" height="10" rx="1.5"/><path d="M14.8 10.2l1.6 1.6 3-3.2"/><path d="M5 19h14"/></svg></div>
+        <span class="num">05</span>
+      </div>
+      <h2>Dave decides</h2>
+      <ul>
+        <li>Soundcheck, a board in the app</li>
+        <li>Options as picture cards, each marked out of 10</li>
+        <li>He answers <span class="quote">“YES B”</span></li>
+        <li>Options come before any rebuild</li>
+      </ul>
+    </article>
+
+    <article class="step card">
+      <div class="top">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="num">06</span>
+      </div>
+      <h2>Ship</h2>
+      <ul>
+        <li>Git hooks</li>
+        <li>merge:lane</li>
+        <li>GitHub Quality<small>the one full gate</small></li>
+        <li>Live on Vercel</li>
+      </ul>
+    </article>
+
+  </section>
+
+  <section class="base">
+    <div class="band rules">
+      <h3>The rulebook <span>the Bible is read before every screen change</span></h3>
+      <div class="tiles">
+        <div class="tile"><b>The Bible</b><i>product DNA and style</i></div>
+        <div class="tile"><b>CLAUDE.md</b><i>standing orders</i></div>
+        <div class="tile"><b>Components</b><i>one library page</i></div>
+        <div class="tile"><b>MISTAKES.md</b><i>each ends in a check or a hook</i></div>
+      </div>
+    </div>
+    <div class="band days card">
+      <h3>Every day <span>the routine</span></h3>
+      <div class="tiles">
+        <div class="tile"><b>Morning</b><i>Bible, joy and how we work</i></div>
+        <div class="tile"><b>Epic review</b><i>one page every three hours</i></div>
+        <div class="tile"><b>Distil</b><i>day end, raises the standards</i></div>
+        <div class="tile"><b>Tokens</b><i>watched as a KPI</i></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span class="brand"><img src="../../Images/shared/sidgrove-wordmark-black.png" alt="Sidgrove" />Intelligence</span>
+    <span>Skills, connectors, Jev and the stack on the next slide</span>
+  </footer>
+
+</div></main>
+<script>
+  // Fit the fixed 1920x1080 canvas to the window.
+  (function () {
+    var s = document.getElementById('slide');
+    function fit() { s.style.transform = 'scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')'; }
+    addEventListener('resize', fit); fit();
+  })();
+</script>
+</body>
+</html>

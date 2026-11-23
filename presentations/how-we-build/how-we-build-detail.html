@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>What it runs on</title>
+<style>
+/* Type and colour are the Sidgrove deck system, copied from
+   presentations/ai-native-is-a-lie/index.html (@font-face, :root tokens,
+   .slide ground, .display, .sub, .bottombar). Fonts load from the repo's own
+   fonts/ folder, so the slide renders offline from this folder. */
+@font-face { font-family: "DM Sans"; src: url("../../fonts/web/dm-sans-variable.woff2") format("woff2"); font-weight: 100 1000; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display.otf") format("opentype"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue"; src: url("../../fonts/nicky-laatz-very-vogue-display-italic.otf") format("opentype"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Very Vogue Text"; src: url("../../fonts/nicky-laatz-very-vogue-text.otf") format("opentype"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Very Vogue Text"; src: url("../../fonts/nicky-laatz-very-vogue-text-italic.otf") format("opentype"); font-weight: 400 700; font-style: italic; font-display: swap; }
+
+:root {
+  --periwinkle:       #A8B0F8;
+  --periwinkle-50:    #EFF1FE;
+  --periwinkle-100:   #DDE1FC;
+  --periwinkle-200:   #C4CAFA;
+  --periwinkle-500:   #7C87E8;
+  --periwinkle-700:   #4A56B8;
+
+  --green:            #D0F8B0;
+  --green-200:        #E6FCD1;
+  --green-400:        #A5DE72;
+  --green-600:        #4E7D28;
+
+  --ink:              #1E1E46;
+  --ink-700:          #2B2D5E;
+  --ink-500:          #3E4270;
+  --ink-300:          #6A6F94;
+  --ink-100:          #D5D7E4;
+
+  --paper:            #FAFAF7;
+  --paper-soft:       #F1F0EA;
+  --paper-card:       #FFFFFF;
+
+  --font-serif:       "Very Vogue", "Very Vogue Text", "Fraunces", Georgia, serif;
+  --font-sans:        "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card:
+    0 1px 2px rgba(30,30,70,0.05),
+    0 10px 22px -12px rgba(74,86,184,0.16),
+    0 28px 56px -28px rgba(30,30,70,0.18);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; background: #0a0a0a; color: var(--ink);
+  font-family: var(--font-sans); letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+body { display: grid; place-items: center; min-height: 100vh; overflow: hidden; }
+.slide {
+  width: 1920px; height: 1080px; flex: none;
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #F6F5FE 0%, #FAFAF7 46%, #F4F7EE 100%);
+  color: var(--ink); font-family: var(--font-sans);
+  transform-origin: center center;
+}
+.slide::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(1100px 820px at 104% -6%, rgba(168,176,248,0.40) 0%, rgba(168,176,248,0.14) 34%, transparent 66%),
+    radial-gradient(900px 720px at -6% 106%, rgba(208,248,176,0.38) 0%, rgba(208,248,176,0.12) 36%, transparent 66%);
+}
+.slide::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse at 50% 30%, transparent 60%, rgba(30,30,70,0.025) 100%);
+}
+.frame {
+  position: relative; z-index: 2; height: 100%;
+  padding: 80px 120px 52px;
+  display: flex; flex-direction: column;
+}
+h1 {
+  font-family: var(--font-serif); font-weight: 400;
+  letter-spacing: -0.025em; line-height: 0.96;
+  color: var(--ink); margin: 0;
+}
+h1 em { font-style: italic; color: var(--periwinkle-700); padding-inline-end: 0.06em; }
+.sub {
+  font-family: var(--font-sans); font-size: 30px; font-weight: 400;
+  letter-spacing: -0.01em; line-height: 1.4; color: var(--ink-500); margin: 14px 0 0;
+}
+.foot {
+  display: flex; justify-content: space-between; align-items: center; margin-top: auto;
+  font-size: 18px; color: var(--ink-300);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand img { height: 22px; width: auto; opacity: 0.82; display: block; }
+.card { background: var(--paper-card); border: 1px solid var(--ink-100); box-shadow: var(--shadow-card); }
+
+h1 { font-size: 102px; }
+.foot { margin-top: 26px; }
+.panel { border-radius: 22px; padding: 26px 28px 28px; }
+.label {
+  display: flex; align-items: baseline; gap: 14px; margin: 0 0 14px;
+  font-family: var(--font-serif); font-weight: 400; font-size: 34px; letter-spacing: -0.015em;
+}
+.label span { font-family: var(--font-sans); font-size: 18px; font-weight: 400; color: var(--ink-500); letter-spacing: 0; }
+
+/* The gates */
+.gates { margin-top: 32px; padding: 22px 28px 24px; }
+.pipe { display: grid; grid-template-columns: 2.5fr auto 1fr auto 1.25fr auto 1fr; align-items: stretch; gap: 16px; }
+.arrow { align-self: center; width: 28px; height: 2.5px; background: var(--ink-300); position: relative; }
+.arrow::after {
+  content: ""; position: absolute; right: -1px; top: -5px; width: 10px; height: 10px;
+  border-top: 2.5px solid var(--ink-300); border-right: 2.5px solid var(--ink-300); transform: rotate(45deg);
+}
+.stage { border-radius: 16px; background: var(--periwinkle-50); padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; }
+.stage b { font-size: 22px; font-weight: 600; color: var(--periwinkle-700); }
+.stage i { font-style: normal; font-size: 17px; color: var(--ink-500); margin-top: 3px; }
+.stage.hooks { background: var(--paper); border: 1px solid var(--ink-100); }
+.stage.hooks b { color: var(--ink); }
+.hooklist { display: grid; grid-template-columns: repeat(4, auto); gap: 8px; margin-top: 10px; justify-content: start; }
+.chip {
+  font-size: 17px; padding: 7px 13px; border-radius: 999px; white-space: nowrap;
+  background: var(--paper-card); border: 1px solid var(--ink-100); color: var(--ink);
+}
+.stage.live { background: var(--ink); }
+.stage.live b { color: var(--paper); }
+.stage.live i { color: var(--periwinkle-200); }
+
+/* Lower row */
+.row { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; flex: 1; min-height: 0; }
+.col { display: flex; flex-direction: column; gap: 22px; min-height: 0; }
+.col > .panel:first-child { flex: 1; }
+.row > .panel { display: flex; flex-direction: column; }
+.list { display: flex; flex-direction: column; justify-content: space-between; flex: 1; padding-top: 12px; }
+.item { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--ink-100); }
+.item:last-child { border-bottom: 0; padding-bottom: 0; }
+.item b { font-size: 21px; font-weight: 600; }
+.item span { font-size: 18px; color: var(--ink-500); text-align: right; }
+.cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.cloud .chip { font-size: 18px; padding: 7px 15px; }
+.cloud .chip small { color: var(--ink-500); font-size: 16px; margin-left: 4px; }
+
+.jev { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.jev .label span { color: var(--periwinkle-200); }
+.jev .label em { font-style: italic; color: var(--green); font-size: 44px; }
+.judge { display: flex; flex-direction: column; gap: 40px; margin: auto 0; }
+.judge div { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: 16px; font-size: 22px; }
+.bar { height: 10px; border-radius: 99px; background: var(--ink-700); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 99px; background: var(--green); }
+.note { margin: 0; font-size: 17px; color: var(--periwinkle-200); }
+</style>
+</head>
+<body>
+<main class="slide" id="slide"><div class="frame">
+
+  <header>
+    <h1>What it runs <em>on</em></h1>
+    <p class="sub">The tools behind the work and the AI inside the app</p>
+  </header>
+
+  <section class="card panel gates">
+    <h3 class="label">The gates <span>every change passes all four</span></h3>
+    <div class="pipe">
+      <div class="stage hooks">
+        <b>Git hooks</b>
+        <div class="hooklist">
+          <span class="chip">Bible gate</span>
+          <span class="chip">UI-contract ratchet</span>
+          <span class="chip">Auth-gate audit</span>
+          <span class="chip">Client dashboard check</span>
+        </div>
+      </div>
+      <span class="arrow"></span>
+      <div class="stage"><b>merge:lane</b><i>one lane at a time</i></div>
+      <span class="arrow"></span>
+      <div class="stage"><b>GitHub Quality</b><i>the one full gate</i></div>
+      <span class="arrow"></span>
+      <div class="stage live"><b>Vercel</b><i>live</i></div>
+    </div>
+  </section>
+
+  <section class="row">
+
+    <div class="card panel">
+      <h3 class="label">Skills <span>and plugins</span></h3>
+      <div class="list">
+        <div class="item"><b>Impeccable</b><span>design</span></div>
+        <div class="item"><b>shadcn</b><span>components</span></div>
+        <div class="item"><b>slop-monster</b><span>copy that reads human</span></div>
+        <div class="item"><b>Security skill</b><span>always on</span></div>
+        <div class="item"><b>Superpowers</b><span>planning and debugging</span></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card panel">
+        <h3 class="label">Connectors <span>MCP</span></h3>
+        <div class="cloud">
+          <span class="chip">Supabase</span>
+          <span class="chip">Vercel</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">Slack</span>
+          <span class="chip">Xero</span>
+          <span class="chip">Google Drive</span>
+          <span class="chip">Gmail</span>
+          <span class="chip">Firecrawl <small>web</small></span>
+          <span class="chip">Context7 <small>docs</small></span>
+          <span class="chip">Granola <small>meetings</small></span>
+        </div>
+      </div>
+      <div class="card panel stack">
+        <h3 class="label">The stack</h3>
+        <div class="cloud">
+          <span class="chip">Next.js</span>
+          <span class="chip">React</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Vercel</span>
+          <span class="chip">Tailwind</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card panel jev">
+      <h3 class="label"><em>Jev</em> <span>the app's AI judgement layer</span></h3>
+      <div class="judge">
+        <div>Categorise <span class="bar"><i style="width:86%"></i></span></div>
+        <div>Match <span class="bar"><i style="width:72%"></i></span></div>
+        <div>Prioritise <span class="bar"><i style="width:64%"></i></span></div>
+      </div>
+      <p class="note">Each with a confidence score</p>
+    </div>
+
+  </section>
+
+  <footer class="foot">
+    <span class="brand"><img src="../../Images/shared/sidgrove-wordmark-black.png" alt="Sidgrove" />Intelligence</span>
+    <span>How we build, in detail</span>
+  </footer>
+
+</div></main>
+<script>
+  (function () {
+    var s = document.getElementById('slide');
+    function fit() { s.style.transform = 'scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')'; }
+    addEventListener('resize', fit); fit();
+  })();
+</script>
+</body>
+</html>
