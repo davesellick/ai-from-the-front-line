@@ -6,6 +6,7 @@ This folder holds presentation-specific assets while the repository is migrated 
 
 - `ai-from-the-front-line/index.html`
 - `auto-bank-wreck/index.html`
+- `ai-in-accounting/index.html` (AI from the Front Line: AI in accounting, the deck for firm sessions; live at /ai-in-accounting)
 
 Each folder now contains a working structured copy of its presentation. The original root HTML files remain in place during this transition.
 

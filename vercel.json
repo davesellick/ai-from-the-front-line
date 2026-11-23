@@ -12,6 +12,11 @@
       "source": "/ai-native",
       "destination": "/presentations/ai-native-is-a-lie/index.html",
       "permanent": false
+    },
+    {
+      "source": "/ai-in-accounting",
+      "destination": "/presentations/ai-in-accounting/index.html",
+      "permanent": false
     }
   ],
   "headers": [
